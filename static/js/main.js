@@ -18,7 +18,7 @@ import { initSmoothScroll, getScrollTop, onScroll, universalYScroll } from './co
 import { loadAllAnimations } from './animations';
 import { checkLocationHash, initSmoothAnchors } from './features/anchors';
 import { checkVideos } from './features/autovideo';
-import { initFirstContentfulSection, revealSecondContentfulSection } from './features/cover';
+import { initFirstContentfulSection, revealSecondContentfulSection, releaseScroll } from './features/cover';
 import { checkHeader, slideHeader } from './features/header';
 import { initMap, closeMap } from './features/map';
 import { changeToWebP } from './utils/webp';
@@ -78,6 +78,7 @@ $(function () {
 
 function onContentVisible() {
     revealSecondContentfulSection();
+    releaseScroll();
     checkVideos();
     checkHeader(getScrollTop());
     initMap();

@@ -10,7 +10,7 @@
         transition: opacity 1s ease-in-out;
 
         &__logo {
-            width: clamp(32rem, 42*0.6vw, 42rem);
+            width: min(85vw, clamp(36rem, 32vw, 54rem));
 
             // fade-in animation
             position: relative;
@@ -30,6 +30,12 @@
             top: 0;
             left: 0;
             z-index: -2;
+            transition: opacity 1s ease-in-out;
+        }
+
+        // once revealed, the photo fades toward the white background (the logo stays solid)
+        &.faded .s01-pinned-cover__bg {
+            opacity: 0.45;
         }
         &__chevron {
             width: 2rem;
@@ -871,6 +877,12 @@
             min-height: 100rem;
             height: 120vh;
             top: 0;
+            // white beyond the photo's edges too, so the hidden text never peeks out at the sides
+            background-color: $color-bg;
+            // the text rises from behind the image: fade its top edge so the text
+            // dissolves into it instead of being cut by a hard line
+            -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 20%);
+            mask-image: linear-gradient(to bottom, transparent 0, #000 20%);
         }
 
         @media #{$desktop} {

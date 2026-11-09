@@ -2,9 +2,9 @@
   <!-- Synth Dreams icon: a single pulse over two stacked colour layers (60/40) -->
   <clipPath id="tile"><rect width="64" height="64" rx="14"/></clipPath>
   <g clip-path="url(#tile)">
-    <rect width="64" height="64" fill="#ffd23f"/>
+    <rect width="64" height="64" fill="#a99cff"/>
     <rect y="38" width="64" height="26" fill="#ffffff"/>
   </g>
-  <path d="M6 52 H18 V11 H40 V52 H58"
-        fill="none" stroke="#1d1a4f" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M8 50 H19 V14 H41 V50 H56"
+        fill="none" stroke="#111111" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

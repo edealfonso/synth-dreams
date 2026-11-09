@@ -15,7 +15,7 @@ It is built on an existing Django codebase. The most valuable part is the **fron
 - ✅ **Phase 1 (Docker):** done and validated. Docker Compose with `db`, `web` and `assets`; settings read from `.env`; pinned versions in `requirements.txt`; settings package `synthdreams/`; flat layout (everything at the repo root).
 - ✅ **Phase 2 (comments):** done, then **superseded**: the user decided everything goes in English, so comments and names were translated to English during phase 3.
 - ✅ **Phase 3 (improvements):** done and validated, in sub-phases: 3a bugs and dead code → 3b modularise the JS → English translation (literal) → 3c structural naming → 3d SCSS (modules, tokens, BEM) → 3e conventions.
-- ✅ **Phase 4 (remove traces of the origin):** done and validated. Admin CSS copies and logo removed (own `static/css/admin.css`), Work Sans instead of the paid font, new favicon (a single pulse over a yellow/white 60/40 split; PNG/ICO generated from `favicon.svg`), own rounded UI icons (circular back arrow, struck-through speaker while muted) and map pin, solid social icons GitHub/LinkedIn/Pinterest/Wikipedia (Simple Icons, CC0; LinkedIn drawn by hand), no social title, copyright rendered as `© <current year> <footer.copyright>`. Exhaustive search with the user's terms (files, binaries, file names, node_modules, database, git history): clean.
+- ✅ **Phase 4 (remove traces of the origin):** done and validated. Admin CSS copies and logo removed (own `static/css/admin.css`), Work Sans instead of the paid font, new favicon (a single thin black pulse over a lilac `#a99cff` / white 60/40 split; PNG/ICO rasterised from the same geometry as `favicon.svg`), own rounded UI icons (circular back arrow, struck-through speaker while muted) and map pin, solid social icons GitHub/LinkedIn/Pinterest/Wikipedia (Simple Icons, CC0; LinkedIn drawn by hand), no social title, copyright rendered as `© <current year> <footer.copyright>`. Exhaustive search with the user's terms (files, binaries, file names, node_modules, database, git history): clean.
 - 📋 Parked issues live in `backlog.md` (anchor `#hash`, scroll stuck at `s06`, legal URLs with trailing slash, CKEditor 4, inconsistent breakpoints).
 - **Git:** history restarted on 2026-11-09 with a single clean initial commit on `main` (the old history is kept outside the project and must never be published). Ready to push to GitHub when the user asks.
 - The dev database holds **placeholder content** from `seed_dummy` (silly text and images showing their field name). No users. Temporary: phase 5 replaces it with `seed_demo`.
@@ -72,6 +72,29 @@ Work **one phase at a time**. The user validates each phase before moving on. Do
 | s16 vertical points | "Start today": pick a machine · plug it in · record |
 | s17 full image with text | Closing line |
 | Footer (map, social, copyright) | **Keep the map overlay and its animation** (map image from OpenStreetMap, credited, not a Google Maps capture) with the address of *This Museum Is (Not) Obsolete* (https://maps.app.goo.gl/1jeT92y8vf4r98GDA). Made-up contact email (e.g. `wishlist@…`; prefer a reserved domain such as `.example` so it never reaches a real inbox). Social: GitHub, LinkedIn, a Pinterest search for synth/drum machine gear, and Wikipedia's *Electronic music* article (https://en.wikipedia.org/wiki/Electronic_music) instead of Instagram. © Elsa de Alfonso and **image credits** |
+
+#### Logo (approved)
+
+- Favicon icon (lilac/white, thin black pulse) + "Synth Dreams" in **Yellowtail** (Google Fonts, Apache 2.0), text converted to SVG paths (no font dependency).
+- `seed/images/logo-cover.svg`: icon above `#111` text, for the s01 cover (the photo fades to 45% under it once revealed). `seed/images/logo-header.svg`: icon left, `#111` text, for the white header.
+
+#### Content review status
+
+- ✅ Approved: s02, s10 (grey Elektron Model:Cycles on wood in window light), s09 photo (white studio wall with an ARP 2600; vignettes still pending), s14, s15, s17; s01 cover (Minitaur panel close-up, darkened with a soft vignette; mobile = vertical crop; photo at 75% on load, fading to 45% when the black-text logo rises), s07 gallery, s12 gallery (slot 1 = Pocket Operator KO on speckled white), s08 (JX-08 split into two sharp crops), s11 (Elektron Digitakt on a white table, cropped, background curved to pure white, extra white padding on top; `#s11-image` has a white background and a top mask gradient so the rising text dissolves into the image instead of being cut), logo and favicon.
+- 🧪 On trial: s05 (vintage VU meters, unfaded, and **no text**: `s05_text` is left empty). 
+
+#### Photo constraints (final selection)
+
+- **Theme:** the site is about the author's dream gear (see the wish list in the conversation). Photos from Unsplash/Pexels only (Unsplash+ excluded), beautiful, with special/coloured light; abstract close-ups are fine, they need not show the whole device. **Validated look:** product close-ups in natural light with cheerful, slightly vintage/pastel colours (favourite: TR-808 button close-up; also OP-Z detail, Moog Grandmother panels). Warm, moody coloured light (orange/red-pink) is acceptable as a secondary accent. Avoid flat "still life" shots on plain coloured backgrounds and abstract light-painting. Keep it simple: download each chosen photo once into `seed/` and record its credit (no image pipeline).
+- **s09_left_image and s11_image:** the photo's background must match the block's background colour.
+- **s09 vignettes:** drawn as simple SVG pictograms (e.g. oscillator, filter, envelope), not photos.
+- **Photos under text (s01, s02, s14):** faded toward white before seeding (`ffmpeg lutrgb`, out = val·(1−a) + 255·a; a ≈ 0.7 for s01, 0.6 for s02, 0.45 for s14) so the black text has little contrast to fight.
+- **Galleries:** s07 = classic Roland drum machines only; s12 = Teenage Engineering only.
+- **Backup photos** (good, not placed yet) live in `seed/backup/`. Every photo removed from a block goes there; files the author deletes from it are rejected and must not be restored.
+- **Gallery order:** `seed_demo` must give gallery rows unique `the_order` values (the dev DB ended up with duplicates, which made the rendered order differ from the intended one).
+- **s14_image:** very light, low contrast (or reduced opacity) so the text on top stays readable.
+- **s17_image:** text sits top-right on desktop and at the bottom on mobile (white text), so those areas must be plain and dark.
+- **Videos (s04, s10):** procedurally generated with `ffmpeg` test sources (no rights needed; remove the timecode overlay). The author may add her own audio.
 
 ## Blocks (structural naming)
 
