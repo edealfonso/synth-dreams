@@ -1,7 +1,7 @@
 # Photo credits: working notes (to be cleaned up into the footer credits block and seed_demo)
 
 s05: pexels 8042662 (gear table)
-s09: unsplash photo-1582938431641-32b5ba6ad67c (white studio Jupiter); backup white-device-gold-knobs: photo-1526051539758-8963fcdaf57f; s05 old
+s09 (now): topview-keyboards-mixer, top view of a Korg wavestate, Moog Grandmother, Sub 37 and a Zoom mixer (credit still to find); backup arp2600-white-wall (was s09): unsplash photo-1582938431641-32b5ba6ad67c; backup white-device-gold-knobs: photo-1526051539758-8963fcdaf57f; s05 old
 s12-1: unsplash photo-1780914120768-5d3dba53dfb6 (PO KO)
 backup mpk-mini-headphones: pexels 4092062
 backup gear-table-mother32: pexels 8042662
