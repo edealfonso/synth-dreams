@@ -199,7 +199,7 @@ ES modules with a single entry point (`main.js`). jQuery is global (`$`, via `Pr
 | `utils/webp.js` | `changeToWebP()`: adds the `.webp` version to `background-image`s. |
 
 ### Animation adjustments (branch `animation-adjustments`)
-- **s09:** the left image follows the scroll down the section (desktop only): it is cropped to the screen height (`100vh`, `object-fit: cover`) and moved with a scrubbed `y` transform by exactly the distance scrolled, so it stays still on screen until the section ends. A transform, not a pin, so later triggers keep their positions. No zoom.
+- **s09:** slow parallax on the left image (desktop only, no zoom): while the section crosses the screen (`top bottom` → `bottom top`), a scrubbed `y` transform moves it from the top of the section to its bottom, so it rises into view more slowly than the page and only its lower part shows as the section leaves. A transform, not a pin, so later triggers keep their positions.
 - **s11:** title and text sit above the image; the title only fades in, the text fades in and rises a little; the image (tight crop, 85vh) is pinned in the middle of the screen (no pin spacing, the section height gives the distance) and zooms from 0.85 to 1.
 - **s14:** each item lights up as it rises to the middle of the screen and stays lit (no dimming afterwards).
 

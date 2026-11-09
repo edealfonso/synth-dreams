@@ -282,17 +282,15 @@
                 display: grid;
                 grid-template-columns: 1fr 1fr;
 
-                // follows the scroll down the section (moved by JS, desktop only); it fits in the
-                // viewport so it can stay in view: cropped to the screen height
+                // slow parallax: drifts down the section while it scrolls past (moved by JS, desktop only)
                 .vignette-group__image {
                     position: absolute;
                     top: 0;
                     left: 0;
                     width: 50%;
-                    height: 100vh;
+                    height: auto;
 
                     padding: 3.5rem;
-                    object-fit: cover;
                 }
 
                 .vignette-group__right {
@@ -663,7 +661,6 @@
                     .vignette-group__image {
                         position: relative;
                         width: 100%;
-                        height: auto;
                         top: 0;
                         transform: none;
                         padding-top: 5rem;

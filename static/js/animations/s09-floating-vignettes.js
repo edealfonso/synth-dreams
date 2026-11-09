@@ -1,6 +1,6 @@
 // ------------------------------------------------------------
 // s09 · FLOATING VIGNETTES
-// - left image that follows the scroll down the section (desktop only)
+// - left image with a slow parallax: it drifts down the section as it scrolls past (desktop only)
 // - group 1: three floating images that fade in one after another
 // - groups 2 and 3: vignettes that fade in and lines that slide in from the side
 // ------------------------------------------------------------
@@ -8,8 +8,9 @@
 import { gsap } from '../core/gsap';
 
 // desktop only (called inside gsap.matchMedia)
-// The left image follows the scroll: while the section passes, it is moved down by exactly the
-// distance scrolled, so it stays still on screen until it reaches the bottom of the section.
+// Slow parallax on the left image: while the section crosses the screen, the image drifts from the
+// top of the section to its bottom, so it rises into view more slowly than the page and, when the
+// section leaves, only its lower part is still showing.
 // A transform instead of a pin, so the triggers created after this one keep their positions.
 export function initVignettesImage() {
     const travel = () => $('#s09-container').outerHeight() - $('#s09-image').outerHeight();
@@ -17,8 +18,8 @@ export function initVignettesImage() {
     gsap.to('#s09-image', {
         scrollTrigger: {
             trigger: '#s09-container',
-            start: 'top top',
-            end: () => '+=' + travel(),
+            start: 'top bottom',
+            end: 'bottom top',
             scrub: true,
             invalidateOnRefresh: true,
         },
