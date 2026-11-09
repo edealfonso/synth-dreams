@@ -75,20 +75,31 @@ Work **one phase at a time**. The user validates each phase before moving on. Do
 
 #### Logo (approved)
 
-- Favicon icon (lilac/white, thin black pulse) + "Synth Dreams" in **Yellowtail** (Google Fonts, Apache 2.0), text converted to SVG paths (no font dependency).
+- Favicon icon (lilac/white, thin black pulse) + "Synth Dreams" in **Silkscreen** (pixel font, Google Fonts, SIL OFL 1.1), text converted to SVG paths (no font dependency). Cover logo width `min(70vw, clamp(28rem, 24vw, 40rem))`; header logo 28rem.
 - `seed/images/logo-cover.svg`: icon above `#111` text, for the s01 cover (the photo fades to 45% under it once revealed). `seed/images/logo-header.svg`: icon left, `#111` text, for the white header.
 
 #### Content review status
 
-- ✅ Approved: s02, s10 (grey Elektron Model:Cycles on wood in window light), s09 photo (white studio wall with an ARP 2600; vignettes still pending), s14, s15, s17; s01 cover (Minitaur panel close-up, darkened with a soft vignette; mobile = vertical crop; photo at 75% on load, fading to 45% when the black-text logo rises), s07 gallery, s12 gallery (slot 1 = Pocket Operator KO on speckled white), s08 (JX-08 split into two sharp crops), s11 (Elektron Digitakt on a white table, cropped, background curved to pure white), logo and favicon.
-- 🧪 On trial: s05 (vintage VU meters, unfaded, and **no text**: `s05_text` is left empty). 
+- ✅ Approved: s01 cover (white macro keypad with aluminium knobs, abstract and soft-focus; mobile = vertical crop centred on the device; photo at 75% on load, fading to 45% when the black pixel logo rises), s10 (grey Elektron Model:Cycles on wood in window light), s09 photo (white studio wall with an ARP 2600; vignettes still pending), s14, s17, s07 gallery, s12 gallery (slot 1 = Pocket Operator KO on speckled white), s08 (JX-08 split into two sharp crops), s11 (Elektron Digitakt on a white table, cropped, background curved to pure white), logo and favicon, s13 (small home studio with black walls, wood trim, a mixing desk and a window onto green trees, in warm light), s02 (TR-808 close-up, faded vintage colours, with **white** title and text), s05 (green ADSR envelope screen, abstract, dark, unfaded, with **white** text), s16 (vintage VU meters and tape-deck knobs, landscape photo cropped to the column by object-fit), s15 (left: blue-lit SP-404 with the **white** "Beep / Boop" title; right: Zoom H6 recorder).
+- ✅ Footer bottom strip (`seed/images/footer-bottom.jpg`): bottom of the wooden audio-interface photo with the yellow cable, lightly blurred and faded toward white.
+
+#### Still to do (phase 5)
+
+- **s04 video** (and the optional s10 video): generate with `ffmpeg` test sources, without the timecode overlay. s04 currently shows a colour-bars placeholder.
+- **s09 vignettes:** simple SVG pictograms (oscillator, filter, envelope…), not photos.
+- **Footer map:** OpenStreetMap image (credited) with the museum address, plus the real address text (currently "Calle del Ruido, 1"), the `.example` email and the social links.
+- **Credits:** finish `seed/credits-todo.md` (some entries still say "credit from earlier list") and show them in the footer credits block.
+- **Texts:** every block still has "Bip bup" placeholder text, ES and EN.
+- **`seed_demo`:** load everything from `seed/` on a fresh clone (unique gallery `the_order`).
+- **Mobile check:** s09, s11, s14, cover/logo and the new photos.
+- Header readability over dark photos was raised and never settled; re-check it on s02 (TR-808) and s05.
 
 #### Photo constraints (final selection)
 
 - **Theme:** the site is about the author's dream gear (see the wish list in the conversation). Photos from Unsplash/Pexels only (Unsplash+ excluded), beautiful, with special/coloured light; abstract close-ups are fine, they need not show the whole device. **Validated look:** product close-ups in natural light with cheerful, slightly vintage/pastel colours (favourite: TR-808 button close-up; also OP-Z detail, Moog Grandmother panels). Warm, moody coloured light (orange/red-pink) is acceptable as a secondary accent. Avoid flat "still life" shots on plain coloured backgrounds and abstract light-painting. Keep it simple: download each chosen photo once into `seed/` and record its credit (no image pipeline).
 - **s09_left_image and s11_image:** the photo's background must match the block's background colour.
 - **s09 vignettes:** drawn as simple SVG pictograms (e.g. oscillator, filter, envelope), not photos.
-- **Photos under text (s01, s02, s14):** faded toward white before seeding (`ffmpeg lutrgb`, out = val·(1−a) + 255·a; a ≈ 0.7 for s01, 0.6 for s02, 0.45 for s14) so the black text has little contrast to fight.
+- **Photos under text (s01, s14):** faded toward white before seeding (`ffmpeg lutrgb`, out = val·(1−a) + 255·a; a ≈ 0.7 for s01, 0.45 for s14) so the black text has little contrast to fight.
 - **Galleries:** s07 = classic Roland drum machines only; s12 = Teenage Engineering only.
 - **Backup photos** (good, not placed yet) live in `seed/backup/`. Every photo removed from a block goes there; files the author deletes from it are rejected and must not be restored.
 - **Gallery order:** `seed_demo` must give gallery rows unique `the_order` values (the dev DB ended up with duplicates, which made the rendered order differ from the intended one).

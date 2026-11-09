@@ -10,7 +10,7 @@
         transition: opacity 1s ease-in-out;
 
         &__logo {
-            width: min(85vw, clamp(36rem, 32vw, 54rem));
+            width: min(70vw, clamp(28rem, 24vw, 40rem));
 
             // fade-in animation
             position: relative;
@@ -71,6 +71,11 @@
     .s02-parallax-with-title {
         background-color: $color-bg;
 
+        // the photo is dark: white title and text
+        &__wrap {
+            color: $color-text-inverse;
+        }
+
         &__title {
             margin-bottom: 5rem;
         }
@@ -107,9 +112,11 @@
         background-color: $color-bg;
         z-index: 0;
 
+        // the photo is dark: white text
         &__wrap {
             width: 110rem;
             max-width: 85vw;
+            color: $color-text-inverse;
         }
 
         @media #{$mobile} {
@@ -1021,8 +1028,10 @@
             justify-content: center;
             flex-direction: column;
 
+            // the left photo is dark: white title
             .s15-split-images__line {
                 display: block;
+                color: $color-text-inverse;
 
                 &--first {
                     padding-bottom: 0.3em;
