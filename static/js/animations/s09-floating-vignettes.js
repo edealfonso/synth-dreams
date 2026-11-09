@@ -1,6 +1,6 @@
 // ------------------------------------------------------------
 // s09 · FLOATING VIGNETTES
-// - pinned left image that moves down while the vignette groups scroll past (desktop only)
+// - left image that zooms in slightly as the section enters (desktop only)
 // - group 1: three floating images that fade in one after another
 // - groups 2 and 3: vignettes that fade in and lines that slide in from the side
 // ------------------------------------------------------------
@@ -9,26 +9,16 @@ import { gsap } from '../core/gsap';
 
 // desktop only (called inside gsap.matchMedia)
 export function initVignettesImage() {
-    gsap.timeline({
+    gsap.to('#s09-image', {
         scrollTrigger: {
-            trigger: '#s09-trigger',
-            start: "top 50%",
-            end: "top -250%",
-            pin: true,
-            pinSpacing: false,
+            trigger: '#s09-container',
+            start: "top 80%",
+            end: "top top",
             scrub: true,
-            invalidateOnRefresh: true
         },
-    })
-    .to('#s09-image', {top: "15%", ease: "none", duration: 1})
-    .to('#s09-image', {
-        top: function() {
-            const top = $('#s09-container').height() - 1.35*$('#s09-image').height();
-            return top;
-        },
-        ease: "none",
-        duration: 1}
-        );
+        scale: 1,
+        ease: "none"
+    });
 }
 
 export function initVignettesFloating() {
