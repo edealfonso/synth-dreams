@@ -17,11 +17,13 @@ $mobile-sm: "only screen and (max-width : 500px)";
 $color-bg: white;
 $color-text: #000;
 $color-text-inverse: white;
-$color-text-muted: #A5A5A5;     // secondary text (`.u-text-muted`) and hover state of footer links
+$color-text-muted: #A5A5A5;     // secondary text (`.u-text-muted`)
 $color-label: #6C6C6C;          // small numbered labels (s06)
 $color-line: #707070;           // borders, dividers and link underlines
 $color-overlay-light: rgba(255, 255, 255, 0.25);
 $color-banner-bg: #eeeae6;      // cookie banner
+$color-accent: #a99cff;         // lilac of the logo/favicon and the duotone photos (footer map pin)
+$color-accent-secondary: #6fd6ac; // green of the s05 screen and the footer map (hover of the footer links and social icons)
 
 $color-scrollbar-track: rgba(222, 222, 222, 0.25);
 $color-scrollbar-thumb: rgba(0, 0, 0, 0.4);

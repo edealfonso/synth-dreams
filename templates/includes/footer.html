@@ -1,6 +1,7 @@
 {% load static %}
 {% load site_tags %}
 {% get_footer as footer %}
+{% get_header as header %}
 {% get_legal_pages as legal_pages %}
 
 <footer class="footer u-f-footer">
@@ -48,6 +49,12 @@
 
     <div class="footer__bottom image-strip u-bg-cover"
         style="background-image: url('{{ footer.bottom_image|media_url }}');">
+
+        {% if header.logo %}
+        <a href="{% url 'pages:home' %}" class="footer__logo">
+            <img src="{{ header.logo|media_url }}" alt="Synth Dreams logo">
+        </a>
+        {% endif %}
 
         <ul class="footer__legal-links">
             {% for legal_page in legal_pages %}
