@@ -47,19 +47,14 @@
     line-height: calc(65/52);
 }
 
-@mixin f-52 {
-    font-size: $f-52;
-    line-height: calc(65/52);
-}
-
 @mixin h1 {
-    font-size: $f-78;
-    line-height: calc(90/78);
+    font-size: $f-62;
+    line-height: calc(72/62);
     font-weight: $font-weight-medium;
 }
 
 @mixin h2 {
-    @include f-52;
+    @include f-46;
     font-weight: $font-weight-medium;
 }
 
