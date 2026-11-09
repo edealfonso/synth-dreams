@@ -5,11 +5,11 @@
 // jQuery (`$`) is global: ProvidePlugin injects it.
 // ============================================================================
 
-// Work Sans (free font, self-hosted through @fontsource): the weights and styles the SCSS uses
-import '@fontsource/work-sans/400';
-import '@fontsource/work-sans/400-italic';
-import '@fontsource/work-sans/500';
-import '@fontsource/work-sans/500-italic';
+// DM Sans (free font, SIL OFL 1.1, self-hosted through @fontsource): the weights and styles the SCSS uses
+import '@fontsource/dm-sans/400';
+import '@fontsource/dm-sans/400-italic';
+import '@fontsource/dm-sans/500';
+import '@fontsource/dm-sans/500-italic';
 import '../scss/index.scss';
 
 import { ScrollTrigger } from './core/gsap';
