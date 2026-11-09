@@ -81,7 +81,7 @@ Work **one phase at a time**. The user validates each phase before moving on. Do
 #### Content review status
 
 - ✅ Approved: s01 cover (white macro keypad with aluminium knobs, abstract and soft-focus; mobile = vertical crop centred on the device; photo at 75% on load, fading to 45% when the black pixel logo rises), s10 (grey Elektron Model:Cycles on wood in window light), s09 photo (white studio wall with an ARP 2600; vignettes still pending), s14, s17, s07 gallery, s12 gallery (slot 1 = Pocket Operator KO on speckled white), s08 (JX-08 split into two sharp crops), s11 (Elektron Digitakt on a white table, cropped, background curved to pure white), logo and favicon, s13 (small home studio with black walls, wood trim, a mixing desk and a window onto green trees, in warm light), s02 (TR-808 close-up, faded vintage colours, with **white** title and text; cropped to the left 1300×850 from y=210 so the text sits on the dark "Rhythm" band, contrast −8%), s05 (green ADSR envelope screen, abstract, dark, unfaded, with **white** text), s16 (vintage VU meters and tape-deck knobs, landscape photo cropped to the column by object-fit), s15 (left: blue-lit SP-404 with the **white** "Beep / Boop" title; right: Zoom H6 recorder).
-- ✅ Footer bottom strip (`seed/images/footer-bottom.jpg`): bottom of the wooden audio-interface photo with the yellow cable, lightly blurred and faded toward white.
+- ✅ Footer bottom strip (`seed/images/footer-bottom.jpg`): the s01 cover photo again (keys, frame and big knob), vertical centre band y 455–1375 of the 3000×2000 original, light blur (1.5 px) and 35% fade toward white, so the page ends with the object it starts with.
 
 #### Still to do (phase 5)
 

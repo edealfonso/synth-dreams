@@ -18,7 +18,7 @@ s02: tr-808 (credit from earlier list)
 s05 (now): Unsplash 1720962158852-e7039d31c3c1 (green ADSR envelope screen; was s02)
 s15-left: sp404-blue (credit from earlier list)
 s16: vintage VU meters (credit from earlier list; was the s05 original)
-footer-bottom: Unsplash 1781120199823-d6642ef5cf06 (wooden audio interface with yellow cable, cropped, blurred, faded); also backup wood-audio-interface
+footer-bottom: same photo as s01 (Unsplash 1781005675314-5fb056505db2), vertical centre band (y 455-1375 of 3000x2000), light blur, 35% fade to white
 backup op1-wood-window-light: Unsplash 1654573117449-03bc35a6355f
 backup moog-minitaur-panel, roland-jd08-keys, apollo-twin-wood-desk, pioneer-ddj, coiled-cables-pastel: see the lines above or the earlier list
 
