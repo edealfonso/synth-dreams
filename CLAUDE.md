@@ -80,7 +80,7 @@ Work **one phase at a time**. The user validates each phase before moving on. Do
 
 #### Content review status
 
-- ✅ Approved: s02, s10 (grey Elektron Model:Cycles on wood in window light), s09 photo (white studio wall with an ARP 2600; vignettes still pending), s14, s15, s17; s01 cover (Minitaur panel close-up, darkened with a soft vignette; mobile = vertical crop; photo at 75% on load, fading to 45% when the black-text logo rises), s07 gallery, s12 gallery (slot 1 = Pocket Operator KO on speckled white), s08 (JX-08 split into two sharp crops), s11 (Elektron Digitakt on a white table, cropped, background curved to pure white, extra white padding on top; `#s11-image` has a white background and a top mask gradient so the rising text dissolves into the image instead of being cut), logo and favicon.
+- ✅ Approved: s02, s10 (grey Elektron Model:Cycles on wood in window light), s09 photo (white studio wall with an ARP 2600; vignettes still pending), s14, s15, s17; s01 cover (Minitaur panel close-up, darkened with a soft vignette; mobile = vertical crop; photo at 75% on load, fading to 45% when the black-text logo rises), s07 gallery, s12 gallery (slot 1 = Pocket Operator KO on speckled white), s08 (JX-08 split into two sharp crops), s11 (Elektron Digitakt on a white table, cropped, background curved to pure white), logo and favicon.
 - 🧪 On trial: s05 (vintage VU meters, unfaded, and **no text**: `s05_text` is left empty). 
 
 #### Photo constraints (final selection)
@@ -112,7 +112,7 @@ The home is a stack of blocks named after their **layout**, with a two-digit pre
 | s08 | `s08-parallax-layout` | — | `s08_title`, `s08_text`, `s08_image1/2(_mobile)` |
 | s09 | `s09-floating-vignettes` (`.vignette-group--1..3`) | `#s09-container`, `#s09-trigger`, `#s09-image`, `#s09-floating-N` | `s09_title`, `s09_text`, `s09_left_image`, `s09_group_titleN` · `Vignette` |
 | s10 | `s10-image-or-video` | `#s10-image` | `s10_title`, `s10_text`, `s10_image`, `s10_video_*` |
-| s11 | `s11-rising-text-over-pinned-image` | `#s11`, `#s11-container`, `#s11-image`, `#s11-text(-container)` | `s11_title`, `s11_text`, `s11_image` |
+| s11 | `s11-rising-text-over-pinned-image` | `#s11`, `#s11-image`, `#s11-title`, `#s11-body`, `#s11-text-container` | `s11_title`, `s11_text`, `s11_image` |
 | s12 | `s12-pinned-gallery` | `#s12-pair-N` | `s12_title`, `s12_text` · `galleries.SecondGalleryImage` |
 | s13 | `s13-pinned-cover` | `#s13-container`, `#s13-cover` | `s13_title`, `s13_text`, `s13_image` |
 | s14 | `s14-magnify-list` (`.magnify-item`) | `#s14`, `#s14-container`, `#s14-bg`, `#s14-content` | `s14_image`, `s14_text` · `MagnifyItem` |
@@ -186,6 +186,11 @@ ES modules with a single entry point (`main.js`). jQuery is global (`$`, via `Pr
 | `animations/*.js` | `generic` (`.gsap-appear`, `.gsap-parallax*`), `covers` (s01, s04, s13), `galleries` (s07, s12) and one module per block with its own animation: `s06-three-horizontal-steps`, `s09-floating-vignettes`, `s11-rising-text-over-pinned-image`, `s14-magnify-list`, `s16-vertical-points`. Desktop-only ones are called inside `gsap.matchMedia`. |
 | `features/` | `anchors` (hash and `.js-smooth-anchor`), `autovideo` (lazy videos and controls), `cover` (two-step cover reveal), `header` (`checkHeader`, `slideHeader`), `map`. |
 | `utils/webp.js` | `changeToWebP()`: adds the `.webp` version to `background-image`s. |
+
+### Animation adjustments (branch `animation-adjustments`)
+- **s09:** the left image is no longer pinned; it scrolls with the section and zooms from 0.9 to 1 as the section enters (desktop only).
+- **s11:** title and text sit above the image; the title only fades in, the text fades in and rises a little; the image (tight crop, 85vh) is pinned in the middle of the screen (no pin spacing, the section height gives the distance) and zooms from 0.85 to 1.
+- **s14:** each item lights up as it rises to the middle of the screen and stays lit (no dimming afterwards).
 
 ### Gotchas
 - **ScrollTrigger creation order:** positions are computed in order and pins push the later triggers down. `animations/index.js` keeps the original order; do not reorder without checking.

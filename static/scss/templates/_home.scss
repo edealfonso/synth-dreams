@@ -283,6 +283,10 @@
                     height: auto;
 
                     padding: 3.5rem;
+
+                    // initial state, animated by JS (desktop only)
+                    transform: scale(0.9);
+                    transform-origin: center top;
                 }
 
                 .vignette-group__right {
@@ -654,6 +658,7 @@
                         position: relative;
                         width: 100%;
                         top: 0;
+                        transform: none;
                         padding-top: 5rem;
                         padding-bottom: 5rem;
                     }
@@ -843,7 +848,8 @@
             }
         }
     }
-    // s11 · rising text over pinned image (the JS pins #s11-container and lifts the text)
+    // s11 · rising text over pinned image (title and text fade in above the image; the JS pins the
+    // image and zooms it in while the rest of the section scrolls past)
 
     .s11-rising-text-over-pinned-image {
         position: relative;
@@ -853,6 +859,7 @@
 
         &__text-container {
             position: relative;
+            padding-top: 6vw;
             pointer-events: none;
         }
 
@@ -861,58 +868,39 @@
             margin-left: auto;
             padding-top: 0;
             padding-bottom: 0;
-
-            // initial state, animated by JS
-            opacity: 0;
             position: relative;
-            transform: translateY(30rem);
             pointer-events: none;
+        }
+
+        // initial states, animated by JS: the title only fades in, the text fades in and rises
+        &__title {
+            opacity: 0;
+        }
+
+        &__body {
+            opacity: 0;
+            transform: translateY(6rem);
         }
 
         &__image {
-            position: absolute;
+            position: relative;
             pointer-events: none;
-            left: 0;
             width: 100%;
-            min-height: 100rem;
-            height: 120vh;
-            top: 0;
-            // white beyond the photo's edges too, so the hidden text never peeks out at the sides
-            background-color: $color-bg;
-            // the text rises from behind the image: fade its top edge so the text
-            // dissolves into it instead of being cut by a hard line
-            -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 20%);
-            mask-image: linear-gradient(to bottom, transparent 0, #000 20%);
-        }
+            height: 85vh;
 
-        @media #{$desktop} {
-            &__image {
-                min-height: 90rem;
-                height: 110vh;
-            }
-        }
-
-        @media #{$laptop} {
-            &__image {
-                min-height: 75rem;
-                height: 95vh;
-            }
+            // initial state, animated by JS
+            transform: scale(0.85);
         }
 
         @media #{$tablet} {
             height: 220vh;
-
-            &__image {
-                min-height: 60rem;
-            }
         }
 
         @media #{$mobile} {
             height: 200vh;
 
             &__image {
-                min-height: 30rem;
-                height: 100vh;
+                height: 80vh;
             }
         }
     }
