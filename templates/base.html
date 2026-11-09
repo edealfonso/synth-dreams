@@ -1,0 +1,73 @@
+{% load static %}
+{% load render_bundle from webpack_loader %}
+{% load cookielaw_tags %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+<html lang="{{LANGUAGE_CODE}}">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FAVICON -->
+  <link rel="icon" href="{% static 'favicon/favicon.ico' %}" sizes="48x48">
+  <link rel="icon" href="{% static 'favicon/favicon.svg' %}" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="{% static 'favicon/apple-touch-icon.png' %}">
+  <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Basic meta tags -->
+  <meta name="description" content="Synth Dreams: cajas de ritmos, sintetizadores y aparatos electrónicos de colores. Un portfolio de Elsa de Alfonso.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Synth Dreams">
+  <meta property="og:description" content="Synth Dreams: cajas de ritmos, sintetizadores y aparatos electrónicos de colores. Un portfolio de Elsa de Alfonso.">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Synth Dreams">
+  <meta name="twitter:description" content="Synth Dreams: cajas de ritmos, sintetizadores y aparatos electrónicos de colores. Un portfolio de Elsa de Alfonso.">
+
+  <style>
+    .onload-hidden {
+      opacity: 0;
+    }
+
+    .onload-showed {
+      opacity: 1;
+      transition: opacity 1s ease-in-out;
+    }
+  </style>
+
+  {% render_bundle 'main' 'css' %}
+
+  <title>
+    {% block title %}
+    {% endblock title %}
+  </title>
+
+  <!-- Cookie banner (cookielaw) -->
+  <script src="{% static 'js/cookielaw/cookielaw.js' %}"></script>
+
+</head>
+
+<body class="{% block classes %}{% endblock classes %}">
+
+  {% block content %}
+  {% endblock content %}
+
+  {% load site_tags %}
+  {% get_footer as footer %}
+
+  <div id="map" class="map u-bg-cover initial" style="background-image: url('{{ footer.map|media_url }}');">
+  </div>
+
+  {% cookielaw_banner %}
+
+  {% render_bundle 'main' 'js' %}
+</body>
+
+</html>

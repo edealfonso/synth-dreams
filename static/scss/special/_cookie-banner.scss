@@ -1,0 +1,76 @@
+@use "../abstracts" as *;
+
+// Cookie banner (templates/cookielaw/). #CookielawBanner and #CookielawCross are hooks of cookielaw.js.
+
+.cookie-banner {
+    background: $color-banner-bg;
+    padding: 15px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    font-family: inherit;
+    font-size: 12px;
+
+    &__inner {
+        position: relative;
+        padding: 1vw 6.3vw;
+    }
+
+    &__title {
+        font-weight: $font-weight-medium;
+        margin-bottom: 0.2em;
+    }
+
+    &__body {
+        display: flex;
+        align-items: center;
+
+        @media #{$mobile} {
+            flex-direction: column;
+        }
+    }
+
+    &__text {
+        padding-bottom: 0;
+        display: block;
+        margin-right: 3vw;
+    }
+
+    &__buttons {
+        display: flex;
+        align-items: center;
+
+        @media #{$mobile} {
+            width: 100%;
+            justify-content: space-around;
+        }
+    }
+
+    &__button {
+        margin: 1rem;
+        flex-shrink: 0;
+
+        border-radius: 5px;
+        border: 0.5px solid $color-text;
+
+        padding: 0 0.7em;
+        line-height: 2.5em;
+        height: 2.5em;
+
+        &::after {
+            display: none;
+            opacity: 0 !important;
+        }
+    }
+
+    &__close {
+        background: url('../img/icon-close.svg') no-repeat 0 0;
+        cursor: pointer;
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 15px;
+        height: 15px;
+    }
+}

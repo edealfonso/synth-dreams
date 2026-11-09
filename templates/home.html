@@ -1,0 +1,564 @@
+{% extends 'base.html' %}
+{% load static site_tags %}
+
+<!-- TITLE -->
+
+{% block title %}
+Synth Dreams
+{% endblock title %}
+
+{% block classes %}
+template-home
+{% endblock classes %}
+
+{% block content %}
+
+{% include 'includes/header.html' %}
+
+<div id="body-scroller" class="page-scroller">
+
+    <!-- s01 · pinned cover -->
+    <section id="s01-container" class="s01-pinned-cover" style="opacity: 0;">
+        <div id="s01-cover" class="s01-pinned-cover__cover u-fullheight u-center">
+
+            {% if home.s01_logo %}
+                <img class="s01-pinned-cover__logo hidden" src="{{ home.s01_logo|media_url }}" alt="Synth Dreams logo" id="s01-logo">
+            {% endif %}
+            {% if home.s01_image and home.s01_image_mobile %}
+                <img class="s01-pinned-cover__bg js-firstload u-desktop-only" src="{{ home.s01_image|media_url }}" alt="">
+                <img class="s01-pinned-cover__bg js-firstload u-mobile-only" src="{{ home.s01_image_mobile|media_url }}" alt="">
+            {% else %}
+                <img class="s01-pinned-cover__bg js-firstload" src="{{ home.s01_image|media_url }}" alt="" id="firstload">
+            {% endif %}
+
+            <a class="s01-pinned-cover__chevron js-smooth-anchor" href="#s02" id="s01-chevron"><img src="{% static 'img/icon-arrow-down.svg' %}" alt="Scroll down" ></a>
+
+        </div>
+    </section>
+
+    <main id="loader-content" class="onload-hidden">
+
+        <!-- s02 · parallax with title  /  s03 · statement  /  s04 · video cover -->
+
+        <section class="s02-parallax-with-title u-fullheight u-center gsap-parallax-bg-parent" id="s02">
+
+            <div class="gsap-parallax-bg"
+                style="background-image: url('{{ home.s02_image|media_url }}');">
+            </div>
+
+            <div class="s02-parallax-with-title__wrap u-mw-1000 u-text-center">
+                <h2 class="s02-parallax-with-title__title u-h2">{{ home.s02_title }}</h2>
+                <div class="u-f-42 gsap-appear">{{ home.s02_text|safe }}</div>
+            </div>
+
+        </section>
+
+        <section class="s03-statement u-center">
+
+            <div class="s03-statement__wrap u-mw-1200 u-text-center">
+                <div class="u-f-52 u-text-muted gsap-appear">{{ home.s03_text|safe }}</div>
+            </div>
+
+        </section>
+
+        <section id="s04-container" class="s04-video-cover">
+            <div id="s04-cover" class="s04-video-cover__cover u-bg-cover js-autovideo-responsive"
+                style="background-image:url('{{ home.s04_video_poster|media_url }}')">
+
+                {% if home.s04_video_low %}
+                    <video autoplay playsinline muted loop
+                        data-src="{{ home.s04_video_low.url }}"
+                        class="autovideo__video autovideo__video--mobile unloaded">
+                        <source src="">
+                    </video>
+
+                {% endif %}
+                {% if home.s04_video_high %}
+                    <video autoplay playsinline muted loop
+                        data-src="{{ home.s04_video_high.url }}"
+                        class="autovideo__video autovideo__video--desktop unloaded">
+                        <source src="">
+                    </video>
+                {% endif %}
+
+                <div class="autovideo__controls js-autovideo-controls">
+                    <img class="autovideo__control" src="{% static 'img/icon-pause.svg' %}" data-action="playpause">
+                    <img class="autovideo__control autovideo__control--audio" src="{% static 'img/icon-sound.svg' %}" data-action="audio">
+                    <img class="autovideo__control" src="{% static 'img/icon-back.svg' %}" data-action="rewind">
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- s05 · parallax  /  s06 · three horizontal steps -->
+
+        <section class="s05-parallax u-fullheight u-center gsap-parallax-bg-parent">
+
+            <div class="gsap-parallax-bg"
+                style="background-image: url('{{ home.s05_image|media_url }}');">
+            </div>
+
+            <div class="s05-parallax__wrap u-text-center gsap-parallax">
+                <div class="u-f-52 gsap-appear">{{ home.s05_text|safe }}</div>
+            </div>
+
+        </section>
+
+        <section class="s06-three-horizontal-steps" id="s06">
+
+            <div class="s06-three-horizontal-steps__wrap">
+                <div class="s06-three-horizontal-steps__item" id="s06-step-1">
+                    <h5 class="s06-three-horizontal-steps__number u-h5">01</h5>
+                    <h4 class="s06-three-horizontal-steps__title u-h4">{{ home.s06_step_title1 }}</h4>
+                    <div class="s06-three-horizontal-steps__text u-f-24 u-text-muted">{{ home.s06_step_text1|safe }}</div>
+                </div>
+                <div class="s06-three-horizontal-steps__item" id="s06-step-2">
+                    <h5 class="s06-three-horizontal-steps__number u-h5">02</h5>
+                    <h4 class="s06-three-horizontal-steps__title u-h4">{{ home.s06_step_title2 }}</h4>
+                    <div class="s06-three-horizontal-steps__text u-f-24 u-text-muted">{{ home.s06_step_text2|safe }}</div>
+                </div>
+                <div class="s06-three-horizontal-steps__item" id="s06-step-3">
+                    <h5 class="s06-three-horizontal-steps__number u-h5">03</h5>
+                    <h4 class="s06-three-horizontal-steps__title u-h4">{{ home.s06_step_title3 }}</h4>
+                    <div class="s06-three-horizontal-steps__text u-f-24 u-text-muted">{{ home.s06_step_text3|safe }}</div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- s07 · pinned gallery (gallery 1) -->
+
+        <section class="s07-pinned-gallery u-container">
+
+            <div class="s07-pinned-gallery__wrap u-mw-1200">
+                <h1 class="u-h1">{{ home.s07_title }}</h1>
+                <div class="u-f-52 u-text-muted gsap-appear">{{ home.s07_text|safe }}</div>
+            </div>
+
+        </section>
+
+        <section class="gallery gallery--desktop">
+            {% for pic in gallery_1 %}
+                {% if forloop.counter0|divisibleby:2 %}
+                    <div id="s07-pair-{{forloop.counter0}}" class="gallery__pair">
+                    <div class="gallery__row">
+                {% endif %}
+                        <div class="gallery__pic u-bg-cover"
+                            style="background-image: url('{{ pic.image|media_url }}');">
+                        </div>
+                {% if forloop.counter|divisibleby:2 %}
+                    </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+            {% if not gallery_1.all.count|divisibleby:2 %}
+                    </div>
+                    </div>
+            {% endif %}
+        </section>
+
+        <section class="gallery gallery--mobile">
+            {% for pic in gallery_1 %}
+                {% if forloop.last %}
+                    <div class="gallery__item">
+                        <div class="gallery__pic u-bg-cover"
+                            style="background-image: url('{{ pic.image|media_url }}');">
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="gallery__item">
+                        <div class="gallery__pic u-bg-cover gsap-mobilegallerypic"
+                            style="background-image: url('{{ pic.image|media_url }}');">
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </section>
+
+        <!-- s08 · parallax layout -->
+
+        <section class="s08-parallax-layout">
+
+            <div class="s08-parallax-layout__title u-container u-mw-1200">
+                <h1 class="s08-parallax-layout__heading u-h1">{{ home.s08_title }}</h1>
+            </div>
+
+            <div class="gsap-appear">
+                <div class="s08-parallax-layout__strip image-strip gsap-parallax-bg-parent">
+                    {% if home.s08_image1 and home.s08_image1_mobile %}
+                    <div class="s08-parallax-layout__strip-image u-bg-cover gsap-parallax-bg u-desktop-only"
+                        style="background-image: url('{{ home.s08_image1|media_url }}');">
+                    </div>
+                    <div class="s08-parallax-layout__strip-image u-bg-cover gsap-parallax-bg u-mobile-only"
+                        style="background-image: url('{{ home.s08_image1_mobile|media_url }}');">
+                    </div>
+                    {% else %}
+                    <div class="s08-parallax-layout__strip-image u-bg-cover gsap-parallax-bg"
+                        style="background-image: url('{{ home.s08_image1|media_url }}');">
+                    </div>
+                    {% endif %}
+                </div>
+
+                <div class="s08-parallax-layout__text u-container gsap-parallax-min">
+                    <div class="u-f-52 u-text-muted u-mw-1200">{{ home.s08_text|safe }}</div>
+                </div>
+
+                <div class="s08-parallax-layout__strip image-strip gsap-parallax-bg-parent">
+                    {% if home.s08_image2 and home.s08_image2_mobile %}
+                    <div class="s08-parallax-layout__strip-image u-bg-cover gsap-parallax-bg u-desktop-only"
+                        style="background-image: url('{{ home.s08_image2|media_url }}');">
+                    </div>
+                    <div class="s08-parallax-layout__strip-image u-bg-cover gsap-parallax-bg u-mobile-only"
+                        style="background-image: url('{{ home.s08_image2_mobile|media_url }}');">
+                    </div>
+                    {% else %}
+                    <div class="s08-parallax-layout__strip-image u-bg-cover gsap-parallax-bg"
+                        style="background-image: url('{{ home.s08_image2|media_url }}');">
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+
+        </section>
+
+        <!-- s09 · floating vignettes -->
+
+        <section class="s09-floating-vignettes">
+
+            <div class="s09-floating-vignettes__title u-container u-text-center gsap-appear">
+                <h1 class="s09-floating-vignettes__heading u-h1">{{ home.s09_title }}</h1>
+                <div class="u-f-52 u-text-muted">{{ home.s09_text|safe }}</div>
+            </div>
+
+            <div class="s09-floating-vignettes__wrap" id="s09-container">
+                
+                <div class="s09-floating-vignettes__trigger" id="s09-trigger"></div>
+
+                <div class="vignette-group vignette-group--1">
+                    <div class="vignette-group__left">
+                        <img 
+                            src="{{ home.s09_left_image|media_url }}" 
+                            alt=""
+                            class="vignette-group__image"
+                            id="s09-image"
+                        >
+                    </div>
+                    <div class="vignette-group__right">
+                        <h5 class="vignette-group__title u-h5">{{ home.s09_group_title1 }}</h5>
+                        <div class="floating-images">
+                            {% for vignette in vignettes_1 %}
+                                <img 
+                                    class="floating-images__img" 
+                                    src="{{ vignette.image|media_url }}" 
+                                    id="s09-floating-{{forloop.counter0}}"
+                                >
+                            {% endfor%}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="vignette-group vignette-group--2">
+                    <div class="vignette-group__left">
+
+                    </div>
+                    <div class="vignette-group__right">
+                        <h5 class="vignette-group__title u-h5">{{ home.s09_group_title2 }}</h5>
+                        {% for vignette in vignettes_2 %}
+                            {% if vignette.kind == 'SQUARE' %}
+                                <div class="square-card">
+                                    <img class="square-card__img" src="{{ vignette.image|media_url }}">
+                                    <ul class="square-card__list u-text-muted">
+                                        <li class="square-card__item">{{ vignette.text1|safe }}</li>
+                                        <li class="square-card__item">{{ vignette.text2|safe }}</li>
+                                        <li class="square-card__item">{{ vignette.text3|safe }}</li>
+                                    </ul>
+                                </div>
+                            {% elif vignette.kind == 'ROUND' %}
+                            <div class="vignette vignette--round">
+                                <div class="vignette__left">
+                                    <img class="vignette__img" src="{{ vignette.image|media_url }}">
+                                    <span class="vignette__line js-vignette-line"></span>
+                                </div>
+                                <div class="vignette__right u-text-muted">
+                                    {{ vignette.text1|safe }}
+                                </div>
+                            </div>
+                            {% endif %}
+                        {% endfor%}
+                    </div>
+                </div>
+
+                <div class="vignette-group vignette-group--3">
+                    <div class="vignette-group__left">
+
+                    </div>
+                    <div class="vignette-group__right">
+                        <h5 class="vignette-group__title u-h5">{{ home.s09_group_title3 }}</h5>
+                        {% for vignette in vignettes_3 %}
+                            {% if vignette.kind == 'RECTANGLE' %}
+                            <div class="vignette vignette--rectangle">
+                                <div class="vignette__left">
+                                    <div class="vignette__frame">
+                                        <img class="vignette__img" src="{{ vignette.image|media_url }}">
+                                    </div>
+                                </div>
+                                <div class="vignette__right-alt u-text-muted">
+                                    <div class="vignette__text">
+                                        <span class="vignette__line js-vignette-line"></span>
+                                        {{ vignette.text1|safe }}
+                                    </div>
+                                    <div class="vignette__extra">
+                                        <div class="vignette__extra-frame">
+                                            <img class="vignette__extra-img" src="{{ vignette.extra_image|media_url }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% elif vignette.kind == 'SQUARE' %}
+                            <div class="vignette vignette--square">
+                                <div class="vignette__left">
+                                    <img class="vignette__img" src="{{ vignette.image|media_url }}">
+                                    <span class="vignette__line js-vignette-line"></span>
+                                </div>
+                                <div class="vignette__right u-text-muted">
+                                    {{ vignette.text1|safe }}
+                                </div>
+                            </div>
+                            {% endif %}
+                        {% endfor%}
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        
+
+        <!-- s10 · image or video -->
+
+        <section class="s10-image-or-video">
+
+            <div class="s10-image-or-video__wrap u-mw-1000 u-container gsap-appear">
+                <h1 class="u-h1">{{ home.s10_title }}</h1>
+                <div class="u-f-52 u-text-muted">{{ home.s10_text|safe }}</div>
+            </div>
+
+            {% if home.s10_image %}
+            <div class="s10-image-or-video__image u-bg-cover" id="s10-image"
+                style="background-image: url('{{ home.s10_image|media_url }}');">
+            </div>
+            {% endif %}
+            {% if home.s10_video_high %}
+            <div class="s10-image-or-video__video u-fullheight u-bg-cover js-autovideo-responsive"
+                style="background-image:url('{{ home.s10_video_poster|media_url }}')">
+                
+                <video autoplay playsinline muted loop 
+                    data-src="{{ home.s10_video_high.url }}"
+                    class="autovideo__video autovideo__video--desktop unloaded">
+                    <source src="">
+                </video>
+
+                {% if home.s10_video_low %}
+                    <video autoplay playsinline muted loop 
+                        data-src="{{ home.s10_video_low.url }}"
+                        class="autovideo__video autovideo__video--mobile unloaded">
+                        <source src="">
+                    </video>
+                {% endif %}
+
+            </div>
+            {% endif %}
+
+        </section>
+
+        <!-- s11 · rising text over pinned image -->
+
+        <div id="s11-container">
+        <section class="s11-rising-text-over-pinned-image" id="s11">
+
+
+            <div class="s11-rising-text-over-pinned-image__text-container" id="s11-text-container">
+                <div class="s11-rising-text-over-pinned-image__wrap u-container u-mw-1000" id="s11-text">
+                    <h1 class="u-h1">{{ home.s11_title }}</h1>
+                    <div class="u-f-52 u-text-muted">{{ home.s11_text|safe }}</div>
+                </div>
+            </div>
+
+            <div class="s11-rising-text-over-pinned-image__image u-bg-contain" id="s11-image"
+                style="background-image: url('{{ home.s11_image|media_url }}');">
+            </div>
+
+        </section>
+        </div>
+
+        <!-- s12 · pinned gallery (gallery 2) -->
+
+        <section class="s12-pinned-gallery u-container">
+
+            <div class="s12-pinned-gallery__wrap u-mw-1200 gsap-appear">
+                <h1 class="u-h1">{{ home.s12_title }}</h1>
+                <div class="u-f-52 u-text-muted">{{ home.s12_text|safe }}</div>
+            </div>
+
+        </section>
+
+        <section class="gallery gallery--desktop">
+            {% for pic in gallery_2 %}
+                {% if forloop.counter0|divisibleby:2 %}
+                    <div id="s12-pair-{{forloop.counter0}}" class="gallery__pair">
+                    <div class="gallery__row">
+                {% endif %}
+                        <div class="gallery__pic u-bg-cover"
+                            style="background-image: url('{{ pic.image|media_url }}');">
+                        </div>
+                {% if forloop.counter|divisibleby:2 %}
+                    </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+            {% if not gallery_2.all.count|divisibleby:2 %}
+                    </div>
+                    </div>
+            {% endif %}
+        </section>
+
+        <section class="gallery gallery--mobile">
+            {% for pic in gallery_2 %}
+                {% if forloop.last %}
+                    <div class="gallery__item">
+                        <div class="gallery__pic u-bg-cover"
+                            style="background-image: url('{{ pic.image|media_url }}');">
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="gallery__item">
+                        <div class="gallery__pic u-bg-cover gsap-mobilegallerypic"
+                            style="background-image: url('{{ pic.image|media_url }}');">
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </section>
+
+        <!-- s13 · pinned cover  /  s14 · magnify list -->
+
+        <section class="s13-pinned-cover">
+
+            <div class="s13-pinned-cover__title u-container u-mw-1200 u-text-center">
+                <h1 class="u-h1">{{ home.s13_title }}</h1>
+                <div class="u-f-52 u-text-muted gsap-appear">{{ home.s13_text|safe }}</div>
+            </div>
+
+            <div class="s13-pinned-cover__cover" id="s13-container">
+                <div id="s13-cover" class="u-bg-cover" 
+                    style="background-image: url('{{ home.s13_image|media_url }}');">    
+                </div>
+            </div>
+
+        </section>
+
+        <div class="s14-magnify-list__bg-container" id="s14-container">
+            <div id="s14-bg" class="s14-magnify-list__bg u-fullheight u-bg-cover" 
+                style="background-image: url('{{ home.s14_image|media_url }}');">
+            </div>
+        </div>
+
+        <section id="s14" class="s14-magnify-list">
+
+            <div id="s14-content">
+                <div class="s14-magnify-list__title u-center u-fullheight">
+                    <div class="s14-magnify-list__wrap u-mw-1000 u-text-center">
+                        <div class="u-f-52 gsap-appear">{{ home.s14_text|safe }}</div>
+                    </div>
+                </div>
+
+                <div class="s14-magnify-list__items u-mw-1200 u-container">
+
+                    {% for item in magnify_items %}
+                    <div class="magnify-item">
+                        <h3 class="magnify-item__title u-h3">
+                            {{ item.title }}
+                        </h3>
+                        <div class="magnify-item__text u-f-24">
+                            {{ item.text|safe }}
+                        </div>
+                    </div>
+                    {% endfor %}
+                    
+                </div>
+            </div>
+            
+        </section>
+
+        <!-- s15 · split images -->
+        <section class="s15-split-images u-fullheight">
+
+            <div class="s15-split-images__left u-bg-cover"
+                style="background-image: url('{{ home.s15_image_left|media_url }}');">
+
+                <h1 class="s15-split-images__line s15-split-images__line--first u-h1 gsap-appear">{{ home.s15_title_line1 }}</h1>
+                <h1 class="s15-split-images__line s15-split-images__line--second u-h1 gsap-appear">{{ home.s15_title_line2 }}</h1>
+
+            </div>
+
+            <div class="s15-split-images__right u-bg-cover"
+                style="background-image: url('{{ home.s15_image_right|media_url }}');">
+
+            </div>
+        </section>
+
+        <section class="s15-split-images__caption u-container">
+
+            <div class="u-f-42 u-text-muted">
+                {{ home.s15_text|safe }}
+            </div>
+
+        </section>
+
+        <!-- s16 · vertical points -->
+
+        <section id="s16" class="s16-vertical-points u-fullheight">
+
+            <div id="s16-container" class="s16-vertical-points__left u-container-margin">
+                <div id="s16-image" class="s16-vertical-points__image">
+                    <img class="s16-vertical-points__img" src="{{ home.s16_image|media_url }}">
+                </div>
+            </div>
+
+            <div class="s16-vertical-points__right u-container">
+                <h1 class="u-h1">{{ home.s16_title }}</h1>
+                <div class="u-f-52 u-text-muted">{{ home.s16_text|safe }}</div>
+                <ul class="s16-vertical-points__list">
+                    <li class="s16-vertical-points__item" id="s16-point-1">
+                        <h3 class="s16-vertical-points__item-title u-h3">{{home.s16_point_title1}}</h3>
+                        <div class="s16-vertical-points__item-text u-f-32 u-text-muted">{{ home.s16_point_text1|safe }}</div>
+                    </li>
+                    <li class="s16-vertical-points__item" id="s16-point-2">
+                        <h3 class="s16-vertical-points__item-title u-h3">{{home.s16_point_title2}}</h3>
+                        <div class="s16-vertical-points__item-text u-f-32 u-text-muted">{{ home.s16_point_text2|safe }}</div>
+                    </li>
+                    <li class="s16-vertical-points__item" id="s16-point-3">
+                        <h3 class="s16-vertical-points__item-title u-h3">{{home.s16_point_title3}}</h3>
+                        <div class="s16-vertical-points__item-text u-f-32 u-text-muted">{{ home.s16_point_text3|safe }}</div>
+                    </li>
+                </ul>
+            </div>  
+        </section>
+
+        <!-- s17 · full image with text -->
+
+        <section class="s17-full-image-with-text u-fullheight u-bg-cover"
+            style="background-image: url('{{ home.s17_image|media_url }}');">
+
+            <div class="s17-full-image-with-text__text u-f-52 u-container">{{ home.s17_text|safe }}</div>
+
+        </section>
+
+        {% include 'includes/footer.html' %}
+
+    </main>
+
+</div>
+
+{% endblock content %}

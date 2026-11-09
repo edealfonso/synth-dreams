@@ -1,0 +1,31 @@
+{% load static %}
+{% load site_tags %}
+{% get_header as header %}
+
+<header class="header {{ header_class }}">
+
+    {% if header.logo %}
+        <a href="{% url 'pages:home' %}" class="header__logo">
+            <img src="{{ header.logo.url }}" alt="Synth Dreams logo">
+        </a>
+    {% else %}
+        <div></div>
+    {% endif %}
+
+    <ul class="header__menu">
+        <li class="header__menu-item">
+            <a class="js-smooth-anchor" href="#footer">{{ header.contact_link_text }}</a>
+        </li>
+        <li class="header__menu-item">
+            {% load i18n %}
+            {% get_current_language as LANGUAGE_CODE %}
+            {% if LANGUAGE_CODE == "en" %}
+                <a href="{{ request.get_full_path|slice:'3:' }}">{{ header.language_selector_es }}</a> - 
+                <span>{{ header.language_selector_en }}</span>
+            {% else %}
+                <span>{{ header.language_selector_es }}</span> - 
+                <a href="/en{{ request.get_full_path }}">{{ header.language_selector_en }}</a>
+            {% endif %}
+        </li>
+    </ul>
+</header>

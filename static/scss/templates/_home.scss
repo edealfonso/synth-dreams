@@ -1,0 +1,1157 @@
+@use "../abstracts" as *;
+
+.template-home {
+
+    // s01 · pinned cover
+
+    .s01-pinned-cover {
+        position: relative;
+        z-index: -10;
+        transition: opacity 1s ease-in-out;
+
+        &__logo {
+            width: clamp(32rem, 42*0.6vw, 42rem);
+
+            // fade-in animation
+            position: relative;
+            transition: all $transition-slow;
+            top: 0;
+
+            &.hidden {
+                top: 10rem;
+                opacity: 0;
+            }
+        }
+        &__bg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -2;
+        }
+        &__chevron {
+            width: 2rem;
+            height: 2rem;
+            object-fit: contain;
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+
+            transition: all $transition-slow;
+            opacity: 0;
+
+            &:hover, &:active, &:focus {
+                opacity: 0.5!important;
+
+                &::after {
+                    display: none;
+                }
+            }
+        }
+
+        @media #{$mobile} {
+            &__cover {
+                justify-content: center;
+            }
+        }
+    }
+
+    // s02 · parallax with title  /  s03 · statement  /  s04 · video cover
+
+    .s02-parallax-with-title {
+        background-color: $color-bg;
+
+        &__title {
+            margin-bottom: 5rem;
+        }
+
+        @media #{$mobile} {
+            &__title {
+                margin-bottom: 2rem;
+            }
+        }
+    }
+
+    .s03-statement {
+        background-color: $color-bg;
+    }
+
+    .s04-video-cover {
+        position: relative;
+        z-index: 0;
+
+        @media #{$mobile} {
+            min-height: 80vw;
+            max-height: 100vh;
+
+            &__cover {
+                min-height: 80vw;
+                max-height: 100vh;
+            }
+        }
+    }
+
+    // s05 · parallax  /  s06 · three horizontal steps
+
+    .s05-parallax {
+        background-color: $color-bg;
+        z-index: 0;
+
+        &__wrap {
+            width: 110rem;
+            max-width: 85vw;
+        }
+
+        @media #{$mobile} {
+            &__wrap {
+                text-align: center;
+                width: calc(100vw - 60px);
+            }
+        }
+    }
+
+    .s06-three-horizontal-steps {
+        &__wrap {
+            padding: 8rem 3rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 5rem;
+        }
+
+        &__item {
+            min-height: 30rem;
+            text-align: center;
+
+            // initial state, animated by JS
+            opacity: 0;
+            transform: translateY(10rem);
+        }
+
+        &__number {
+            display: block;
+            padding-bottom: 0.6em;
+            margin-bottom: 6rem;
+            border-bottom: 1px solid $color-line;
+            color: $color-label;
+
+            font-size: 1.6rem;
+        }
+
+        &__title {
+            padding-bottom: 0.7em;
+        }
+
+        &__text {
+            margin: 0 auto;
+            max-width: 80%;
+        }
+
+        @media (max-width: 1635px) {
+            &__title {
+                margin: 0 auto;
+                max-width: 69%;
+            }
+        }
+        @media #{$tablet} {
+            &__text {
+                max-width: unset;
+            }
+        }
+
+        @media (max-width: 882px) {
+            &__wrap {
+                grid-template-columns: 1fr;
+                gap: 8.5rem;
+                max-width: 46rem;
+                margin: 0 auto;
+            }
+
+            &__item {
+                min-height: unset;
+            }
+
+            &__number {
+                margin-bottom: 2rem;
+            }
+
+            &__title {
+                padding-bottom: 3.6rem;
+            }
+
+            &__text {
+                max-width: 80%;
+            }
+        }
+    }
+
+    // s07 · pinned gallery (gallery 1): no own styles, see special/_images.scss
+
+    // s08 · parallax layout
+
+    .s08-parallax-layout {
+        position: relative;
+        background: $color-bg;
+
+        &__title {
+            align-items: end;
+            display: flex;
+            padding-top: 18vw;
+            padding-bottom: 6.5vw;
+            .s08-parallax-layout__heading {
+                padding-bottom: 0;
+            }
+        }
+        &__text {
+            padding-top: 3vw;
+            padding-bottom: 3vw;
+            transform: translateY(-10rem);
+
+            p:last-of-type {
+                padding-bottom: 0;
+            }
+        }
+
+        .s08-parallax-layout__strip {
+            z-index: 1;
+            position: relative;
+            max-height: 70vh;
+            height: 30vw;
+
+            .s08-parallax-layout__strip-image {
+                min-height: unset;
+            }
+
+            @media #{$mobile} {
+                height: 42vw;
+            }
+        }
+
+        @media #{$mobile} {
+            &__title {
+                padding-top: 11rem;
+            }
+            &__text {
+                padding-top: 3rem;
+                padding-bottom: 3rem;
+            }
+        }
+    }
+
+    // s09 · floating vignettes
+
+    .s09-floating-vignettes {
+        &__title {
+            padding-bottom: 5rem;
+        }
+        &__wrap {
+            border-top: 1px solid $color-line;
+            border-bottom: 1px solid $color-line;
+
+            margin-bottom: 6vw;
+            overflow: hidden;
+
+            position: relative;
+
+            .s09-floating-vignettes__trigger {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+            .vignette-group {
+
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+
+                .vignette-group__image {
+                    position: absolute;
+                    top: 3%;
+                    left: 0;
+                    width: 50%;
+                    height: auto;
+
+                    padding: 3.5rem;
+                }
+
+                .vignette-group__right {
+                    border-left: 1px solid $color-line;
+                    padding: 3.5rem;
+                    .vignette-group__title {
+                        display: inline-block;
+                        max-width: 30vw;
+                        padding-bottom: 4rem;
+                    }
+                }
+
+                // group 2
+
+                &--2 {
+                    .vignette-group__title {
+                        padding-bottom: 2rem;
+                    }
+                }
+
+                // group 3
+
+                &--3 {
+                    .vignette-group__title {
+                        max-width: 93%;
+                    }
+                }
+
+                // floating drawings
+
+                .floating-images {
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+
+                    &__img {
+                        display: block;
+                        opacity: 0;
+
+                        &:nth-child(1) {
+                            width: 40%;
+                            align-self: start;
+                        }
+                        &:nth-child(2) {
+                            position: relative;
+                            top: -1.4vw;
+                            align-self: center;
+                            width: 38%;
+                        }
+                        &:nth-child(3) {
+                            margin-top: 2.5vw;
+                            align-self: end;
+                            width: 50%;
+                            margin-left: 50%;
+                        }
+                    }
+                }
+
+                // squares with three texts
+
+                .square-card {
+                    opacity: 0;
+                    display: flex;
+                    border: 1px solid $color-line;
+                    margin: 4rem;
+
+                    &__img {
+                        border-right: 1px solid $color-line;
+                        object-fit: cover;
+                        width: 18vw;
+                    }
+
+                    &__list {
+
+                        width: 100%;
+
+                        .square-card__item {
+                            padding: 1.3em 2em 0.7em 2em;
+                            border-bottom: 1px solid $color-line;
+                            font-size: 1.4rem;
+                            line-height: 2.2rem;
+                        }
+                        .square-card__item:last-of-type {
+                            border-width: 0;
+                        }
+
+                    }
+                }
+
+                // vignettes with a line joining image and text
+
+                .vignette {
+                    display: grid;
+                    grid-template-columns: 18vw 1fr;
+                    margin: 4rem;
+                    align-items: center;
+
+                    &__left {
+                        position: relative;
+                        display: flex;
+                        justify-content: center;
+
+                        .vignette__img {
+                            display: inline-block;
+                            border: 1px solid $color-line;
+                            object-fit: cover;
+                        }
+
+                        .vignette__line {
+                            display: inline-block;
+                            background-color: $color-line;
+                            height: 1px;
+                            position: absolute;
+                            top: 50%;
+                            right: 0;
+                            transform: translateX(-100%);
+                            z-index: -1;
+                        }
+                    }
+
+                    &__right {
+                        padding: 1.3em 2em;
+                        border: 1px solid $color-line;
+                        font-size: 1.4rem;
+                        line-height: 2.2rem;
+                        opacity: 0;
+
+                        p {
+                            opacity: 0;
+                            padding-bottom: 0;
+                        }
+                    }
+
+                    &--round {
+                        .vignette__left {
+                            .vignette__img {
+                                width: 11vw;
+                                height: 11vw;
+                                border-radius: 50%;
+                            }
+                            .vignette__line {
+                                width: 3.5vw;
+                            }
+                        }
+                    }
+
+                    &--rectangle {
+                        .vignette__left {
+                            .vignette__frame {
+                                width: 8vw;
+                                background-color: $color-bg;
+                                position: relative;
+                                z-index: 1;
+
+                                .vignette__img {
+                                    width: 100%;
+                                    object-fit: contain;
+                                }
+                            }
+                        }
+                        .vignette__right-alt {
+                            display: flex;
+                            height: calc(100% - 3rem);
+                            flex-direction: column;
+                            align-items: center;
+
+                            .vignette__text {
+                                padding: 1.3em 2em;
+                                border: 1px solid $color-line;
+                                font-size: 1.4rem;
+                                line-height: 2.2rem;
+                                width: 100%;
+                                position: relative;
+                                opacity: 0;
+                                p {
+                                    padding-bottom: 0;
+                                }
+                                .vignette__line {
+                                    height: 1px;
+                                    position: absolute;
+                                    top: 50%;
+                                    width: 5vw;
+                                    background-color: $color-line;
+                                    left: calc(-5vw - 1px);
+                                    transform: translateX(-100%);
+                                    z-index: -1;
+                                }
+                            }
+
+                            .vignette__extra {
+                                opacity: 0;
+                                flex-grow: 1;
+                                display: flex;
+                                align-items: center;
+
+                                .vignette__extra-frame {
+                                    border: 1px solid $color-line;
+                                    border-radius: 50%;
+                                    width: 11vw;
+                                    height: 11vw;
+                                    padding: 2vw 0;
+                                    margin-top: 1vw;
+
+                                    .vignette__extra-img {
+                                        object-fit: contain;
+                                        width: 100%;
+                                        height: 100%;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    &--square {
+                        .vignette__left {
+                            .vignette__img {
+                                width: 8vw;
+                                height: 8vw;
+                            }
+                            .vignette__line {
+                                width: 5vw;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        @media only screen and (max-width : 1200px) {
+            &__wrap {
+                .vignette-group {
+                    .vignette-group__right {
+                        .vignette-group__title {
+                            padding-bottom: 4rem;
+                        }
+                    }
+
+                    // floating drawings
+
+                    .floating-images {
+                        &__img {
+                            &:nth-child(3) {
+                                margin-top: 7%;
+                            }
+                        }
+                    }
+
+                    // squares with three texts
+
+                    .square-card {
+                        margin: 0 0 4rem 0;
+
+                        &__img {
+                            width: 15vw;
+                        }
+
+                        &__list {
+                            .square-card__item {
+                                padding: 0.7em 1em 0em 1em;
+                                font-size: 1.3rem;
+                                line-height: 1.6rem;
+                            }
+                        }
+                    }
+
+                    // vignettes with a line joining image and text
+
+                    .vignette {
+                        margin: 0 0 4rem 0;
+                        grid-template-columns: 15vw 1fr;
+
+                        &__right {
+                            padding: 0.7em 1em;
+                            font-size: 1.3rem;
+                            line-height: 1.6rem;
+                        }
+
+                        &--rectangle {
+                            .vignette__right-alt {
+                                height: calc(100% - 4.5vw);
+
+                                .vignette__text {
+                                    padding: 0.7em 1em;
+                                    font-size: 1.3rem;
+                                    line-height: 1.6rem;
+                                    .vignette__line {
+                                        left: calc(-6vw - 1px);
+                                        width: 6vw;
+                                    }
+                                }
+                            }
+                        }
+
+                        &--square {
+                            .vignette__left {
+                                .vignette__line {
+                                    width: 6vw;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        @media #{$laptop} {
+            &__wrap {
+                .vignette-group {
+                    .vignette {
+                        &--rectangle {
+                            .vignette__right-alt {
+
+                                .vignette__text {
+                                    .vignette__line {
+                                        left: calc(-4vw - 1px);
+                                        width: 4vw;
+                                    }
+                                }
+                            }
+                        }
+                        &--square {
+                            .vignette__left {
+                                .vignette__line {
+                                    width: 4vw;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        @media #{$tablet} {
+            &__wrap {
+                .vignette-group {
+                    .vignette-group__right {
+                        .vignette-group__title {
+                            padding-bottom: 2rem;
+                        }
+                    }
+
+                    // squares with three texts
+
+                    .square-card {
+                        margin: 0 0 2rem 0;
+                    }
+
+                    // vignettes with a line joining image and text
+
+                    .vignette {
+                        margin: 0 0 2rem 0;
+                    }
+                }
+            }
+        }
+        @media #{$mobile} {
+            padding-top: 12rem;
+
+            &__title {
+                .s09-floating-vignettes__heading {
+                    padding-bottom: 8rem;
+                }
+                padding-bottom: 0;
+            }
+            &__wrap {
+                border-width: 0;
+
+                .vignette-group {
+                    grid-template-columns: 1fr;
+
+                    .vignette-group__image {
+                        position: relative;
+                        width: 100%;
+                        top: 0;
+                        padding-top: 5rem;
+                        padding-bottom: 5rem;
+                    }
+
+                    .vignette-group__right {
+                        .vignette-group__title {
+                            max-width: unset;
+                            padding-bottom: 2rem;
+                        }
+                    }
+
+                    // floating drawings
+
+                    .floating-images {
+                        &__img {
+                            &:nth-child(3) {
+                                margin-top: 6%;
+                            }
+                        }
+                    }
+
+                    // squares with three texts
+
+                    .square-card {
+                        &__img {
+                            width: 34vw;
+                        }
+                    }
+
+                    // vignettes with a line joining image and text
+
+                    .vignette {
+                        grid-template-columns: 34vw 1fr;
+
+                        &--round {
+                            .vignette__left {
+                                .vignette__img {
+                                    width: 20vw;
+                                    height: 20vw;
+                                }
+                                .vignette__line {
+                                    width: 8vw;
+                                }
+                            }
+                        }
+
+                        &--rectangle {
+                            .vignette__left {
+                                .vignette__frame {
+                                    width: 20vw;
+                                }
+                            }
+                            .vignette__right-alt {
+                                height: calc(100% - 8rem);
+
+                                .vignette__text {
+                                    .vignette__line {
+                                        width: 8vw;
+                                        left: calc(-8vw - 1px);
+                                    }
+                                }
+
+                                .vignette__extra {
+                                    .vignette__extra-frame {
+                                        width: 20vw;
+                                        height: 20vw;
+                                        padding: 3vw 0;
+                                        margin-top: 3vw;
+                                    }
+                                }
+                            }
+                        }
+
+                        &--square {
+                            .vignette__left {
+                                .vignette__img {
+                                    width: 20vw;
+                                    height: 20vw;
+                                }
+                                .vignette__line {
+                                    width: 8vw;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        @media #{$mobile-sm} {
+            &__wrap {
+                .vignette-group {
+
+                    // floating drawings
+
+                    .floating-images {
+                        &__img {
+                            &:nth-child(3) {
+                                margin-top: 7%;
+                            }
+                        }
+                    }
+
+                    // squares with three texts
+
+                    .square-card {
+                        &__img {
+                            width: 14rem;
+                        }
+                    }
+
+                    // vignettes with a line joining image and text
+
+                    .vignette {
+                        grid-template-columns: 14rem 1fr;
+
+                        &--round {
+                            .vignette__left {
+                                .vignette__img {
+                                    width: 11rem;
+                                    height: 11rem;
+                                    margin-left: 0;
+                                }
+                                .vignette__line {
+                                    width: 3rem;
+                                }
+                            }
+                        }
+
+                        &--rectangle {
+                            .vignette__left {
+                                .vignette__frame {
+                                    width: 11rem;
+                                    margin-left: 0;
+                                }
+                            }
+                            .vignette__right-alt {
+                                height: calc(100% - 8rem);
+
+                                .vignette__text {
+                                    .vignette__line {
+                                        width: 3rem;
+                                        left: calc(-3rem - 1px);
+                                    }
+                                }
+
+                                .vignette__extra {
+                                    .vignette__extra-frame {
+                                        width: 11rem;
+                                        height: 11rem;
+                                        padding: 2rem 0;
+                                        margin-top: 3rem;
+                                    }
+                                }
+                            }
+                        }
+
+                        &--square {
+                            .vignette__left {
+                                .vignette__img {
+                                    width: 11rem;
+                                    height: 11rem;
+                                    margin-left: 0;
+                                }
+                                .vignette__line {
+                                    width: 3rem;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    // s10 · image or video
+
+    .s10-image-or-video {
+        // avoids overlapping the animated text opacity of the next section
+        z-index: 1;
+        position: relative;
+
+        @media #{$mobile} {
+            .s10-image-or-video__image,
+            .s10-image-or-video__video {
+                min-height: 56vw;
+                max-height: 100vh;
+                padding: 0;
+            }
+        }
+    }
+    // s11 · rising text over pinned image (the JS pins #s11-container and lifts the text)
+
+    .s11-rising-text-over-pinned-image {
+        position: relative;
+        overflow: unset;
+        height: 240vh;
+        pointer-events: none;
+
+        &__text-container {
+            position: relative;
+            pointer-events: none;
+        }
+
+        &__wrap {
+            margin-right: 0;
+            margin-left: auto;
+            padding-top: 0;
+            padding-bottom: 0;
+
+            // initial state, animated by JS
+            opacity: 0;
+            position: relative;
+            transform: translateY(30rem);
+            pointer-events: none;
+        }
+
+        &__image {
+            position: absolute;
+            pointer-events: none;
+            left: 0;
+            width: 100%;
+            min-height: 100rem;
+            height: 120vh;
+            top: 0;
+        }
+
+        @media #{$desktop} {
+            &__image {
+                min-height: 90rem;
+                height: 110vh;
+            }
+        }
+
+        @media #{$laptop} {
+            &__image {
+                min-height: 75rem;
+                height: 95vh;
+            }
+        }
+
+        @media #{$tablet} {
+            height: 220vh;
+
+            &__image {
+                min-height: 60rem;
+            }
+        }
+
+        @media #{$mobile} {
+            height: 200vh;
+
+            &__image {
+                min-height: 30rem;
+                height: 100vh;
+            }
+        }
+    }
+
+    // s12 · pinned gallery (gallery 2)
+
+    .s12-pinned-gallery {
+        padding-top: 4.5vw;
+    }
+
+    // s13 · pinned cover
+
+    .s13-pinned-cover {
+        position: relative;
+
+        &__title {
+            padding-top: 18vw;
+            padding-bottom: 6.5vw;
+            margin-left: auto;
+            margin-right: auto;
+            background: $color-bg;
+        }
+
+        &__cover {
+            position: relative;
+            z-index: -1;
+        }
+
+        @media #{$mobile} {
+            &__title {
+                @include vpad;
+            }
+        }
+    }
+
+    // s14 · magnify list
+
+    .s14-magnify-list {
+        position: relative;
+        background-color: $color-overlay-light;
+
+        // sticky background: sits before the section, the JS pins it while the list scrolls
+        &__bg-container {
+            position: relative;
+        }
+
+        &__bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: -1;
+            background-color: $color-bg;
+            padding: 0;
+        }
+
+        &__title {
+            margin-top: 100vh;
+        }
+
+        &__items {
+            margin: 0 auto;
+            padding-top: 8rem;
+            padding-bottom: 12rem;
+
+            // readability tweak
+            min-width: 150rem;
+
+            @media #{$desktop} {
+                min-width: 120rem;
+            }
+            @media #{$tablet} {
+                min-width: 80rem;
+            }
+
+            .magnify-item {
+                display: grid;
+                grid-template-columns: 40rem 1fr;
+                max-width: 100rem;
+                margin-left: auto;
+                margin-right: auto;
+                opacity: 0.3;
+
+                margin-bottom: 12rem;
+                &:last-of-type {
+                    margin-bottom: 0;
+                }
+
+                &__title {
+                    @include f-46;  // readability tweak
+                }
+                &__text {
+                    font-weight: $font-weight-medium;  // readability tweak
+                    @include f-28;  // readability tweak
+                    line-height: calc(32/24);
+                }
+
+                @media #{$mobile} {
+                    grid-template-columns: 1fr;
+                    width: 70vw;
+                    position: relative;
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+
+    // s15 · split images
+
+    .s15-split-images {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        &__left {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
+            .s15-split-images__line {
+                display: block;
+
+                &--first {
+                    padding-bottom: 0.3em;
+                    padding-top: 1em;
+                }
+                &--second {
+                    margin-left: 20vw;
+                }
+            }
+        }
+
+        @media #{$mobile} {
+            padding: 0;
+            grid-template-columns: 1fr;
+
+            &__left, &__right {
+                min-height: 100vw;
+            }
+        }
+    }
+
+    .s15-split-images__caption {
+        padding: 4.5rem 2.5rem;
+    }
+
+    // s16 · vertical points (the JS pins the image while the points slide in)
+
+    .s16-vertical-points {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        &__left {
+            position: relative;
+        }
+
+        &__image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 12.6vw); // padding horizontal 6.3vw*2
+            margin-bottom: 6.3vw;
+        }
+
+        &__img {
+            position: relative;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        &__right {
+            padding-left: 0;
+        }
+
+        &__list {
+            margin-top: 8rem;
+        }
+
+        &__item {
+            padding-top: 4.5rem;
+            border-top: 1px solid $color-line;
+            margin-top: 2rem;
+
+            // initial state, animated by JS
+            opacity: 0;
+            transform: translateX(100%);
+        }
+
+        @media #{$mobile} {
+            padding-top: 3.5rem;
+            padding-bottom: 0;
+
+            grid-template-columns: 1fr;
+
+            &__left {
+                margin: 0;
+            }
+
+            &__image {
+                position: relative;
+                margin-top: 0;
+                margin-right: 0;
+                margin-left: 0;
+            }
+
+            &__right {
+                padding: 4rem 3rem 1rem 3rem;
+            }
+
+            &__list {
+                margin-top: 3rem;
+            }
+
+            &__item-title {
+                font-size: 2.5rem;
+                margin-bottom: 0.8em;
+            }
+
+            &__item-text {
+                font-size: 1.8rem;
+                line-height: 2.6rem;
+                margin-bottom: 0.5em;
+            }
+        }
+    }
+
+    // s17 · full image with text
+
+    .s17-full-image-with-text {
+        background-position: center right;
+
+        &__text {
+            color: $color-text-inverse;
+            max-width: 48%;
+            margin-right: 0;
+            margin-left: auto;
+        }
+
+        @media #{$mobile} {
+            min-height: 290vw;
+            background-position: 55% center;
+            padding: 0;
+            display: flex;
+            align-items: flex-end;
+
+            &__text {
+                max-width: unset;
+                padding: 6rem 2.5rem;
+            }
+        }
+    }
+}

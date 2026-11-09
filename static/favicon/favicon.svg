@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Synth Dreams icon: one cycle of an oscillator wave on a rounded tile -->
+  <rect width="64" height="64" rx="14" fill="#ffd23f"/>
+  <path d="M8 32 C 16 6, 24 6, 32 32 S 48 58, 56 32"
+        fill="none" stroke="#1d1a4f" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -1,0 +1,78 @@
+/* Django admin tweaks, loaded from templates/admin/base_site.html */
+
+/* hide the time zone warning next to date fields */
+.field-data .timezonewarning {
+    display: none;
+}
+
+.inline-group .tabular tr td {
+    padding: 4px !important;
+}
+
+/* translated fields: tint the Spanish version so ES/EN pairs are easy to tell apart */
+[class$="es_ES"] {
+    background-color: rgba(211, 211, 211, 12%);
+}
+
+/* image previews (apps/pages/models.py: image_preview) */
+.admin-previews {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+a .admin-previews:hover {
+    opacity: 0.8;
+    filter: grayscale(1) contrast(0.9);
+}
+
+.breadcrumbs .admin-previews {
+    display: none;
+}
+
+h2 .admin-previews {
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+}
+
+.inline_label .admin-previews {
+    display: block;
+    margin: 10px;
+}
+
+/* collapsed fieldsets: make them easy to spot */
+fieldset.collapsed {
+    border-width: 0 !important;
+}
+
+fieldset.collapsed h2 {
+    border: 2px solid var(--primary) !important;
+    background-color: var(--default-button-bg) !important;
+}
+
+fieldset.collapse:not(.collapsed),
+fieldset.collapse:not(.collapsed) h2 {
+    background-color: var(--hairline-color) !important;
+}
+
+.inline-related.has_original {
+    margin: 1.5rem 0;
+    border: 2px solid var(--primary) !important;
+}
+
+.inline-related.has_original h3 {
+    font-size: 15px !important;
+    border-width: 0 !important;
+}
+
+.collapse .form-row {
+    border-width: 0;
+    background-color: var(--default-button-bg) !important;
+}
+
+.inline-related.has_original .collapse,
+.inline-related.has_original .collapse h2 {
+    border-width: 0 !important;
+    border-radius: 0;
+}

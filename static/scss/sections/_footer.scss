@@ -1,0 +1,191 @@
+@use "../abstracts" as *;
+
+.footer {
+    scroll-snap-align: start;
+
+    &__top {
+        padding-bottom: 12rem;
+    }
+
+    // closing text
+
+    &__text {
+        max-width: 67rem;
+        width: 90%;
+        margin: 0 auto;
+        padding-bottom: 3rem;
+        text-align: center;
+
+        p {
+            padding-bottom: 1em;
+        }
+    }
+
+    // address: link that opens the map + contact details
+
+    &__address {
+        padding-bottom: 8rem;
+        text-align: center;
+    }
+
+    &__map-link {
+        margin: 3rem 0;
+        display: block;
+        cursor: pointer;
+
+        &::after {
+            display: none;
+        }
+        &:hover {
+            color: $color-text-muted;
+        }
+    }
+
+    &__map-icon {
+        display: block;
+        margin: 1.5rem auto;
+    }
+
+    &__map-label {
+        text-decoration: underline;
+        letter-spacing: 0.01em;
+    }
+
+    &__details {
+        padding-top: 1rem;
+        line-height: 1.375;
+
+        a {
+            &::after {
+                display: none;
+            }
+            &:hover, &:focus, &:active {
+                color: $color-text-muted;
+            }
+        }
+    }
+
+    // social links
+
+    &__social {
+        text-align: center;
+    }
+
+    &__social-title {
+        font-size: 1.6rem;
+        letter-spacing: 0.01em;
+        padding-bottom: 1.5em;
+    }
+
+    &__social-list {
+        display: flex;
+        justify-content: center;
+    }
+
+    &__social-item {
+        margin: 0 0.5rem;
+    }
+
+    &__social-icon {
+        width: 2.8rem;
+        height: 2.8rem;
+    }
+
+    &__social-link {
+        path {
+            transition: fill $transition-fast;
+        }
+        .footer__social-ring {
+            transition: stroke $transition-fast;
+        }
+        &::after {
+            display: none;
+        }
+        &:hover, &:focus, &:active {
+            path {
+                fill: $color-text-muted;
+            }
+            .footer__social-ring {
+                stroke: $color-text-muted;
+            }
+        }
+    }
+
+    // bottom image with the legal links
+
+    &__bottom {
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+    }
+
+    &__legal-links {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    &__legal-item {
+        margin: 1.5rem 3rem;
+        font-size: 1.2rem;
+    }
+
+    @media #{$mobile} {
+        &__top {
+            padding: 6.6rem 4rem 6rem 4rem;
+        }
+
+        &__text {
+            width: unset;
+            font-size: 1.8rem;
+            line-height: 2.6rem;
+            padding-bottom: 1rem;
+        }
+
+        &__address {
+            padding-bottom: 7rem;
+        }
+
+        &__details {
+            padding-top: 3rem;
+        }
+
+        &__social {
+            font-size: 1rem;
+        }
+
+        &__social-title {
+            padding-bottom: 3.5rem;
+        }
+
+        &__social-icon {
+            width: 3.9rem;
+            height: 3.9rem;
+        }
+
+        &__social-item {
+            margin: 0 0.8rem;
+        }
+
+        &__legal-links {
+            margin-bottom: max(20vw, 5rem); // keeps the end readable on mobile
+        }
+
+        &__legal-item {
+            margin: 1.2rem 0.7rem;
+        }
+
+        // `.footer` in front so it beats `.image-strip` (keeps the end readable on mobile)
+        & &__bottom {
+            min-height: 30rem;
+            height: 70vw;
+        }
+    }
+
+    @media #{$mobile-sm} {
+        &__legal-item {
+            font-size: 1.1rem;
+            margin: 0.7rem;
+        }
+    }
+}

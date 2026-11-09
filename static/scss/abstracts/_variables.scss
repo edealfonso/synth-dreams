@@ -1,0 +1,71 @@
+// Design tokens. No CSS output: every partial loads this through `@use "../abstracts" as *`.
+
+// ----------------------------------------------------------------
+// Breakpoints (max-width media queries, desktop first)
+// ----------------------------------------------------------------
+
+$desktop: "only screen and (max-width : 1400px)";
+$laptop: "only screen and (max-width : 1024px)";
+$tablet: "only screen and (max-width : 990px)";
+$mobile: "only screen and (max-width : 767px)";
+$mobile-sm: "only screen and (max-width : 500px)";
+
+// ----------------------------------------------------------------
+// Colours
+// ----------------------------------------------------------------
+
+$color-bg: white;
+$color-text: #000;
+$color-text-inverse: white;
+$color-text-muted: #A5A5A5;     // secondary text (`.u-text-muted`) and hover state of footer links
+$color-label: #6C6C6C;          // small numbered labels (s06)
+$color-line: #707070;           // borders, dividers and link underlines
+$color-overlay-light: rgba(255, 255, 255, 0.25);
+$color-banner-bg: #eeeae6;      // cookie banner
+
+$color-scrollbar-track: rgba(222, 222, 222, 0.25);
+$color-scrollbar-thumb: rgba(0, 0, 0, 0.4);
+$color-scrollbar-thumb-hover: black;
+
+// ----------------------------------------------------------------
+// Typography
+// ----------------------------------------------------------------
+
+$font-family: 'Work Sans', arial, sans-serif; // loaded in static/js/main.js (@fontsource)
+$font-weight-regular: normal;
+$font-weight-medium: 500;
+
+// Font sizes
+//
+// - The fluid part of each size is usually 0.6 of the max value in rem
+// - so the max value is reached on 1666px-wide screens
+
+$f-16: 1.6rem; // footer
+$f-24: clamp(1.8rem, 2.4*0.6vw, 2.4rem);
+$f-28: clamp(2rem, 2.8*0.6vw, 2.8rem);
+$f-32: clamp(2.2rem, 3.2*0.6vw, 3.2rem);
+$f-40: clamp(2.2rem, 4*0.6vw, 4rem);
+$f-42: clamp(2.2rem, 4.2*0.6vw, 4.2rem);
+$f-46: clamp(2.3rem, 4.6*0.6vw, 4.6rem);
+$f-52: clamp(2.5rem, 5.2*0.6vw, 5.2rem);
+$f-78: clamp(4.4rem, 7.8*0.6vw, 7.8rem);
+
+// ----------------------------------------------------------------
+// Spacing
+// ----------------------------------------------------------------
+
+// page gutters used by `.u-container` and `.u-container-margin`
+$gutter-y: 10vw;
+$gutter-x: 6.3vw;
+$gutter-y-mobile: 6.6rem;
+$gutter-x-mobile: 3rem;
+
+$section-pad-y: 12rem; // vertical padding of full-height sections on mobile
+
+// ----------------------------------------------------------------
+// Motion
+// ----------------------------------------------------------------
+
+$transition-fast: 0.3s ease;
+$transition-base: 0.5s ease;
+$transition-slow: 0.8s ease;

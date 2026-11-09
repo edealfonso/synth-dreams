@@ -1,0 +1,24 @@
+# MINIMUM
+
+wheel==0.48.0
+Unipath==1.1
+Django==4.2.30
+# 1.x: matches webpack-bundle-tracker 1.x in package.json
+django-webpack-loader==1.8.1
+psycopg2-binary==2.9.13
+
+# DJANGO BASICS
+
+django-debug-toolbar==6.3.0
+Pillow==13.0.0
+django-ckeditor==6.7.4
+django-admin-sortable==2.3
+
+# DJANGO MORE
+
+django-solo==2.5.1
+django-clone==5.5.0
+django-autoslug==1.9.9
+django-modeltranslation==0.19.17
+# Provides the "cookielaw" app in INSTALLED_APPS
+django-cookie-law==2.2.0

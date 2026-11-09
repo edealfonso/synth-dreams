@@ -1,0 +1,33 @@
+# Django
+
+media/
+staticfiles/
+*.log
+*.pot
+*.pyc
+__pycache__/
+
+# NPM/webpack auto-generated files
+
+node_modules/
+
+# OS auto-generated files
+
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Secrets and environment
+
+.env
+secret.json
+.bash_history
+
+# webpack artifacts
+
+static/bundles/
+webpack-stats.json

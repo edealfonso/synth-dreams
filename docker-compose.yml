@@ -1,0 +1,38 @@
+services:
+  # PostgreSQL database with a persistent volume
+  db:
+    image: postgres:16
+    env_file: .env
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  # Django with runserver; the code is mounted so changes show up right away
+  web:
+    build: .
+    env_file: .env
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  # webpack in watch mode → static/bundles/ + webpack-stats.json
+  assets:
+    image: node:22
+    working_dir: /app
+    command: sh -c "npm install && npm run watch"
+    volumes:
+      - .:/app
+      # node_modules lives in its own volume so it does not mix with the host's
+      - node_modules:/app/node_modules
+
+volumes:
+  pgdata:
+  node_modules:

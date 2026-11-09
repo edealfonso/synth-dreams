@@ -1,0 +1,48 @@
+@use "../abstracts" as *;
+
+.template-legal {
+    .legal-page {
+        margin-top: 7rem;
+        border-bottom: 1px solid;
+
+        // legal page content formatting
+
+        h2 {
+            @include h2;
+            padding-top: 1em;
+        }
+        h3 {
+            @include h3;
+            padding-top: 1em;
+        }
+        p {
+            @include text-muted;
+
+            a {
+                color: $color-text;
+            }
+        }
+        ul {
+            padding-left: 2.5em;
+            padding-bottom: 0.5em;
+
+            li {
+                position: relative;
+                padding-bottom: 0.3em;
+            }
+
+            li:before {
+                position: absolute;
+                display: block;
+                content:"•";
+                font-size: 1.6em;
+                top: -0.16em;
+                left: -0.65em;
+            }
+        }
+
+        @media #{$mobile} {
+            margin-top: 4rem;
+        }
+    }
+}

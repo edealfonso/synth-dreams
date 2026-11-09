@@ -1,0 +1,37 @@
+// Scrollbar look: native (touch devices and legal pages) and smooth-scrollbar (desktop home).
+
+@use "../abstracts" as *;
+
+// native scrollbar (WebKit)
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: $color-scrollbar-track;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $color-scrollbar-thumb;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: $color-scrollbar-thumb-hover;
+}
+
+// smooth-scrollbar (its inline styles need !important)
+.scrollbar-track {
+    background: $color-scrollbar-track !important;
+}
+
+.scrollbar-track-y {
+    width: 6px !important;
+}
+
+.scrollbar-thumb {
+    width: 0.6rem !important;
+    height: 7rem !important;
+    background: $color-scrollbar-thumb !important;
+    border-radius: 0 !important;
+}

@@ -1,0 +1,52 @@
+@use "../abstracts" as *;
+
+// Lazy-loaded background videos (behaviour in static/js/features/autovideo.js).
+// `.autovideo__video--desktop/--mobile` pick the version that gets loaded.
+
+.autovideo__video {
+    width: 100%;
+    object-fit: cover;
+    height: 100vh;
+
+    @media #{$mobile} {
+        height: 80vw;
+    }
+}
+
+// play/pause, sound and rewind buttons
+
+.autovideo__controls {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 5px;
+    margin: 2.5rem 2.2rem;
+    width: fit-content;
+    z-index: 999;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+}
+
+.autovideo__control {
+    width: 5em;
+    height: 2.5em;
+
+    &:hover {
+        opacity: 0.35;
+    }
+
+    @media #{$mobile} {
+        width: 6em;
+    }
+}
+
+.autovideo__control--audio {
+    height: 3.2em;
+    margin-left: 0.7em;
+
+    @media #{$mobile} {
+        margin-left: 1em;
+    }
+}

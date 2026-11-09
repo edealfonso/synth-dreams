@@ -1,0 +1,12 @@
+.git
+.env
+secret.json
+node_modules
+media
+staticfiles
+static/bundles
+webpack-stats.json
+**/__pycache__
+**/*.pyc
+.DS_Store
+.bash_history

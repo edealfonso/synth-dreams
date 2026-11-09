@@ -1,0 +1,76 @@
+{% load static %}
+{% load site_tags %}
+{% get_footer as footer %}
+{% get_legal_pages as legal_pages %}
+
+<footer class="footer u-f-footer">
+    <div class="footer__top u-container gsap-appear" id="footer">
+        <div class="footer__text u-f-32">
+            {{ footer.text|safe }}
+        </div>
+        <div id="contact" class="footer__address">
+            <div class="footer__map-link js-activate-map">
+                <svg class="footer__map-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="28" viewBox="0 0 20 28" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M10 1a9 9 0 0 0-9 9c0 6.6 9 17 9 17s9-10.4 9-17a9 9 0 0 0-9-9zm0 5.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7z"/>
+                </svg>
+                <span class="footer__map-label">{{footer.map_link_text}}</span>
+            </div>           
+            <div class="footer__details">
+                {{footer.contact_details|safe}}
+            </div>
+        </div>
+        <div class="footer__social">
+            <h5 class="footer__social-title u-h5">{{footer.social_title}}</h5>
+            <ul class="footer__social-list">
+                <li class="footer__social-item">
+                    <a href="{{footer.github}}" class="footer__social-link" target="_blank" rel="noopener" title="GitHub">
+                        <svg class="footer__social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" aria-hidden="true">
+                            <circle class="footer__social-ring" cx="14" cy="14" r="13" fill="none" stroke="#000" stroke-width="2"/>
+                            <path transform="translate(7.5 7.5) scale(0.54)" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+                        </svg>
+                    </a>
+                </li>
+                <li class="footer__social-item">
+                    <a href="{{footer.linkedin}}" class="footer__social-link" target="_blank" rel="noopener" title="LinkedIn">
+                        <svg class="footer__social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" aria-hidden="true">
+                            <circle class="footer__social-ring" cx="14" cy="14" r="13" fill="none" stroke="#000" stroke-width="2"/>
+                            <path transform="translate(7.5 7.5) scale(0.54)" d="M2.5 8.5h4.2V22H2.5zM4.6 2a2.4 2.4 0 1 1 0 4.8 2.4 2.4 0 0 1 0-4.8zM9.3 8.5h4v1.9c.7-1.3 2.3-2.2 4.2-2.2 3.9 0 4.5 2.6 4.5 5.9V22h-4.2v-7c0-1.7 0-3.6-2.2-3.6s-2.1 1.7-2.1 3.5V22H9.3z"/>
+                        </svg>
+                    </a>
+                </li>
+                <li class="footer__social-item">
+                    <a href="{{footer.pinterest}}" class="footer__social-link" target="_blank" rel="noopener" title="Pinterest">
+                        <svg class="footer__social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" aria-hidden="true">
+                            <circle class="footer__social-ring" cx="14" cy="14" r="13" fill="none" stroke="#000" stroke-width="2"/>
+                            <path transform="translate(7.5 7.5) scale(0.54)" d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/>
+                        </svg>
+                    </a>
+                </li>
+                <li class="footer__social-item">
+                    <a href="{{footer.wikipedia}}" class="footer__social-link" target="_blank" rel="noopener" title="Wikipedia">
+                        <svg class="footer__social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" aria-hidden="true">
+                            <circle class="footer__social-ring" cx="14" cy="14" r="13" fill="none" stroke="#000" stroke-width="2"/>
+                            <path transform="translate(7.5 7.5) scale(0.54)" d="M12.09 13.119c-.936 1.932-2.217 4.548-2.853 5.728-.616 1.074-1.127.931-1.532.029-1.406-3.321-4.293-9.144-5.651-12.409-.251-.601-.441-.987-.619-1.139-.181-.15-.554-.24-1.122-.271C.103 5.033 0 4.982 0 4.898v-.455l.052-.045c.924-.005 5.401 0 5.401 0l.051.045v.434c0 .119-.075.176-.225.176l-.564.031c-.485.029-.727.164-.727.436 0 .135.053.33.166.601 1.082 2.646 4.818 10.521 4.818 10.521l.136.046 2.411-4.81-.482-1.067-1.658-3.264s-.318-.654-.428-.872c-.728-1.443-.712-1.518-1.447-1.617-.207-.023-.313-.05-.313-.149v-.468l.06-.045h4.292l.113.037v.451c0 .105-.076.15-.227.15l-.308.047c-.792.061-.661.381-.136 1.422l1.582 3.252 1.758-3.504c.293-.64.233-.801.111-.947-.07-.084-.305-.22-.812-.24l-.201-.021c-.052 0-.098-.015-.145-.051-.045-.031-.067-.076-.067-.129v-.427l.061-.045c1.247-.008 4.043 0 4.043 0l.059.045v.436c0 .121-.059.178-.193.178-.646.03-.782.095-1.023.439-.12.186-.375.589-.646 1.039l-2.301 4.273-.065.135 2.792 5.712.17.048 4.396-10.438c.154-.422.129-.722-.064-.895-.197-.172-.346-.273-.857-.295l-.42-.016c-.061 0-.105-.014-.152-.045-.043-.029-.072-.075-.072-.119v-.436l.059-.045h4.961l.041.045v.437c0 .119-.074.18-.209.18-.648.03-1.127.18-1.443.421-.314.255-.557.616-.736 1.067 0 0-4.043 9.258-5.426 12.339-.525 1.007-1.053.917-1.503-.031-.571-1.171-1.773-3.786-2.646-5.71l.053-.036z"/>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer__bottom image-strip u-bg-cover"
+        style="background-image: url('{{ footer.bottom_image|media_url }}');">
+
+        <ul class="footer__legal-links">
+            {% for legal_page in legal_pages %}
+            <li class="footer__legal-item">
+                <a href="{% url 'pages:legal' legal_page.slug %}" target="_blank">{{ legal_page.title }}</a>
+            </li>
+            {% endfor %}
+            <li class="footer__legal-item">
+                {{ footer.copyright }}
+            </li>
+        </ul>
+    </div>
+
+</footer>

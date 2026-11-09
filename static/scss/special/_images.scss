@@ -1,0 +1,56 @@
+@use "../abstracts" as *;
+
+// Horizontal image strip (s08 and the footer)
+
+.image-strip {
+    min-height: 25vw;
+    max-height: 70vh;
+
+    @media #{$mobile} {
+        min-height: 48vw;
+    }
+}
+
+// Pinned galleries (s07 and s12): pairs of images on desktop, one image per row on mobile.
+// The JS pins each `.gallery__pair` (#s07-pair-N / #s12-pair-N) and moves its `.gallery__row`.
+
+.gallery--desktop {
+    display: block;
+    @media #{$mobile} {
+        display: none;
+    }
+
+    .gallery__pair {
+        height: 100vh;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .gallery__row {
+        position: relative;
+
+        display: grid;
+        grid-template-columns: 50vw 50vw;
+    }
+
+    .gallery__pic {
+        height: 100vh;
+        display: inline-block;
+    }
+}
+
+.gallery--mobile {
+    display: none;
+    @media #{$mobile} {
+        display: block;
+    }
+
+    .gallery__item {
+        position: relative;
+    }
+
+    .gallery__pic {
+        position: relative;
+        min-height: 80vw;
+    }
+}

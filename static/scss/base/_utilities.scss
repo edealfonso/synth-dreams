@@ -1,0 +1,61 @@
+// Utility classes (prefix `u-`), used directly in the templates.
+// Most wrap the mixin of the same name.
+
+@use "../abstracts" as *;
+
+// colours
+.u-text-muted { @include text-muted; }
+
+// fonts
+.u-f-footer { @include f-footer; }
+.u-f-24 { @include f-24; }
+.u-f-32 { @include f-32; }
+.u-f-42 { @include f-42; }
+.u-f-52 { @include f-52; }
+.u-h1 { @include h1; }
+.u-h2 { @include h2; }
+.u-h3 { @include h3; }
+.u-h4 { @include h4; }
+.u-h5 { @include h5; }
+
+// spacing
+.u-container { @include container; }
+.u-container-margin { @include container-margin; }
+.u-mw-1000 { @include mw-1000; }
+.u-mw-1200 { @include mw-1200; }
+.u-fullheight { @include fullheight; }
+.u-center { @include center; }
+
+// backgrounds
+.u-bg-cover {
+    @include bg-cover;
+    min-height: 100vh;
+}
+
+.u-bg-contain {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+// alignment
+.u-text-center {
+    text-align: center;
+
+    @media #{$mobile} {
+        text-align: left;
+    }
+}
+
+// responsive images: one version per breakpoint
+.u-desktop-only {
+    @media #{$mobile} {
+        display: none;
+    }
+}
+.u-mobile-only {
+    display: none;
+    @media #{$mobile} {
+        display: block;
+    }
+}

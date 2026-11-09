@@ -1,0 +1,43 @@
+@use "../abstracts" as *;
+
+// Initial state of the generic scroll animations (static/js/animations/generic.js).
+// Block-specific initial states live with their block in templates/_home.scss.
+
+// common effect: fades in the first time
+
+.gsap-appear {
+    opacity: 0;
+}
+
+// common parallax effect
+
+.gsap-parallax,
+.gsap-parallax-scale {
+    transform: translateY(-50%);
+}
+.gsap-parallax-reverse {
+    transform: translateY(30%);
+}
+
+// common parallax effect for backgrounds
+
+.gsap-parallax-bg {
+    width: 100%;
+    height: calc(100% + 30vh);
+    top: -30vh;
+    left: 0;
+    position: absolute;
+    @include bg-cover;
+    z-index: -1;
+}
+
+.image-strip .gsap-parallax-bg {
+    height: 140%;
+    top: -40%;
+}
+
+.gsap-parallax-bg-parent {
+    position: relative;
+    overflow: hidden;
+    z-index: -2;
+}

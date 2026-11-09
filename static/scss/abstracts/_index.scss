@@ -1,0 +1,5 @@
+// Entry point of the abstracts (tokens and mixins, no CSS output).
+// Every partial starts with `@use "../abstracts" as *;`.
+
+@forward "variables";
+@forward "mixins";

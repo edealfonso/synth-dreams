@@ -1,0 +1,14 @@
+{% load i18n %}
+
+<div id="CookielawBanner" class="cookie-banner">
+    <div class="cookie-banner__inner">
+        <h6 class="cookie-banner__title">{% trans "COOKIE_INFO_HEADER" %}</h6>
+        <div class="cookie-banner__body">
+            <p class="cookie-banner__text">
+                {% trans "COOKIE_INFO_PARA" %}
+            </p>
+            <a class="cookie-banner__button" href="javascript:Cookielaw.accept();">{% trans "COOKIE_INFO_OK" %}</a>
+        </div>
+    </div>
+</div>
+

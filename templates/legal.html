@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+<!-- TITLE -->
+{% block title %}
+Synth Dreams | {{ page.title }}
+{% endblock title %}
+
+{% block classes %}
+template-legal
+{% endblock classes %}
+
+<!-- CONTENT -->
+{% block content %}
+
+{% include 'includes/header.html' with header_class="visible" %}
+
+<div id="body-scroller" class="page-scroller">
+
+    <main>
+        <section class="legal-page u-container">
+
+            <h1 class="legal-page__title u-h1">
+                {{ page.title }}
+            </h1>
+
+            <div class="legal-page__text">
+                {{ page.content|safe }}
+            </div>
+
+        </section>
+    </main>
+
+    {% include 'includes/footer.html' %}
+
+</div>
+
+{% endblock content %}
