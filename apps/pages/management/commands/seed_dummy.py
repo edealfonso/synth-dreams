@@ -273,14 +273,13 @@ class Command(BaseCommand):
         set_translated(f, 'map_link_text', 'Ver mapa', 'See map')
         set_translated(f, 'contact_details', '<p>Calle del Ruido, 1<br>hola@example.com</p>',
                        '<p>1 Noise Street<br>hello@example.com</p>')
-        set_translated(f, 'social_title', 'Redes', 'Social')
         f.github = 'https://example.com/github'
         f.linkedin = 'https://example.com/linkedin'
         f.pinterest = 'https://example.com/pinterest'
         f.wikipedia = 'https://example.com/wikipedia'
         set_file(f, 'map', placeholder_image('footer-map', LANDSCAPE))
         set_file(f, 'bottom_image', placeholder_image('footer-bottom-image', LANDSCAPE))
-        f.copyright = '© Elsa de Alfonso'
+        f.copyright = 'Elsa de Alfonso'
         f.save()
 
     def legal_pages(self):

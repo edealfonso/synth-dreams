@@ -1,6 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <!-- Synth Dreams icon: one cycle of an oscillator wave on a rounded tile -->
-  <rect width="64" height="64" rx="14" fill="#ffd23f"/>
-  <path d="M8 32 C 16 6, 24 6, 32 32 S 48 58, 56 32"
+  <!-- Synth Dreams icon: a single pulse over two stacked colour layers (60/40) -->
+  <clipPath id="tile"><rect width="64" height="64" rx="14"/></clipPath>
+  <g clip-path="url(#tile)">
+    <rect width="64" height="64" fill="#ffd23f"/>
+    <rect y="38" width="64" height="26" fill="#ffffff"/>
+  </g>
+  <path d="M6 52 H18 V11 H40 V52 H58"
         fill="none" stroke="#1d1a4f" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

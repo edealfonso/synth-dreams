@@ -196,14 +196,14 @@ class Footer(SingletonModel):
     map = models.FileField(blank=True, null=True)
     contact_details = RichTextField(null=True, blank=True)
 
-    social_title = models.CharField(max_length=255, blank=True, null=True)
     github = models.URLField(max_length=1000, null=True, blank=True)
     linkedin = models.URLField(max_length=1000, null=True, blank=True)
     pinterest = models.URLField(max_length=1000, null=True, blank=True)
     wikipedia = models.URLField(max_length=1000, null=True, blank=True)
 
     bottom_image = models.ImageField(blank=True)
-    copyright = models.CharField(default="© Elsa de Alfonso", max_length=255, blank=True, null=True)
+    copyright = models.CharField(default="Elsa de Alfonso", max_length=255, blank=True, null=True,
+                                 help_text="Shown after © and the current year.")
 
     def __str__(self):
         return "Footer"

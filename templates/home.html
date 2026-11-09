@@ -83,7 +83,8 @@ template-home
 
                 <div class="autovideo__controls js-autovideo-controls">
                     <img class="autovideo__control" src="{% static 'img/icon-pause.svg' %}" data-action="playpause">
-                    <img class="autovideo__control autovideo__control--audio" src="{% static 'img/icon-sound.svg' %}" data-action="audio">
+                    <img class="autovideo__control autovideo__control--audio autovideo__control--muted" src="{% static 'img/icon-mute.svg' %}" data-action="audio" alt="Sound off">
+                    <img class="autovideo__control autovideo__control--audio autovideo__control--sound-on" src="{% static 'img/icon-sound.svg' %}" data-action="audio" alt="Sound on">
                     <img class="autovideo__control" src="{% static 'img/icon-back.svg' %}" data-action="rewind">
                 </div>
 

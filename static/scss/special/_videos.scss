@@ -42,6 +42,20 @@
     }
 }
 
+// muted / sound-on icons: the JS toggles `.sound-on` on the video container
+.autovideo__control--sound-on {
+    display: none;
+}
+
+.sound-on {
+    .autovideo__control--muted {
+        display: none;
+    }
+    .autovideo__control--sound-on {
+        display: block;
+    }
+}
+
 .autovideo__control--audio {
     height: 3.2em;
     margin-left: 0.7em;

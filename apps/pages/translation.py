@@ -65,7 +65,7 @@ translator.register(MagnifyItem, MagnifyItemTranslationOptions)
 
 
 class FooterTranslationOptions(TranslationOptions):
-    fields = ('text', 'map_link_text', 'contact_details', 'social_title')
+    fields = ('text', 'map_link_text', 'contact_details')
 
 
 translator.register(Footer, FooterTranslationOptions)
