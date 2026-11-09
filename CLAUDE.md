@@ -87,7 +87,7 @@ Work **one phase at a time**. The user validates each phase before moving on. Do
 
 - **s04 video** (and the optional s10 video): generate with `ffmpeg` test sources, without the timecode overlay. s04 currently shows a colour-bars placeholder.
 - **s09 vignettes:** simple SVG pictograms (oscillator, filter, envelope…), not photos.
-- **Footer map:** OpenStreetMap image (credited) with the museum address, plus the real address text (currently "Calle del Ruido, 1"), the `.example` email and the social links.
+- ✅ **Footer:** address text "A quiet street in Ciutat Vella, Barcelona" (ES/EN), `share-your@synth-dreams.example`, GitHub/LinkedIn/YouTube (Pinterest and Wikipedia dropped). Map overlay = Cerdà's 1859 plan (public domain), cropped around Ciutat Vella, inverted and tinted with the s05 greens (`seed/images/footer-map.jpg`). Closing photo in a light lilac duotone (#8a7fe0 → #f6f4ff): lilac and green are the site's two accents.
 - **Credits:** finish `seed/credits-todo.md` (some entries still say "credit from earlier list") and show them in the footer credits block.
 - **Texts:** every block still has "Bip bup" placeholder text, ES and EN.
 - **`seed_demo`:** load everything from `seed/` on a fresh clone (unique gallery `the_order`).
