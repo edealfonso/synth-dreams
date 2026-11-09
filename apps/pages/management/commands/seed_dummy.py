@@ -275,8 +275,7 @@ class Command(BaseCommand):
                        '<p>1 Noise Street<br>hello@example.com</p>')
         f.github = 'https://example.com/github'
         f.linkedin = 'https://example.com/linkedin'
-        f.pinterest = 'https://example.com/pinterest'
-        f.wikipedia = 'https://example.com/wikipedia'
+        f.youtube = 'https://example.com/youtube'
         set_file(f, 'map', placeholder_image('footer-map', LANDSCAPE))
         set_file(f, 'bottom_image', placeholder_image('footer-bottom-image', LANDSCAPE))
         f.copyright = 'Elsa de Alfonso'

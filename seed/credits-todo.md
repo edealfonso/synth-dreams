@@ -16,7 +16,8 @@ s02: tr-808 (credit from earlier list)
 s05 (now): Unsplash 1720962158852-e7039d31c3c1 (green ADSR envelope screen; was s02)
 s15-left: sp404-blue (credit from earlier list)
 s16: vintage VU meters (credit from earlier list; was the s05 original)
-footer-bottom: same photo as s01 (Unsplash 1781005675314-5fb056505db2), vertical centre band (y 455-1375 of 3000x2000), light blur, 35% fade to white
+footer-bottom: same photo as s01 (Unsplash 1781005675314-5fb056505db2), vertical centre band (y 455-1375 of 3000x2000), light blur, 35% fade to white, then grayscale and lilac duotone (#8a7fe0 → #f6f4ff)
+footer-map: Ildefons Cerdà, "Plano de los alrededores de la ciudad de Barcelona y proyecto de su reforma y ensanche" (1859), public domain, Bibliothèque nationale de France via Wikimedia Commons · https://commons.wikimedia.org/wiki/File:Plano_de_los_alrededores_de_la_ciudad_de_Barcelona_y_proyecto_de_su_reforma_y_ensanche_-_(Sign%C3%A9_Ildefonso_Cerda_(Abril_1859))_-_btv1b532454437.jpg · cropped around Ciutat Vella (x 1500, y 4700, 8100x4556 of 14398x9852), inverted and tinted with the s05 greens (#090f10 → #6fd6ac)
 backup op1-wood-window-light: Unsplash 1654573117449-03bc35a6355f
 backup moog-minitaur-panel, roland-jd08-keys, apollo-twin-wood-desk: see the lines above or the earlier list
 
