@@ -282,18 +282,15 @@
                 display: grid;
                 grid-template-columns: 1fr 1fr;
 
+                // slow parallax: drifts down the section while it scrolls past (moved by JS, desktop only)
                 .vignette-group__image {
                     position: absolute;
-                    top: 3%;
+                    top: 0;
                     left: 0;
                     width: 50%;
                     height: auto;
 
                     padding: 3.5rem;
-
-                    // initial state, animated by JS (desktop only)
-                    transform: scale(0.9);
-                    transform-origin: center top;
                 }
 
                 .vignette-group__right {

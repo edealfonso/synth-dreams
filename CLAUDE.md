@@ -97,7 +97,7 @@ Work **one phase at a time**. The user validates each phase before moving on. Do
 #### Photo constraints (final selection)
 
 - **Theme:** the site is about the author's dream gear (see the wish list in the conversation). Photos from Unsplash/Pexels only (Unsplash+ excluded), beautiful, with special/coloured light; abstract close-ups are fine, they need not show the whole device. **Validated look:** product close-ups in natural light with cheerful, slightly vintage/pastel colours (favourite: TR-808 button close-up; also OP-Z detail, Moog Grandmother panels). Warm, moody coloured light (orange/red-pink) is acceptable as a secondary accent. Avoid flat "still life" shots on plain coloured backgrounds and abstract light-painting. Keep it simple: download each chosen photo once into `seed/` and record its credit (no image pipeline).
-- **s09_left_image and s11_image:** the photo's background must match the block's background colour.
+- **s11_image:** the photo's background must match the block's background colour. (s09 now uses a full-bleed top-view photo, so the rule no longer applies there.)
 - **s09 vignettes:** drawn as simple SVG pictograms (e.g. oscillator, filter, envelope), not photos.
 - **Photos under text (s01, s14):** faded toward white before seeding (`ffmpeg lutrgb`, out = val·(1−a) + 255·a; a ≈ 0.7 for s01, 0.45 for s14) so the black text has little contrast to fight.
 - **Galleries:** s07 = classic Roland drum machines only; s12 = Teenage Engineering only.
@@ -199,7 +199,7 @@ ES modules with a single entry point (`main.js`). jQuery is global (`$`, via `Pr
 | `utils/webp.js` | `changeToWebP()`: adds the `.webp` version to `background-image`s. |
 
 ### Animation adjustments (branch `animation-adjustments`)
-- **s09:** the left image is no longer pinned; it scrolls with the section and zooms from 0.9 to 1 as the section enters (desktop only).
+- **s09:** slow parallax on the left image (desktop only, no zoom): while the section crosses the screen (`top bottom` → `bottom top`), a scrubbed `y` transform moves it from the top of the section to its bottom, so it rises into view more slowly than the page and only its lower part shows as the section leaves. A transform, not a pin, so later triggers keep their positions.
 - **s11:** title and text sit above the image; the title only fades in, the text fades in and rises a little; the image (tight crop, 85vh) is pinned in the middle of the screen (no pin spacing, the section height gives the distance) and zooms from 0.85 to 1.
 - **s14:** each item lights up as it rises to the middle of the screen and stays lit (no dimming afterwards).
 
