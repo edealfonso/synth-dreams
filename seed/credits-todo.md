@@ -1,9 +1,8 @@
 # Photo credits: working notes (to be cleaned up into the footer credits block and seed_demo)
 
 s05: pexels 8042662 (gear table)
-s09 (now): topview-keyboards-mixer, top view of a Korg wavestate, Moog Grandmother, Sub 37 and a Zoom mixer (credit still to find); backup arp2600-white-wall (was s09): unsplash photo-1582938431641-32b5ba6ad67c; backup white-device-gold-knobs: photo-1526051539758-8963fcdaf57f; s05 old
+s09 (now): topview-keyboards-mixer, top view of a Korg wavestate, Moog Grandmother, Sub 37 and a Zoom mixer (credit still to find); backup arp2600-white-wall (was s09): unsplash photo-1582938431641-32b5ba6ad67c; s05 old
 s12-1: unsplash photo-1780914120768-5d3dba53dfb6 (PO KO)
-backup mpk-mini-headphones: pexels 4092062
 backup gear-table-mother32: pexels 8042662
 s05: pexels 7095427
 s05: sp404-blue (credit from earlier list)
@@ -12,7 +11,6 @@ s11: analog four (credit from earlier list), edited
 s11: unsplash photo-1587916849886-1e85d87b4c01 (digitakt on white table); backup elektron-analog-four-white
 s13 (new): Unsplash 1758336717046-c475fc6f45ce · Studio Lego (@o_studio_lego) · https://unsplash.com/photos/XLlyBSLdqoU
 s16 (new): Unsplash 1680614781360-253b4a16823b · @clickeys · https://unsplash.com/photos/URo1hKO2nt8
-backup dj-controller-film: Unsplash 1641573481523-3e0447d7ba86 · Ivana Cajina (@von_co) · https://unsplash.com/photos/T9YfR-xHjBs
 s01 (+ mobile crop): Unsplash 1781005675314-5fb056505db2 (white keypad with aluminium knobs)
 s02: tr-808 (credit from earlier list)
 s05 (now): Unsplash 1720962158852-e7039d31c3c1 (green ADSR envelope screen; was s02)
@@ -20,7 +18,7 @@ s15-left: sp404-blue (credit from earlier list)
 s16: vintage VU meters (credit from earlier list; was the s05 original)
 footer-bottom: same photo as s01 (Unsplash 1781005675314-5fb056505db2), vertical centre band (y 455-1375 of 3000x2000), light blur, 35% fade to white
 backup op1-wood-window-light: Unsplash 1654573117449-03bc35a6355f
-backup moog-minitaur-panel, roland-jd08-keys, apollo-twin-wood-desk, pioneer-ddj, coiled-cables-pastel: see the lines above or the earlier list
+backup moog-minitaur-panel, roland-jd08-keys, apollo-twin-wood-desk: see the lines above or the earlier list
 
 ## To recover
 
