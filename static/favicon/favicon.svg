@@ -1,10 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <!-- Synth Dreams icon: a single pulse over two stacked colour layers (60/40) -->
+  <!-- Synth Dreams icon: a pixel "wave" pulse on a 9x9 grid over two stacked colour layers -->
   <clipPath id="tile"><rect width="64" height="64" rx="14"/></clipPath>
   <g clip-path="url(#tile)">
     <rect width="64" height="64" fill="#a99cff"/>
-    <rect y="38" width="64" height="26" fill="#ffffff"/>
+    <rect y="35.556" width="64" height="28.444" fill="#ffffff"/>
+    <g fill="#111111">
+      <rect x="0" y="42.667" width="21.333" height="7.111"/>
+      <rect x="14.222" y="21.333" width="7.111" height="28.444"/>
+      <rect x="21.333" y="14.222" width="28.444" height="7.111"/>
+      <rect x="42.667" y="14.222" width="7.111" height="28.444"/>
+      <rect x="49.778" y="42.667" width="14.222" height="7.111"/>
+    </g>
   </g>
-  <path d="M8 50 H19 V14 H41 V50 H56"
-        fill="none" stroke="#111111" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
