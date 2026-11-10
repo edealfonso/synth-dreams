@@ -319,6 +319,17 @@
                     }
                 }
 
+                // vignette names in peach bold: group 1 captions and the bold names at the start of
+                // the texts (square cards, round vignettes, effect chain)
+
+                .floating-images__name,
+                .square-card__item strong,
+                .vignette__right strong,
+                .fx-chain__text strong {
+                    color: $color-accent-secondary;
+                    font-weight: $font-weight-bold;
+                }
+
                 // floating drawings: loose, irregular layout.
                 // Every offset is a % of the column width (vertical margins too), so the layout
                 // scales the same on every screen; margin-left + width stays under 100%.
