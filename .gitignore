@@ -39,3 +39,7 @@ seed/backup/
 # Static export (GitHub Pages build output)
 
 dist/
+
+# Private Claude Code notes
+
+CLAUDE.local.md
