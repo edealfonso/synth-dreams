@@ -17,7 +17,7 @@ It is built on an existing Django codebase. The most valuable part is the **fron
 - ✅ **Phase 3 (improvements):** done and validated, in sub-phases: 3a bugs and dead code → 3b modularise the JS → English translation (literal) → 3c structural naming → 3d SCSS (modules, tokens, BEM) → 3e conventions.
 - ✅ **Phase 4 (remove traces of the origin):** done and validated. Admin CSS copies and logo removed (own `static/css/admin.css`), a free font instead of the paid one (now DM Sans), new favicon (a black pixel "wave" pulse over a lilac `#a99cff` / white split, same icon as the logo; PNG/ICO rasterised from the same geometry as `favicon.svg`), own rounded UI icons (circular back arrow, struck-through speaker while muted) and map pin, solid social icons GitHub/LinkedIn/Pinterest/Wikipedia (Simple Icons, CC0; LinkedIn drawn by hand), no social title, copyright rendered as `© <current year> <footer.copyright>`. Exhaustive search with the user's terms (files, binaries, file names, node_modules, database, git history): clean.
 - 📋 Parked issues live in `backlog.md` (anchor `#hash`, scroll stuck at `s06`, legal URLs with trailing slash, CKEditor 4, inconsistent breakpoints).
-- **Git:** history restarted on 2026-11-09 with a single clean initial commit on `main` (the old history is kept outside the project and must never be published). Published on 2026-11-09 as a **private** GitHub repo (`origin`); code or structural changes go through branches and PRs that the user reviews; small content tweaks (a photo crop, a text fix) can be committed straight to `main`.
+- **Git:** history restarted on 2026-11-09 with a single clean initial commit on `main` (the old history is kept outside the project and must never be published). Published on 2026-11-09 as a private GitHub repo (`origin`), made **public** on 2026-11-10; merged branches are deleted from the remote; code or structural changes go through branches and PRs that the user reviews; small content tweaks (a photo crop, a text fix) can be committed straight to `main`.
 - The dev database holds **placeholder content** from `seed_dummy` (silly text and images showing their field name). No users. Temporary: phase 5 replaces it with `seed_demo`.
 
 ## Goals (by phase)
@@ -129,6 +129,27 @@ Each vignette is a frame (square, rectangle or circle) holding a **pictogram of 
 - **s14_image:** very light, low contrast (or reduced opacity) so the text on top stays readable.
 - **s17_image:** text sits top-right on desktop and at the bottom on mobile (white text), so those areas must be plain and dark.
 - **Videos (s04, s10):** procedurally generated with `ffmpeg` test sources (no rights needed; remove the timecode overlay). The author may add her own audio.
+
+### 6. Go public: GitHub Pages (planned 2026-11-10)
+
+The goal of the whole project: a **public** repo with the site live for free on **GitHub Pages** (`<user>.github.io/synth-dreams/`), so GitHub visitors see both the code and the page. Free Pages needs a public repo. The site is published as a **static export**, because visitors only need the home and legal pages and the animations are all frontend. The admin is never exposed.
+
+- **Steps, in order** (each in its own branch + PR):
+  1. Finish `seed_demo` (phase 5): CI starts from an empty database, so everything must load from `seed/`.
+  2. Make the site work under the `/synth-dreams/` subpath: `STATIC_URL`, `MEDIA_URL`, webpack `publicPath` and the ES/EN language links.
+  3. Static export script: renders `/`, `/en/` and the legal pages (both languages), with bundles, images and videos inside. Pages limits: 1 GB per site, 100 MB per file (keep the s04/s10 videos light).
+  4. GitHub Action on every push to `main`: Postgres service → `migrate` → `seed_demo` → `npm run build` → `collectstatic` → export → deploy to Pages.
+  5. Before going public: run the origin-traces search again (the user gives the terms in the conversation), check for secrets, finish the credits and replace the s04 placeholder video.
+  6. The user makes the repo public and sets Settings → Pages → Source to "GitHub Actions".
+- **Content updates:** any push to `main` (including small content tweaks in `seed/`) redeploys the site.
+- **README.md** (the repo is a job-hunting portfolio, so the README is its front page). It must have:
+  - an attractive screenshot (or GIF) of the site;
+  - what the site does;
+  - the technologies used;
+  - what the author developed herself;
+  - the live demo link (GitHub Pages);
+  - how to run it locally (Docker).
+- **Split this file:** keep a short public `CLAUDE.md` (stack, architecture, conventions, gotchas) and move everything else (phase diary, content and photo notes, anything about the project's origin) to a git-ignored `CLAUDE.local.md`, which Claude Code also reads. No history rewrite.
 
 ## Blocks (structural naming)
 
@@ -268,6 +289,7 @@ Pending:
 - Also not committed: `node_modules/`, `media/` (except what the seed needs, which goes in `seed/`), `static/bundles/`, `webpack-stats.json`, `.DS_Store`, `.bash_history`.
 - `settings/prod.py` has no domains or hosting data: everything comes from the environment.
 - The local git repo exists, but **the published one must start clean**. See "Current status".
+- The repo is **public** (since 2026-11-10). Checked then: no secrets or ignored files in the tracked tree or in the history. Known and accepted: `seed/backup/` photos (Unsplash/Pexels, free licence) are in the history from before it was git-ignored; the author decided to keep them there (no history rewrite).
 
 ## Conventions
 
