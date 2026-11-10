@@ -31,3 +31,7 @@ secret.json
 
 static/bundles/
 webpack-stats.json
+
+# Seed backups (local only, never published)
+
+seed/backup/

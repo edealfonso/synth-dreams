@@ -124,7 +124,7 @@ Each vignette is a frame (square, rectangle or circle) holding a **pictogram of 
 - **s09 vignettes:** drawn as simple SVG pictograms (e.g. oscillator, filter, envelope), not photos.
 - **Photos under text (s01, s14):** faded toward white before seeding (`ffmpeg lutrgb`, out = val·(1−a) + 255·a; a ≈ 0.7 for s01, 0.45 for s14) so the black text has little contrast to fight.
 - **Galleries:** s07 = classic Roland drum machines only; s12 = Teenage Engineering only.
-- **Backup photos** (good, not placed yet) live in `seed/backup/`. Every photo removed from a block goes there; files the author deletes from it are rejected and must not be restored.
+- **Backup photos** (good, not placed yet) live in `seed/backup/` (local only, git-ignored). Every photo removed from a block goes there; files the author deletes from it are rejected and must not be restored.
 - **Gallery order:** `seed_demo` must give gallery rows unique `the_order` values (the dev DB ended up with duplicates, which made the rendered order differ from the intended one).
 - **s14_image:** very light, low contrast (or reduced opacity) so the text on top stays readable.
 - **s17_image:** text sits top-right on desktop and at the bottom on mobile (white text), so those areas must be plain and dark.
