@@ -100,11 +100,12 @@ Each vignette is a frame (square, rectangle or circle) holding a **pictogram of 
 
 - **Style:** line drawings only, strokes in the original black/grey (`#111` or the muted text grey), same stroke weight in every pictogram, no fills. No colour for now; if needed later, only the theme accents (green `$color-accent-secondary`, maybe lilac), never colourful. One SVG file per pictogram in `seed/images/vignettes/`, loaded into the existing `Vignette.image` field.
 - ✅ **Group 1 · Sound sources:** five line drawings (sine, triangle, square, sawtooth, noise; 1.8 cycles each, black 2 px stroke, grey zero line, `seed/images/vignettes/wave-*.svg`) with the name below (`Vignette.text1`, centred, muted). Loose organic layout in two runs (2 + 3): every offset (horizontal and vertical) is a % of the column width so it scales the same on every screen; wider items under the tablet breakpoint. Each drawing fades in on its own, scrubbed with the scroll (`.js-floating-item`). Noise sits here because it is a raw source, like the oscillators.
-- **Group 2 · Modulation** (squares and circles): every item fades in; for circles, the joining line to the text keeps the current slide-in from the side.
-  - Square **ADSR:** the classic envelope shape; one line each for Attack, Decay, Sustain, Release (four lines: add a `Vignette.text4` field + migration + `translation.py` + admin + template).
-  - Square **Filter:** a conceptual low-pass curve (flat, resonant bump, roll-off); one line for cutoff frequency, one for resonance.
-  - Circle **LFO:** a wide, flat, slow-looking wave inside the circle; short text on what an LFO is.
-  - Circle **Pitch:** short text on octaves and fine-tune (pictogram: e.g. two waves an octave apart, or a small dial).
+- ✅ **Group 2 · Modulation:** two square cards and two circles, same line style (`seed/images/vignettes/mod-*.svg`). Square cards show one line per filled-in text (`Vignette.texts`, up to `text4`) and never crop their pictogram (`object-fit: contain`). Fade-in and slide-in lines unchanged.
+  - **ADSR:** classic envelope with dashed phase dividers; four short lines (attack, decay, sustain, release).
+  - **Filter:** low-pass curve with resonant bump, dashed line at the cutoff; cutoff and resonance lines.
+  - **LFO:** one wide, flat cycle; what an LFO is.
+  - **Pitch:** a −12…+12 knob (stroke-drawn numbers, pointer slightly off centre for fine-tune); semitones/octaves for presence, fine-tune for imperfection and nuance.
+  - Draft ES/EN texts for groups 1 and 2 live only in the dev DB for now: `seed_demo` must load them.
 - **Group 3 · FX** (layout free): this group should be **geometrically more inventive** than groups 1 and 2, not just another column of frames. Effects that unfold in time (reverb, delay) suit long rectangular shapes; look for other visual metaphors when building it. Fade-in and probably the same slide-in line to the text (to be settled when building).
   - **Reverb:** a pulse followed by a dense, fading tail.
   - **Delay:** a pulse repeated at equal steps, each one smaller.

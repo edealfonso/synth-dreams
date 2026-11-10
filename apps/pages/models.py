@@ -154,6 +154,7 @@ class Vignette(CloneMixin, SortableMixin):
     text1 = RichTextField(null=True, blank=True)
     text2 = RichTextField(null=True, blank=True)
     text3 = RichTextField(null=True, blank=True)
+    text4 = RichTextField(null=True, blank=True)
 
     extra_image = models.FileField(blank=True, null=True)
 
@@ -162,6 +163,11 @@ class Vignette(CloneMixin, SortableMixin):
 
     def __str__(self):
         return image_preview(self.image)
+
+    @property
+    def texts(self):
+        """The filled-in texts, in order (square cards show one line per text)."""
+        return [t for t in (self.text1, self.text2, self.text3, self.text4) if t]
 
     class Meta:
         ordering = ['the_order']

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <line x1="73.84" y1="124.16" x2="68.18" y2="129.82" stroke="#707070" stroke-width="1" vector-effect="non-scaling-stroke"/>
+  <line x1="66.74" y1="120.22" x2="62.58" y2="123" stroke="#707070" stroke-width="1" vector-effect="non-scaling-stroke"/>
+  <line x1="63.04" y1="113.31" x2="58.43" y2="115.22" stroke="#707070" stroke-width="1" vector-effect="non-scaling-stroke"/>
+  <line x1="60.77" y1="105.8" x2="55.86" y2="106.78" stroke="#707070" stroke-width="1" vector-effect="non-scaling-stroke"/>
+  <line x1="60" y1="98" x2="55" y2="98" stroke="#707070" stroke-width="1" vector-effect="non-scaling-stroke"/>
+  <line x1="60.77" y1="90.2" x2="55.86" y2="89.22" stroke="#707070" stroke-width="1" vector-effect="non-scaling-stroke"/>
+  <line x1="63.04" y1="82.69" x2="58.43" y2="80.78" stroke="#707070" stroke-width="1" vector-effect="non-scaling-stroke"/>
+  <line x1="66.74" y1="75.78" x2="62.58" y2="73" stroke="#707070" stroke-width="1" vector-effect="non-scaling-stroke"/>
+  <line x1="71.72" y1="69.72" x2="68.18" y2="66.18" stroke="#707070" stroke-width="1" vector-effect="non-scaling-stroke"/>
+  <line x1="77.78" y1="64.74" x2="75" y2="60.58" stroke="#707070" stroke-width="1" vector-effect="non-scaling-stroke"/>
+  <line x1="84.69" y1="61.04" x2="82.78" y2="56.43" stroke="#707070" stroke-width="1" vector-effect="non-scaling-stroke"/>
+  <line x1="92.2" y1="58.77" x2="91.22" y2="53.86" stroke="#707070" stroke-width="1" vector-effect="non-scaling-stroke"/>
+  <line x1="100" y1="61" x2="100" y2="53" stroke="#707070" stroke-width="1" vector-effect="non-scaling-stroke"/>
+  <line x1="107.8" y1="58.77" x2="108.78" y2="53.86" stroke="#707070" stroke-width="1" vector-effect="non-scaling-stroke"/>
+  <line x1="115.31" y1="61.04" x2="117.22" y2="56.43" stroke="#707070" stroke-width="1" vector-effect="non-scaling-stroke"/>
+  <line x1="122.22" y1="64.74" x2="125" y2="60.58" stroke="#707070" stroke-width="1" vector-effect="non-scaling-stroke"/>
+  <line x1="128.28" y1="69.72" x2="131.82" y2="66.18" stroke="#707070" stroke-width="1" vector-effect="non-scaling-stroke"/>
+  <line x1="133.26" y1="75.78" x2="137.42" y2="73" stroke="#707070" stroke-width="1" vector-effect="non-scaling-stroke"/>
+  <line x1="136.96" y1="82.69" x2="141.57" y2="80.78" stroke="#707070" stroke-width="1" vector-effect="non-scaling-stroke"/>
+  <line x1="139.23" y1="90.2" x2="144.14" y2="89.22" stroke="#707070" stroke-width="1" vector-effect="non-scaling-stroke"/>
+  <line x1="140" y1="98" x2="145" y2="98" stroke="#707070" stroke-width="1" vector-effect="non-scaling-stroke"/>
+  <line x1="139.23" y1="105.8" x2="144.14" y2="106.78" stroke="#707070" stroke-width="1" vector-effect="non-scaling-stroke"/>
+  <line x1="136.96" y1="113.31" x2="141.57" y2="115.22" stroke="#707070" stroke-width="1" vector-effect="non-scaling-stroke"/>
+  <line x1="133.26" y1="120.22" x2="137.42" y2="123" stroke="#707070" stroke-width="1" vector-effect="non-scaling-stroke"/>
+  <line x1="126.16" y1="124.16" x2="131.82" y2="129.82" stroke="#707070" stroke-width="1" vector-effect="non-scaling-stroke"/>
+  <circle cx="100" cy="98" r="30" stroke="#111" stroke-width="2" vector-effect="non-scaling-stroke"/>
+  <line x1="100" y1="98" x2="109.35" y2="76.99" stroke="#111" stroke-width="2" vector-effect="non-scaling-stroke"/>
+  <path d="M52 145 L58 145 M61 142 L63.5 140 L63.5 150 M67 142.5 C67 139.5 73 139.5 73 142.5 C73 145 67 147.5 67 150 L73 150" stroke="#707070" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+  <path d="M124 145 L130 145 M127 142 L127 148 M133 142 L135.5 140 L135.5 150 M139 142.5 C139 139.5 145 139.5 145 142.5 C145 145 139 147.5 139 150 L145 150" stroke="#707070" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+  <path d="M100 40 C96 40 96 50 100 50 C104 50 104 40 100 40" stroke="#707070" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+</svg>

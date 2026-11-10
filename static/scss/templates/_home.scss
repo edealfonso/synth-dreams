@@ -368,9 +368,10 @@
                     border: 1px solid $color-line;
                     margin: 4rem;
 
+                    // pictogram: never cropped, even when the text column is taller than the card is wide
                     &__img {
                         border-right: 1px solid $color-line;
-                        object-fit: cover;
+                        object-fit: contain;
                         width: 18vw;
                     }
 

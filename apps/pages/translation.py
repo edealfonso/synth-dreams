@@ -51,7 +51,7 @@ translator.register(Home, HomeTranslationOptions)
 
 
 class VignetteTranslationOptions(TranslationOptions):
-    fields = ('text1', 'text2', 'text3')
+    fields = ('text1', 'text2', 'text3', 'text4')
 
 
 translator.register(Vignette, VignetteTranslationOptions)

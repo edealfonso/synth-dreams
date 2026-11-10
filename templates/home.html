@@ -270,9 +270,9 @@ template-home
                                 <div class="square-card">
                                     <img class="square-card__img" src="{{ vignette.image|media_url }}">
                                     <ul class="square-card__list u-text-muted">
-                                        <li class="square-card__item">{{ vignette.text1|safe }}</li>
-                                        <li class="square-card__item">{{ vignette.text2|safe }}</li>
-                                        <li class="square-card__item">{{ vignette.text3|safe }}</li>
+                                        {% for text in vignette.texts %}
+                                            <li class="square-card__item">{{ text|safe }}</li>
+                                        {% endfor %}
                                     </ul>
                                 </div>
                             {% elif vignette.kind == 'ROUND' %}
