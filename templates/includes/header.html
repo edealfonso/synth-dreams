@@ -23,11 +23,11 @@
             {% load i18n %}
             {% get_current_language as LANGUAGE_CODE %}
             {% if LANGUAGE_CODE == "en" %}
-                <a href="{{ request.get_full_path|slice:'3:' }}">{{ header.language_selector_es }}</a> - 
+                <a href="{% translated_url 'es' %}">{{ header.language_selector_es }}</a> - 
                 <span>{{ header.language_selector_en }}</span>
             {% else %}
                 <span>{{ header.language_selector_es }}</span> - 
-                <a href="/en{{ request.get_full_path }}">{{ header.language_selector_en }}</a>
+                <a href="{% translated_url 'en' %}">{{ header.language_selector_en }}</a>
             {% endif %}
         </li>
     </ul>
