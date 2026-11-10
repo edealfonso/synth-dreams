@@ -1,0 +1,96 @@
+# Builds the static site and deploys it to GitHub Pages on every push to main.
+# Fresh database -> seed_demo (content from seed/) -> prefixed webpack build -> export_static -> Pages.
+# Needs Settings -> Pages -> Source: "GitHub Actions".
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# one deployment at a time; a newer push does not cancel a deployment in progress
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    services:
+      db:
+        image: postgres:16
+        env:
+          POSTGRES_DB: synthdreams
+          POSTGRES_USER: synthdreams
+          POSTGRES_PASSWORD: synthdreams
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U synthdreams"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+
+    env:
+      # the site lives at <user>.github.io/<repo>/
+      SITE_PREFIX: /${{ github.event.repository.name }}
+      DJANGO_SETTINGS_MODULE: synthdreams.settings.prod
+      DJANGO_SECRET_KEY: build-only-not-secret  # nothing is served by Django, only rendered
+      DJANGO_DEBUG: "0"
+      DJANGO_ALLOWED_HOSTS: localhost
+      POSTGRES_DB: synthdreams
+      POSTGRES_USER: synthdreams
+      POSTGRES_PASSWORD: synthdreams
+      POSTGRES_HOST: localhost
+      POSTGRES_PORT: "5432"
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          npm ci
+
+      - name: Build the frontend (webpack, with SITE_PREFIX)
+        run: npm run build
+
+      - name: Load the content into a fresh database
+        run: |
+          python manage.py migrate --noinput
+          python manage.py seed_demo
+
+      - name: Export the static site
+        run: python manage.py export_static --output dist
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
