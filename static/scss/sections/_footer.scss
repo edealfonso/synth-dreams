@@ -19,6 +19,18 @@
         p {
             padding-bottom: 1em;
         }
+
+        a {
+            text-decoration: underline;
+            transition: color $transition-fast;
+
+            &::after {
+                display: none;
+            }
+            &:hover, &:focus, &:active {
+                color: $color-accent-secondary;
+            }
+        }
     }
 
     // address: link that opens the map + contact details
