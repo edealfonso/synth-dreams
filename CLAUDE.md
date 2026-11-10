@@ -144,7 +144,7 @@ The goal of the whole project: a **public** repo with the site live for free on 
   5. Before going public: run the origin-traces search again (the user gives the terms in the conversation), check for secrets, finish the credits and replace the s04 placeholder video.
   6. The repo is public (done 2026-11-10). The user sets Settings → Pages → Source to "GitHub Actions" (before the workflow's first run, or the deploy job fails; re-run it afterwards).
 - **Content updates:** any push to `main` (including small content tweaks in `seed/`) redeploys the site.
-- **README.md** (the repo is a job-hunting portfolio, so the README is its front page). It must have:
+- ✅ **README.md** (the repo is a job-hunting portfolio, so the README is its front page). Screenshots in `docs/screenshots/`, taken from the live site with headless Chromium (Playwright in a throwaway `node:22` container) at 1440×900, 2×, then scaled and saved as JPG; retake them when the look changes. It must have:
   - an attractive screenshot (or GIF) of the site;
   - what the site does;
   - the technologies used;
