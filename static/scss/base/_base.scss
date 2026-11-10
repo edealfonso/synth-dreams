@@ -46,16 +46,7 @@ a {
 
     // underline that fades in on hover
     &::after {
-        opacity: 0;
-        position: absolute;
-        bottom: -0.12em;
-        left: 0;
-        width: 100%;
-        height: 0.085em;
-        border-radius: 0.085em;
-        background-color: $color-line;
-        transition: opacity $transition-fast;
-        content: " ";
+        @include hover-underline-line;
     }
 
     &:hover, &:focus, &:active {
