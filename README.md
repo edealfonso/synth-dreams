@@ -7,7 +7,7 @@ A one-page, scroll-animated portfolio site about drum machines, synthesizers and
 ## Highlights
 
 - **Smooth scrolling that adapts to the device:** [smooth-scrollbar](https://github.com/idiotWu/smooth-scrollbar) on desktop, native scroll on touch devices, wired to GSAP ScrollTrigger through `scrollerProxy`. A small scroll module (`static/js/core/scroll.js`) hides the difference from the rest of the code.
-- **Scroll-linked animations** with [GSAP 3 + ScrollTrigger](https://gsap.com/docs/v3/Plugins/ScrollTrigger/): pinned covers, parallax, staggered reveals, pinned galleries and a "magnifier" list, with desktop-only effects behind `gsap.matchMedia`.
+- **Scroll-linked animations** with [GSAP 3 + ScrollTrigger](https://gsap.com/docs/v3/Plugins/ScrollTrigger/): pinned covers, parallax, staggered reveals, pinned galleries and a "magnifier" list, with desktop-only effects behind `gsap.matchMedia`. On touch devices the mobile galleries are pinned with CSS `position: sticky` and skip their scroll-linked motion: native scroll runs ahead of JavaScript there, so anything the JS moves while scrolling jitters.
 - **Lazy-loaded responsive videos** that pick a mobile or desktop source, pause off screen and come with custom controls.
 - **Bilingual content (ES/EN)** fully editable from the Django admin.
 
