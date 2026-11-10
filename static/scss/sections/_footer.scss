@@ -147,16 +147,16 @@
         font-size: 1.2rem;
     }
 
-    // photo credits, a small line under the bottom image
+    // photo credits, small text at the bottom of the image strip, under the legal links
 
     &__credits {
         max-width: 90rem;
-        margin: 0 auto;
-        padding: 2.4rem $gutter-x 3rem;
+        margin: -0.6rem auto 1.6rem;
+        padding: 0 $gutter-x;
         text-align: center;
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         line-height: 1.6;
-        color: $color-text-muted;
+        color: $color-text-on-strip;
 
         a {
             color: inherit;
@@ -167,7 +167,7 @@
                 display: none;
             }
             &:hover, &:focus, &:active {
-                color: $color-accent-secondary;
+                color: $color-text;
             }
         }
     }
@@ -205,13 +205,10 @@
             margin: 0 0.8rem;
         }
 
-        &__legal-links {
-            margin-bottom: max(20vw, 5rem); // keeps the end readable on mobile
-        }
-
         &__credits {
-            padding: 2rem $gutter-x-mobile 4rem;
-            font-size: 1.1rem;
+            margin-bottom: max(20vw, 5rem); // keeps the end readable on mobile
+            padding: 0 $gutter-x-mobile;
+            font-size: 1rem;
         }
 
         &__legal-item {
