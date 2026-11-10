@@ -379,7 +379,6 @@
                         .square-card__item:last-of-type {
                             border-width: 0;
                         }
-
                     }
                 }
 
@@ -439,84 +438,41 @@
                             }
                         }
                     }
+                }
 
-                    &--rectangle {
-                        .vignette__left {
-                            .vignette__frame {
-                                width: 8vw;
-                                background-color: $color-bg;
-                                position: relative;
-                                z-index: 1;
+                // group 3: effect chain. One inline SVG (fx-chain.svg, viewBox 470×630) with the
+                // texts laid over its empty areas; offsets are % of the drawing, so they follow it.
 
-                                .vignette__img {
-                                    width: 100%;
-                                    object-fit: contain;
-                                }
-                            }
-                        }
-                        .vignette__right-alt {
-                            display: flex;
-                            height: calc(100% - 3rem);
-                            flex-direction: column;
-                            align-items: center;
+                .fx-chain {
+                    position: relative;
+                    max-width: 47rem;
+                    margin: 0 auto;
 
-                            .vignette__text {
-                                padding: 1.3em 2em;
-                                border: 1px solid $color-line;
-                                font-size: 1.4rem;
-                                line-height: 2.2rem;
-                                width: 100%;
-                                position: relative;
-                                opacity: 0;
-                                p {
-                                    padding-bottom: 0;
-                                }
-                                .vignette__line {
-                                    height: 1px;
-                                    position: absolute;
-                                    top: 50%;
-                                    width: 5vw;
-                                    background-color: $color-line;
-                                    left: calc(-5vw - 1px);
-                                    transform: translateX(-100%);
-                                    z-index: -1;
-                                }
-                            }
-
-                            .vignette__extra {
-                                opacity: 0;
-                                flex-grow: 1;
-                                display: flex;
-                                align-items: center;
-
-                                .vignette__extra-frame {
-                                    border: 1px solid $color-line;
-                                    border-radius: 50%;
-                                    width: 11vw;
-                                    height: 11vw;
-                                    padding: 2vw 0;
-                                    margin-top: 1vw;
-
-                                    .vignette__extra-img {
-                                        object-fit: contain;
-                                        width: 100%;
-                                        height: 100%;
-                                    }
-                                }
-                            }
-                        }
+                    &__drawing svg {
+                        display: block;
+                        width: 100%;
+                        height: auto;
                     }
 
-                    &--square {
-                        .vignette__left {
-                            .vignette__img {
-                                width: 8vw;
-                                height: 8vw;
-                            }
-                            .vignette__line {
-                                width: 5vw;
-                            }
+                    &__text {
+                        position: absolute;
+                        font-size: 1.4rem;
+                        line-height: 2.2rem;
+
+                        p {
+                            padding-bottom: 0;
                         }
+
+                        &--1 { left: 38%; top: 8%; width: 58%; }
+                        &--2 { right: 6%; top: 58%; width: 60%; text-align: right; }
+                        &--3 { left: 13%; top: 88%; width: 70%; }
+                    }
+
+                    // initial state of the chain animation (initEffectChain); the cables are hidden by the JS
+                    .gsap-fx-box,
+                    .gsap-fx-jack,
+                    .gsap-fx-text {
+                        opacity: 0;
                     }
                 }
             }
@@ -529,7 +485,6 @@
                             padding-bottom: 4rem;
                         }
                     }
-
 
                     // squares with three texts
 
@@ -551,6 +506,11 @@
 
                     // vignettes with a line joining image and text
 
+                    .fx-chain__text {
+                        font-size: 1.3rem;
+                        line-height: 1.6rem;
+                    }
+
                     .vignette {
                         margin: 0 0 4rem 0;
                         grid-template-columns: 15vw 1fr;
@@ -559,56 +519,6 @@
                             padding: 0.7em 1em;
                             font-size: 1.3rem;
                             line-height: 1.6rem;
-                        }
-
-                        &--rectangle {
-                            .vignette__right-alt {
-                                height: calc(100% - 4.5vw);
-
-                                .vignette__text {
-                                    padding: 0.7em 1em;
-                                    font-size: 1.3rem;
-                                    line-height: 1.6rem;
-                                    .vignette__line {
-                                        left: calc(-6vw - 1px);
-                                        width: 6vw;
-                                    }
-                                }
-                            }
-                        }
-
-                        &--square {
-                            .vignette__left {
-                                .vignette__line {
-                                    width: 6vw;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        @media #{$laptop} {
-            &__wrap {
-                .vignette-group {
-                    .vignette {
-                        &--rectangle {
-                            .vignette__right-alt {
-
-                                .vignette__text {
-                                    .vignette__line {
-                                        left: calc(-4vw - 1px);
-                                        width: 4vw;
-                                    }
-                                }
-                            }
-                        }
-                        &--square {
-                            .vignette__left {
-                                .vignette__line {
-                                    width: 4vw;
-                                }
-                            }
                         }
                     }
                 }
@@ -668,7 +578,6 @@
                         }
                     }
 
-
                     // squares with three texts
 
                     .square-card {
@@ -679,49 +588,17 @@
 
                     // vignettes with a line joining image and text
 
+                    .fx-chain__text {
+                        position: static;
+                        width: auto;
+                        text-align: left;
+                        padding-top: 1.5rem;
+                    }
+
                     .vignette {
                         grid-template-columns: 34vw 1fr;
 
                         &--round {
-                            .vignette__left {
-                                .vignette__img {
-                                    width: 20vw;
-                                    height: 20vw;
-                                }
-                                .vignette__line {
-                                    width: 8vw;
-                                }
-                            }
-                        }
-
-                        &--rectangle {
-                            .vignette__left {
-                                .vignette__frame {
-                                    width: 20vw;
-                                }
-                            }
-                            .vignette__right-alt {
-                                height: calc(100% - 8rem);
-
-                                .vignette__text {
-                                    .vignette__line {
-                                        width: 8vw;
-                                        left: calc(-8vw - 1px);
-                                    }
-                                }
-
-                                .vignette__extra {
-                                    .vignette__extra-frame {
-                                        width: 20vw;
-                                        height: 20vw;
-                                        padding: 3vw 0;
-                                        margin-top: 3vw;
-                                    }
-                                }
-                            }
-                        }
-
-                        &--square {
                             .vignette__left {
                                 .vignette__img {
                                     width: 20vw;
@@ -740,7 +617,6 @@
             &__wrap {
                 .vignette-group {
 
-
                     // squares with three texts
 
                     .square-card {
@@ -755,47 +631,6 @@
                         grid-template-columns: 14rem 1fr;
 
                         &--round {
-                            .vignette__left {
-                                .vignette__img {
-                                    width: 11rem;
-                                    height: 11rem;
-                                    margin-left: 0;
-                                }
-                                .vignette__line {
-                                    width: 3rem;
-                                }
-                            }
-                        }
-
-                        &--rectangle {
-                            .vignette__left {
-                                .vignette__frame {
-                                    width: 11rem;
-                                    margin-left: 0;
-                                }
-                            }
-                            .vignette__right-alt {
-                                height: calc(100% - 8rem);
-
-                                .vignette__text {
-                                    .vignette__line {
-                                        width: 3rem;
-                                        left: calc(-3rem - 1px);
-                                    }
-                                }
-
-                                .vignette__extra {
-                                    .vignette__extra-frame {
-                                        width: 11rem;
-                                        height: 11rem;
-                                        padding: 2rem 0;
-                                        margin-top: 3rem;
-                                    }
-                                }
-                            }
-                        }
-
-                        &--square {
                             .vignette__left {
                                 .vignette__img {
                                     width: 11rem;

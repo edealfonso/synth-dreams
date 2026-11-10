@@ -13,7 +13,7 @@ import { initAppear, initParallax } from './generic';
 import { initCovers } from './covers';
 import { initThreeHorizontalSteps } from './s06-three-horizontal-steps';
 import { initGalleriesMobile, initGalleriesDesktop } from './galleries';
-import { initVignettesImage, initVignettesFloating, initVignettesAppear, initVignettesLines } from './s09-floating-vignettes';
+import { initVignettesImage, initVignettesFloating, initVignettesAppear, initVignettesLines, initEffectChain } from './s09-floating-vignettes';
 import { initRisingText } from './s11-rising-text-over-pinned-image';
 import { initMagnifyHighlight, initMagnifyPin } from './s14-magnify-list';
 import { initVerticalPoints, initVerticalPointsPin } from './s16-vertical-points';
@@ -46,5 +46,6 @@ export function loadAllAnimations() {
     initVignettesFloating();
     initVignettesAppear();
     initVignettesLines();
+    initEffectChain();
     initMagnifyPin();
 }

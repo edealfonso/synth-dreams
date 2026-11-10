@@ -94,25 +94,25 @@ Work **one phase at a time**. The user validates each phase before moving on. Do
 - **Mobile check:** s09, s11, s14, cover/logo and the new photos.
 - Header readability over dark photos was raised and never settled; re-check it on s02 (TR-808) and s05.
 
-#### s09 vignettes plan (groups 1 and 2 done, group 3 next)
+#### s09 vignettes plan (groups 1, 2 and 3 built)
 
-**Status (2026-11-10):** work on branch `s09-vignettes` (not pushed, no PR yet). Groups 1 and 2 are done and validated; next session starts with group 3 (FX). Group 3 still shows the `seed_dummy` placeholders.
+**Status (2026-11-10):** work on branch `s09-vignettes` (not pushed, no PR yet). Groups 1 and 2 are done and validated; group 3 (effect chain) is built with its animation, pending final validation. Group titles (ES/EN): *Materia prima* / *Raw material*, *Modulación* / *Modulation*, *Efectos especiales* / *Special effects* (in the dev DB; `seed_demo` must load them).
 
 Each vignette is a frame (square, rectangle or circle) holding a **pictogram of the concept** (usually obvious), with the explanation beside it. The block explains basic **synthesis theory** in three groups.
 
 - **Style:** line drawings only, strokes in the original black/grey (`#111` or the muted text grey), same stroke weight in every pictogram, no fills. No colour for now; if needed later, only the theme accents (green `$color-accent-secondary`, maybe lilac), never colourful. One SVG file per pictogram in `seed/images/vignettes/`, loaded into the existing `Vignette.image` field.
 - **Drawing specs (keep group 3 consistent):** hand-written SVG (no build step), `fill="none"`, round caps and joins; main line `stroke="#111" stroke-width="2"`, secondary lines (zero lines, guides, back layers) `stroke="#707070" stroke-width="1"`, dashed guides `stroke-dasharray="3 4"`; every stroke has `vector-effect="non-scaling-stroke"` so all drawings keep the same weight at any size. No `<text>` (page fonts do not reach an SVG inside `<img>`): numbers and signs are drawn as strokes. Square pictograms use a 200×200 viewBox with the drawing kept inside the circle/frame margins.
-- **Data:** groups 1 and 2 (kind, image, ES/EN texts) are saved in `seed/texts/s09-vignettes.json`, the source for `seed_demo` (running `seed_dummy` again would wipe them from the dev DB).
+- **Data:** groups 1, 2 and 3 (kind, image, ES/EN texts) are saved in `seed/texts/s09-vignettes.json`, the source for `seed_demo` (running `seed_dummy` again would wipe them from the dev DB).
 - ✅ **Group 1 · Sound sources:** three ways of making sound, each a line drawing with its name below (`Vignette.text1`, centred, muted): *simple waves* (a sine, 1.8 cycles, `wave-sine.svg`), *wavetables* (a perspective stack of 11 single-cycle frames: a clean sine in black at the front, harmonics growing and drifting towards the back in grey, dashed depth line, `source-wavetable.svg`) and *noise* (`wave-noise.svg`). Black 2 px main stroke, grey 1 px secondary lines. Loose organic layout: every offset (horizontal and vertical) and width is a % of the column, so it scales the same on every screen. Each drawing fades in on its own, scrubbed with the scroll (`.js-floating-item`). The earlier triangle/square/sawtooth drawings are in `seed/backup/vignettes/`.
 - ✅ **Group 2 · Modulation:** two square cards and two circles, same line style (`seed/images/vignettes/mod-*.svg`). Square cards show one line per filled-in text (`Vignette.texts`, up to `text4`) and never crop their pictogram (`object-fit: contain`). Fade-in and slide-in lines unchanged.
   - **ADSR:** classic envelope with dashed phase dividers; four short lines (attack, decay, sustain, release).
   - **Filter:** low-pass curve with resonant bump, dashed line at the cutoff; cutoff and resonance lines.
   - **LFO:** one wide, flat cycle; what an LFO is.
   - **Pitch:** a −12…+12 knob (stroke-drawn numbers, pointer slightly off centre for fine-tune); semitones/octaves for presence, fine-tune for imperfection and nuance.
-- **Group 3 · FX** (layout free): this group should be **geometrically more inventive** than groups 1 and 2, not just another column of frames. Effects that unfold in time (reverb, delay) suit long rectangular shapes; look for other visual metaphors when building it. Fade-in and probably the same slide-in line to the text (to be settled when building).
-  - **Reverb:** a pulse followed by a dense, fading tail.
-  - **Delay:** a pulse repeated at equal steps, each one smaller.
-  - **Distortion:** a sine with its tops clipped flat.
+- **Group 3 · FX = effect chain:** the three effects in series, like pedals: distortion → delay → reverb. **One SVG for the whole group** (`seed/images/vignettes/fx-chain.svg`, viewBox 470×630, in `Home.s09_group_image3`, rendered inline with the `|inline_svg` filter so the JS can animate it). A thin grey cable with right angles (like a circuit trace) runs from an input jack, through each box side to side, to an output jack; the boxes grow (square → long → longest, square corners like group 2). Generated by a script (not kept in the repo): edit the SVG by hand or regenerate with the same coordinates.
+  - **Distortion:** a sine with its tops clipped flat, dashed clip lines. **Delay:** a burst repeated at equal steps, each one smaller, dashed step lines. **Reverb:** a burst followed by a dense tail fading inside a dashed envelope.
+  - **Texts:** three `Vignette` rows of kind `CHAIN` (one `text1` each, `<strong>Name:</strong> explanation`), laid over the empty areas of the drawing with % offsets (`.fx-chain__text--1..3`); on mobile they stack below the drawing.
+  - **Animation** (`initEffectChain`): one timeline scrubbed with the scroll: input jack, then each cable draws itself (time proportional to its length) and the box it reaches fades in, with its text on desktop; then the output jack. On mobile each text fades in on its own. SVG hooks: `js-fx-cable`, `gsap-fx-box`, `gsap-fx-jack` (+ `gsap-fx-text` on the texts). The cables have non-scaling strokes, so their dash length is measured on screen and re-measured on every ScrollTrigger refresh.
 - **Texts:** ES and EN in the admin; short and naive, in the tone of the rest of the site.
 - **Order of work:** group 1 → group 2 → group 3, each validated before the next (pictograms, then markup/SCSS if needed, then animation in `animations/s09-floating-vignettes.js`, keeping the ScrollTrigger order in `animations/index.js`). Check mobile at the end of each part.
 
@@ -143,7 +143,7 @@ The home is a stack of blocks named after their **layout**, with a two-digit pre
 | s06 | `s06-three-horizontal-steps` | `#s06`, `#s06-step-1..3` | `s06_step_titleN`, `s06_step_textN` |
 | s07 | `s07-pinned-gallery` | `#s07-pair-N` | `s07_title`, `s07_text` · `galleries.FirstGalleryImage` |
 | s08 | `s08-parallax-layout` | — | `s08_title`, `s08_text`, `s08_image1/2(_mobile)` |
-| s09 | `s09-floating-vignettes` (`.vignette-group--1..3`) | `#s09-container`, `#s09-trigger`, `#s09-image`, `#s09-floating-N` | `s09_title`, `s09_text`, `s09_left_image`, `s09_group_titleN` · `Vignette` |
+| s09 | `s09-floating-vignettes` (`.vignette-group--1..3`) | `#s09-container`, `#s09-trigger`, `#s09-image`, `#s09-floating-N` | `s09_title`, `s09_text`, `s09_left_image`, `s09_group_titleN`, `s09_group_image3` · `Vignette` |
 | s10 | `s10-image-or-video` | `#s10-image` | `s10_title`, `s10_text`, `s10_image`, `s10_video_*` |
 | s11 | `s11-rising-text-over-pinned-image` | `#s11`, `#s11-image`, `#s11-title`, `#s11-body`, `#s11-text-container` | `s11_title`, `s11_text`, `s11_image` |
 | s12 | `s12-pinned-gallery` | `#s12-pair-N` | `s12_title`, `s12_text` · `galleries.SecondGalleryImage` |

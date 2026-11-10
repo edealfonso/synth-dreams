@@ -89,6 +89,7 @@ class HomeAdmin(SingletonModelAdmin, TranslationAdmin):
                 's09_text',
                 's09_left_image',
                 ('s09_group_title1', 's09_group_title2', 's09_group_title3'),
+                's09_group_image3',
             ),
         }),
         ('s10 · Image or video', {

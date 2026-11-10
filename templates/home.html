@@ -296,38 +296,12 @@ template-home
                     </div>
                     <div class="vignette-group__right">
                         <h5 class="vignette-group__title u-h5">{{ home.s09_group_title3 }}</h5>
-                        {% for vignette in vignettes_3 %}
-                            {% if vignette.kind == 'RECTANGLE' %}
-                            <div class="vignette vignette--rectangle">
-                                <div class="vignette__left">
-                                    <div class="vignette__frame">
-                                        <img class="vignette__img" src="{{ vignette.image|media_url }}">
-                                    </div>
-                                </div>
-                                <div class="vignette__right-alt u-text-muted">
-                                    <div class="vignette__text">
-                                        <span class="vignette__line js-vignette-line"></span>
-                                        {{ vignette.text1|safe }}
-                                    </div>
-                                    <div class="vignette__extra">
-                                        <div class="vignette__extra-frame">
-                                            <img class="vignette__extra-img" src="{{ vignette.extra_image|media_url }}">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            {% elif vignette.kind == 'SQUARE' %}
-                            <div class="vignette vignette--square">
-                                <div class="vignette__left">
-                                    <img class="vignette__img" src="{{ vignette.image|media_url }}">
-                                    <span class="vignette__line js-vignette-line"></span>
-                                </div>
-                                <div class="vignette__right u-text-muted">
-                                    {{ vignette.text1|safe }}
-                                </div>
-                            </div>
-                            {% endif %}
-                        {% endfor%}
+                        <div class="fx-chain">
+                            <div class="fx-chain__drawing">{{ home.s09_group_image3|inline_svg }}</div>
+                            {% for vignette in vignettes_3 %}
+                                <div class="fx-chain__text fx-chain__text--{{ forloop.counter }} u-text-muted gsap-fx-text">{{ vignette.text1|safe }}</div>
+                            {% endfor %}
+                        </div>
                     </div>
                 </div>
             </div>

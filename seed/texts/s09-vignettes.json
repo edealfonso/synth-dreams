@@ -77,5 +77,29 @@
       "es": "<p><strong>Afinación:</strong> sube o baja la nota por semitonos u octavas para darle otra presencia; el <em>finetune</em> la desafina un poco y le añade imperfección y matices.</p>",
       "en": "<p><strong>Pitch:</strong> moves the note up or down in semitones or octaves for a different presence; <em>fine-tune</em> detunes it slightly, adding imperfection and nuance.</p>"
     }
+  },
+  {
+    "group": "3",
+    "kind": "CHAIN",
+    "text1": {
+      "es": "<p><strong>Distorsión:</strong> aprieta la onda hasta cortarle las puntas, y el sonido se vuelve sucio y gordo.</p>",
+      "en": "<p><strong>Distortion:</strong> squeezes the wave until its tops get clipped, and the sound turns dirty and fat.</p>"
+    }
+  },
+  {
+    "group": "3",
+    "kind": "CHAIN",
+    "text1": {
+      "es": "<p><strong>Delay:</strong> repite el sonido a pasos iguales, cada vez más bajito, como un eco.</p>",
+      "en": "<p><strong>Delay:</strong> repeats the sound at equal steps, each time a little quieter, like an echo.</p>"
+    }
+  },
+  {
+    "group": "3",
+    "kind": "CHAIN",
+    "text1": {
+      "es": "<p><strong>Reverb:</strong> mete el sonido en una sala grande: una cola que se apaga despacio.</p>",
+      "en": "<p><strong>Reverb:</strong> puts the sound in a big room: a tail that fades away slowly.</p>"
+    }
   }
 ]
