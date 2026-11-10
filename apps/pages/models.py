@@ -23,7 +23,7 @@ def image_preview(field):
 class Header(SingletonModel):
 
     logo = models.FileField(blank=True, null=True)
-    contact_link_text = models.CharField(default="Contact", max_length=255, blank=True, null=True)
+    contact_link_text = models.CharField(max_length=255, blank=True, null=True)
     language_selector_es = models.CharField(max_length=255, blank=True, null=True)
     language_selector_en = models.CharField(max_length=255, blank=True, null=True)
 
