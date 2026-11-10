@@ -138,7 +138,7 @@ The goal of the whole project: a **public** repo with the site live for free on 
 
 - **Steps, in order** (each in its own branch + PR):
   1. ✅ `seed_demo` (phase 5): CI starts from an empty database and loads everything from `seed/`.
-  2. Make the site work under the `/synth-dreams/` subpath: `STATIC_URL`, `MEDIA_URL`, webpack `publicPath` and the ES/EN language links.
+  2. ✅ Make the site work under the `/synth-dreams/` subpath. One env var, `SITE_PREFIX` (empty locally, `/synth-dreams` for the export): Django sets `FORCE_SCRIPT_NAME` from it, so reversed URLs and the now relative `STATIC_URL`/`MEDIA_URL` (`static/`, `media/`) get the prefix; webpack prepends it to `publicPath` (bundles, fonts, CSS assets), so build with the same value; the ES/EN links use the `translated_url` tag (`translate_url` on `request.path_info`). With the prefix set, `runserver` links do not match its routes: it is meant for the export, which renders through the test client. Never hard-code a root path (`/...`) in templates, JS or SCSS.
   3. Static export script: renders `/`, `/en/` and the legal pages (both languages), with bundles, images and videos inside. Pages limits: 1 GB per site, 100 MB per file (keep the s04/s10 videos light).
   4. GitHub Action on every push to `main`: Postgres service → `migrate` → `seed_demo` → `npm run build` → `collectstatic` → export → deploy to Pages.
   5. Before going public: run the origin-traces search again (the user gives the terms in the conversation), check for secrets, finish the credits and replace the s04 placeholder video.

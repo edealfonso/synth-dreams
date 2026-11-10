@@ -155,11 +155,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Static files (CSS, JavaScript, images) and media
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = '/static/'
+# Optional URL prefix when the site is served from a subpath (e.g. SITE_PREFIX=/synth-dreams for
+# GitHub Pages). Django adds it to every reversed URL and to the relative STATIC_URL/MEDIA_URL.
+FORCE_SCRIPT_NAME = get_env('SITE_PREFIX', '').rstrip('/') or None
+
+STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR.child('static')]
 STATIC_ROOT = BASE_DIR.child('staticfiles')
 
-MEDIA_URL = '/media/'
+MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR.child('media')
 
 

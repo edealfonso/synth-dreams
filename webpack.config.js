@@ -18,7 +18,8 @@ module.exports = (env, argv) => {
 
         output: {
             path: path.resolve(__dirname, 'static/bundles'),
-            publicPath: '/static/bundles/',
+            // SITE_PREFIX (e.g. /synth-dreams) when the site is served from a subpath, as in Django
+            publicPath: `${(process.env.SITE_PREFIX || '').replace(/\/$/, '')}/static/bundles/`,
             filename: '[name]-[fullhash].js',
             clean: true,
         },

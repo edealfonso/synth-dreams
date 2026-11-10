@@ -1,4 +1,5 @@
 from django import template
+from django.urls import translate_url
 from django.utils.safestring import mark_safe
 
 from apps.pages.models import Credit, Header, Footer, LegalPage
@@ -52,3 +53,10 @@ def inline_svg(field):
             return mark_safe(f.read().decode('utf-8'))
     except (OSError, ValueError):
         return ''
+
+
+@register.simple_tag(takes_context=True)
+def translated_url(context, language):
+    """URL of the current page in another language (keeps the SITE_PREFIX subpath)."""
+    request = context['request']
+    return translate_url(request.path_info, language)
