@@ -85,7 +85,7 @@ Work **one phase at a time**. The user validates each phase before moving on. Do
 
 #### Still to do (phase 5)
 
-- **s04 video** (and the optional s10 video): generate with `ffmpeg` test sources, without the timecode overlay. s04 currently shows a colour-bars placeholder.
+- **s04 video** (and the optional s10 video): generate with `ffmpeg` test sources, without the timecode overlay. s04 is **hidden** until it has a real video (the template skips it when both video fields are empty; see `backlog.md`).
 - ✅ **s09 vignettes:** simple SVG pictograms about synthesis theory, not photos. See "s09 vignettes plan" below.
 - ✅ **Footer:** address text "A quiet street in Ciutat Vella, Barcelona" (ES/EN), `share-your@synth-dreams.example`, GitHub/LinkedIn/YouTube (Pinterest and Wikipedia dropped). Map overlay = Cerdà's 1859 plan (public domain), cropped around Ciutat Vella, inverted and tinted with the s05 warm tones (`seed/images/footer-map.jpg`, same gradient map as s05; green version in `seed/backup/footer-map-green.jpg`). Closing photo in a light lilac duotone (#8a7fe0 → #f6f4ff): lilac and cream/orange are the site's two accents. Footer accents: map pin `$color-accent` (lilac); the map link, email link and social icons turn `$color-accent-secondary` (peach `#e8b48a`) on hover; the header logo sits on the lilac strip above the legal links (its lilac icon blending in is intended).
 - **Credits:** finish `seed/credits-todo.md` (some entries still say "credit from earlier list") and show them in the footer credits block.
