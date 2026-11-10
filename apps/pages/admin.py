@@ -6,7 +6,7 @@ from solo.admin import SingletonModelAdmin
 from modeltranslation.admin import TranslationAdmin
 from model_clone import CloneModelAdmin
 
-from .models import Header, Footer, Home, Vignette, MagnifyItem, LegalPage, image_preview
+from .models import Header, Footer, Credit, Home, Vignette, MagnifyItem, LegalPage, image_preview
 
 
 @admin.register(Header)
@@ -175,6 +175,11 @@ class VignetteAdmin(SortableAdmin, CloneModelAdmin, TranslationAdmin):
 @admin.register(MagnifyItem)
 class MagnifyItemAdmin(SortableAdmin, CloneModelAdmin, TranslationAdmin):
     pass
+
+
+@admin.register(Credit)
+class CreditAdmin(SortableAdmin):
+    list_display = ['author', 'platform', 'image']
 
 
 @admin.register(LegalPage)

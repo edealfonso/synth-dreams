@@ -195,6 +195,26 @@ class MagnifyItem(CloneMixin, SortableMixin):
 
 # FOOTER
 
+class Credit(SortableMixin):
+    """Footer · one photo credit (author and link to the photo)."""
+
+    author = models.CharField(max_length=255)
+    url = models.URLField(max_length=1000, blank=True)
+    platform = models.CharField(max_length=255, blank=True, help_text="Unsplash, Pexels…")
+    image = models.CharField(max_length=255, blank=True, help_text="Where it is used (only for reference).")
+
+    # special fields
+    the_order = models.PositiveIntegerField(default=0, editable=False, db_index=True)
+
+    def __str__(self):
+        return f'{self.author} · {self.image}' if self.image else self.author
+
+    class Meta:
+        ordering = ['the_order']
+        verbose_name = "Photo credit"
+        verbose_name_plural = "Footer · Photo credits"
+
+
 class Footer(SingletonModel):
 
     text = RichTextField(null=True, blank=True)
@@ -209,6 +229,11 @@ class Footer(SingletonModel):
     bottom_image = models.ImageField(blank=True)
     copyright = models.CharField(default="Elsa de Alfonso", max_length=255, blank=True, null=True,
                                  help_text="Shown after © and the current year.")
+
+    credits_label = models.CharField(max_length=255, blank=True, null=True,
+                                     help_text="Starts the credits line, before the photo authors (e.g. \"Photos\").")
+    credits_text = RichTextField(null=True, blank=True,
+                                 help_text="Ends the credits line, after the photo authors (platforms, map credit).")
 
     def __str__(self):
         return "Footer"

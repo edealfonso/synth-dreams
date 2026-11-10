@@ -1,7 +1,7 @@
 from django import template
 from django.utils.safestring import mark_safe
 
-from apps.pages.models import Header, Footer, LegalPage
+from apps.pages.models import Credit, Header, Footer, LegalPage
 
 register = template.Library()
 
@@ -14,6 +14,15 @@ def get_header():
 @register.simple_tag
 def get_footer():
     return Footer.objects.first()
+
+
+@register.simple_tag
+def get_credits():
+    """Photo credits grouped by author, in order of first appearance: [(author, [url, ...]), ...]."""
+    authors = {}
+    for credit in Credit.objects.all():
+        authors.setdefault(credit.author, []).append(credit.url)
+    return list(authors.items())
 
 
 @register.simple_tag

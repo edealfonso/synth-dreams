@@ -147,6 +147,31 @@
         font-size: 1.2rem;
     }
 
+    // photo credits, small text at the bottom of the image strip, under the legal links
+
+    &__credits {
+        max-width: 90rem;
+        margin: -0.6rem auto 1.6rem;
+        padding: 0 $gutter-x;
+        text-align: center;
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: $color-text-on-strip;
+
+        a {
+            color: inherit;
+            text-decoration: underline;
+            transition: color $transition-fast;
+
+            &::after {
+                display: none;
+            }
+            &:hover, &:focus, &:active {
+                color: $color-text;
+            }
+        }
+    }
+
     @media #{$mobile} {
         &__top {
             padding: 6.6rem 4rem 6rem 4rem;
@@ -180,8 +205,10 @@
             margin: 0 0.8rem;
         }
 
-        &__legal-links {
+        &__credits {
             margin-bottom: max(20vw, 5rem); // keeps the end readable on mobile
+            padding: 0 $gutter-x-mobile;
+            font-size: 1rem;
         }
 
         &__legal-item {

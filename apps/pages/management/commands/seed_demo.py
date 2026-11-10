@@ -26,7 +26,7 @@ from django.core.management.base import BaseCommand, CommandError
 from django.db import models, transaction
 
 from apps.galleries.models import FirstGalleryImage, SecondGalleryImage
-from apps.pages.models import Footer, Header, Home, LegalPage, MagnifyItem, Vignette
+from apps.pages.models import Credit, Footer, Header, Home, LegalPage, MagnifyItem, Vignette
 
 SEED_DIR = settings.BASE_DIR.child('seed')
 CONTENT_FILE = SEED_DIR.child('content.json')
@@ -34,7 +34,7 @@ SEED_IGNORE = {'backup', 'texts'}
 MEDIA_SUBDIR = 'demo'
 
 SINGLETONS = (Header, Home, Footer)
-SORTABLES = (Vignette, MagnifyItem, LegalPage, FirstGalleryImage, SecondGalleryImage)
+SORTABLES = (Vignette, MagnifyItem, LegalPage, Credit, FirstGalleryImage, SecondGalleryImage)
 MODELS = SINGLETONS + SORTABLES
 
 
