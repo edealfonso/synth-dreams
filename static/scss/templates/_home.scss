@@ -319,9 +319,9 @@
                     }
                 }
 
-                // floating drawings: two loose runs (2 + 3) with irregular offsets.
+                // floating drawings: loose, irregular layout.
                 // Every offset is a % of the column width (vertical margins too), so the layout
-                // scales the same on every screen; max margin-left + width stays under 100%.
+                // scales the same on every screen; margin-left + width stays under 100%.
 
                 .floating-images {
                     position: relative;
@@ -329,21 +329,12 @@
                     flex-direction: column;
 
                     &__item {
-                        width: 34%;
                         margin: 0;
                         opacity: 0;
 
-                        &:nth-child(1) { margin-left: 8%; }
-                        &:nth-child(2) { margin-left: 50%; margin-top: -7%; }
-                        &:nth-child(3) { margin-left: 0; margin-top: -12%; }
-                        &:nth-child(4) { margin-left: 21%; }
-                        &:nth-child(5) { margin-left: 60%; margin-top: -6%; }
-
-                        @media #{$tablet} {
-                            width: 44%;
-
-                            &:nth-child(5) { margin-left: 56%; }
-                        }
+                        &:nth-child(1) { width: 36%; margin-left: 8%; }
+                        &:nth-child(2) { width: 40%; margin-left: 54%; margin-top: -7%; }
+                        &:nth-child(3) { width: 36%; margin-left: 14%; margin-top: -8%; }
                     }
 
                     &__img {
