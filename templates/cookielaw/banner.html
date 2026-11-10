@@ -1,14 +1,25 @@
 {% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
 
+{# Own text instead of the package's default one, which mentions analytics: the site only sets cookielaw_accepted. #}
 <div id="CookielawBanner" class="cookie-banner">
     <div class="cookie-banner__inner">
-        <h6 class="cookie-banner__title">{% trans "COOKIE_INFO_HEADER" %}</h6>
+        {% if LANGUAGE_CODE == "en" %}
+        <h6 class="cookie-banner__title">Cookies</h6>
         <div class="cookie-banner__body">
             <p class="cookie-banner__text">
-                {% trans "COOKIE_INFO_PARA" %}
+                This site stores just one cookie, to remember that you have closed this notice. No analytics, no third-party cookies.
             </p>
-            <a class="cookie-banner__button" href="javascript:Cookielaw.accept();">{% trans "COOKIE_INFO_OK" %}</a>
+            <a class="cookie-banner__button" href="javascript:Cookielaw.accept();">Got it</a>
         </div>
+        {% else %}
+        <h6 class="cookie-banner__title">Cookies</h6>
+        <div class="cookie-banner__body">
+            <p class="cookie-banner__text">
+                Esta web solo guarda una cookie, para recordar que has cerrado este aviso. Sin analítica ni cookies de terceros.
+            </p>
+            <a class="cookie-banner__button" href="javascript:Cookielaw.accept();">Entendido</a>
+        </div>
+        {% endif %}
     </div>
 </div>
-
