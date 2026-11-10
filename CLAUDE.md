@@ -94,7 +94,7 @@ Work **one phase at a time**. The user validates each phase before moving on. Do
 - ✅ **`seed_demo`:** loads everything from `seed/` on a fresh clone (consecutive `the_order` per model); `--export` writes the DB back to `seed/content.json`. Verified: the home renders identically (same HTML, same images in the same order) from the old dev DB, after loading into it and from an empty database.
 - ✅ **Legal pages:** *Aviso legal* (personal non-profit portfolio, photo licences, trademarks, public code, GitHub Pages hosting, contact via GitHub) and *Cookies* (only `cookielaw_accepted`, 10 years; no analytics or third-party scripts), ES/EN. The notice says the photo credits are at the bottom of the page: the credits block must exist before publishing.
 - **Mobile check:** s09, s11, s14, cover/logo and the new photos.
-- Header readability over dark photos was raised and never settled; re-check it on s02 (TR-808) and s05.
+- ✅ **Header over dark photos:** the logo text and the menu turn white while they sit over an element marked `.js-header-dark` (s02, s05, s15 left half, s17; s13 is a light photo). Checked separately for the logo and the menu, so a split section can be dark on one side only. The header logo is rendered inline (`|inline_svg`) so its text path can change colour; the icon keeps its colours. Mark a section `.js-header-dark` whenever its photo is dark (e.g. s04 when its video comes back).
 - **Palette shift (2026-11-10):** the author drops the green; the palette is lilac plus cream and light orange (the s01 cover sums it up). Done: s05 photo, footer map tint and `$color-accent-secondary` (now peach `#e8b48a`). No green left.
 
 #### s09 vignettes plan (done)
@@ -242,7 +242,7 @@ ES modules with a single entry point (`main.js`). jQuery is global (`$`, via `Pr
 | `core/scroll.js` | Hides the two scroll systems (smooth-scrollbar on non-touch, native on touch): `initSmoothScroll`, `getScrollTop`, `onScroll`, `isVisible`, `universalYScroll`, `SCROLLER_SELECTOR`. |
 | `animations/index.js` | `loadAllAnimations()`: `ScrollTrigger.defaults` and a call to each animation **in the original order** (see below). |
 | `animations/*.js` | `generic` (`.gsap-appear`, `.gsap-parallax*`), `covers` (s01, s04, s13), `galleries` (s07, s12) and one module per block with its own animation: `s06-three-horizontal-steps`, `s09-floating-vignettes`, `s11-rising-text-over-pinned-image`, `s14-magnify-list`, `s16-vertical-points`. Desktop-only ones are called inside `gsap.matchMedia`. |
-| `features/` | `anchors` (hash and `.js-smooth-anchor`), `autovideo` (lazy videos and controls), `cover` (two-step cover reveal), `header` (`checkHeader`, `slideHeader`), `map`. |
+| `features/` | `anchors` (hash and `.js-smooth-anchor`), `autovideo` (lazy videos and controls), `cover` (two-step cover reveal), `header` (`checkHeader`, `slideHeader`, `checkHeaderTheme`: white logo text/menu over `.js-header-dark` elements), `map`. |
 | `utils/webp.js` | `changeToWebP()`: adds the `.webp` version to `background-image`s. |
 
 ### Animation adjustments (branch `animation-adjustments`)

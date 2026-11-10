@@ -2,6 +2,7 @@
 // HEADER
 // - checkHeader(scroll): hidden/visible classes depending on position (on the home it appears after the cover)
 // - slideHeader(visible): hides it when scrolling down and shows it when scrolling up
+// - checkHeaderTheme(): white logo text / menu while they sit over a `.js-header-dark` element
 // ------------------------------------------------------------
 
 let headerFixed = true;
@@ -43,4 +44,27 @@ export function checkHeader(scroll) {
 
 export function slideHeader(visible) {
     $("header").css('top', visible ? '0' : '-200px');
+}
+
+// Checks the logo and the menu separately (a split section can be dark on one side only).
+// Positions are measured as if the header were at the top, so it is right when it slides back in.
+export function checkHeaderTheme() {
+
+    let header = document.querySelector('header');
+    if (!header) return;
+
+    let darkElements = [...document.querySelectorAll('.js-header-dark')]
+        .map(el => el.getBoundingClientRect())
+        .filter(rect => rect.width && rect.height);
+    let headerTop = header.getBoundingClientRect().top;
+
+    [['.header__logo', 'header__logo--light'], ['.header__menu', 'header__menu--light']].forEach(([selector, lightClass]) => {
+        let el = header.querySelector(selector);
+        if (!el) return;
+        let rect = el.getBoundingClientRect();
+        let x = rect.left + rect.width / 2;
+        let y = rect.top - headerTop + rect.height / 2;
+        let overDark = darkElements.some(d => x >= d.left && x <= d.right && y >= d.top && y <= d.bottom);
+        el.classList.toggle(lightClass, overDark);
+    });
 }

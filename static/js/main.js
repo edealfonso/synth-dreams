@@ -20,7 +20,7 @@ import { loadAllAnimations } from './animations';
 import { checkLocationHash, initSmoothAnchors } from './features/anchors';
 import { checkVideos } from './features/autovideo';
 import { initFirstContentfulSection, revealSecondContentfulSection, releaseScroll } from './features/cover';
-import { checkHeader, slideHeader } from './features/header';
+import { checkHeader, checkHeaderTheme, slideHeader } from './features/header';
 import { initMap, closeMap } from './features/map';
 import { changeToWebP } from './utils/webp';
 
@@ -66,6 +66,7 @@ $(function () {
             $(window).on('resize orientationchange', function(){
                 calcScreen();
                 checkVideos();
+                checkHeaderTheme();
             });
 
         }, 1000);
@@ -82,6 +83,7 @@ function onContentVisible() {
     releaseScroll();
     checkVideos();
     checkHeader(getScrollTop());
+    checkHeaderTheme();
     initMap();
 }
 
@@ -99,6 +101,7 @@ function scrollActions(scroll) {
         checkVideos();
         checkHeader(scroll);
     }
+    checkHeaderTheme();
 
     if (scroll > previousScroll) {
         // scrolling down
