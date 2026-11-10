@@ -139,7 +139,7 @@ The goal of the whole project: a **public** repo with the site live for free on 
 - **Steps, in order** (each in its own branch + PR):
   1. ✅ `seed_demo` (phase 5): CI starts from an empty database and loads everything from `seed/`.
   2. ✅ Make the site work under the `/synth-dreams/` subpath. One env var, `SITE_PREFIX` (empty locally, `/synth-dreams` for the export): Django sets `FORCE_SCRIPT_NAME` from it, so reversed URLs and the now relative `STATIC_URL`/`MEDIA_URL` (`static/`, `media/`) get the prefix; webpack prepends it to `publicPath` (bundles, fonts, CSS assets), so build with the same value; the ES/EN links use the `translated_url` tag (`translate_url` on `request.path_info`). With the prefix set, `runserver` links do not match its routes: it is meant for the export, which renders through the test client. Never hard-code a root path (`/...`) in templates, JS or SCSS.
-  3. Static export script: renders `/`, `/en/` and the legal pages (both languages), with bundles, images and videos inside. Pages limits: 1 GB per site, 100 MB per file (keep the s04/s10 videos light).
+  3. ✅ Static export: `python manage.py export_static` (run with the same `SITE_PREFIX` as the webpack build; `make export` does both and restarts the dev build). Renders `/`, `/en/` and every legal page in both languages through the test client into `dist/` (git-ignored): `index.html` per folder, `legal/<slug>.html` (GitHub Pages serves `/legal/<slug>` from it). Copies `static/bundles`, `favicon` and `img` whole, plus every static/media URL the pages reference (attributes, inline styles, `data-src`), and adds `.nojekyll`. Currently 15 MB. Checked by serving `dist/` under `/synth-dreams/`: every resource and internal link loads; only the `.webp` probes 404 (see backlog). Pages limits: 1 GB per site, 100 MB per file (keep the s04/s10 videos light).
   4. GitHub Action on every push to `main`: Postgres service → `migrate` → `seed_demo` → `npm run build` → `collectstatic` → export → deploy to Pages.
   5. Before going public: run the origin-traces search again (the user gives the terms in the conversation), check for secrets, finish the credits and replace the s04 placeholder video.
   6. The user makes the repo public and sets Settings → Pages → Source to "GitHub Actions".
@@ -198,7 +198,7 @@ apps/pages/                # Header, Home, Footer (singletons), Vignette, Magnif
 │   ├── views.py           # HomeView (puts everything in the context), LegalPageView
 │   ├── translation.py     # translatable fields
 │   ├── templatetags/site_tags.py   # get_header, get_footer, get_legal_pages, get_credits, |media_url
-│   └── management/commands/   # seed_demo.py (real content from seed/), seed_dummy.py (placeholders)
+│   └── management/commands/   # seed_demo.py (real content from seed/), seed_dummy.py (placeholders), export_static.py (static site for GitHub Pages)
 apps/galleries/            # FirstGalleryImage, SecondGalleryImage (sortable)
 templates/                 # base.html, home.html, legal.html, includes/, cookielaw/, admin/base_site.html (adds static/css/admin.css)
 static/js/main.js          # ← webpack entry (lifecycle); modules in core/, animations/, features/, utils/
@@ -225,10 +225,11 @@ docker compose exec web python manage.py <cmd>    # any other Django command
 docker compose exec web python manage.py seed_demo              # real content from seed/ (wipes the current content); --export writes the DB back to seed/content.json
 docker compose exec web python manage.py seed_dummy --video media/placeholder-video.mp4   # placeholder content (wipes the previous one; --video is optional)
 docker compose run --rm assets npm run build      # webpack production build (npm run watch is the dev one)
+make export                                       # static export for GitHub Pages into dist/ (SITE_PREFIX=/synth-dreams)
 docker compose down                               # stop (add -v to also delete the database)
 ```
 
-`Makefile` shortcuts: `make up`, `make down`, `make logs`, `make migrate`, `make makemigrations`, `make superuser`, `make shell`, `make manage cmd="..."` and `make build`.
+`Makefile` shortcuts: `make up`, `make down`, `make logs`, `make migrate`, `make makemigrations`, `make superuser`, `make shell`, `make manage cmd="..."`, `make build` and `make export`.
 
 ## JavaScript architecture (`static/js/`)
 
