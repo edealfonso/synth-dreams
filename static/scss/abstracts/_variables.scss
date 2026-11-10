@@ -26,6 +26,14 @@ $color-banner-bg: #eeeae6;      // cookie banner
 $color-accent: #a99cff;         // lilac of the logo/favicon and the duotone photos (footer map pin)
 $color-accent-secondary: #e8b48a; // peach, in tune with the s05 screen and the footer map, soft on white (hover of the footer links and social icons)
 
+// ----------------------------------------------------------------
+// Links (proportional to the font size)
+// ----------------------------------------------------------------
+
+$link-underline-thickness: 0.085em;
+$link-underline-offset: 0.35em;        // same distance as the hover line of plain links
+$link-underline-offset-small: 0.22em;  // small print (photo credits)
+
 $color-scrollbar-track: rgba(222, 222, 222, 0.25);
 $color-scrollbar-thumb: rgba(0, 0, 0, 0.4);
 $color-scrollbar-thumb-hover: black;

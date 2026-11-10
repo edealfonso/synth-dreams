@@ -14,6 +14,36 @@
 }
 
 // -----------------
+// links
+// -----------------
+
+// line under plain links, faded in on hover (used on an ::after)
+@mixin hover-underline-line {
+    opacity: 0;
+    position: absolute;
+    bottom: -0.12em;
+    left: 0;
+    width: 100%;
+    height: $link-underline-thickness;
+    border-radius: $link-underline-thickness;
+    background-color: $color-line;
+    transition: opacity $transition-fast;
+    content: " ";
+}
+
+// always underlined link, with the same distance and weight as the hover line
+@mixin link-underline($color: $color-line, $offset: $link-underline-offset) {
+    text-decoration: underline;
+    text-decoration-color: $color;
+    text-decoration-thickness: $link-underline-thickness;
+    text-underline-offset: $offset;
+
+    &::after {
+        display: none;
+    }
+}
+
+// -----------------
 // fonts
 // -----------------
 
