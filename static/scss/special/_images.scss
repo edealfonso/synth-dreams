@@ -51,6 +51,29 @@
 
     .gallery__pic {
         position: relative;
-        min-height: 80vw;
+        min-height: 100vh; // a full screen, the same height as the scroller
+    }
+
+    // Touch devices (the JS adds `.sticky`): the browser pins each image with position: sticky,
+    // with no JS at all, because anything the JS moves during native scroll lags behind it and jumps.
+    // Every item but the last stays stuck for one screen of scroll while the next ones slide over
+    // it: an empty 100vh tail gives it that room, and the negative margin keeps the layout height.
+    &.sticky {
+        overflow: visible; // `section` hides overflow, which would stop the images from sticking
+
+        .gallery__item:not(:last-child) {
+            margin-bottom: -100vh;
+
+            &::after {
+                content: "";
+                display: block;
+                height: 100vh;
+            }
+
+            .gallery__pic {
+                position: sticky;
+                top: 0;
+            }
+        }
     }
 }
