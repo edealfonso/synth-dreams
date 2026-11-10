@@ -86,7 +86,7 @@ Work **one phase at a time**. The user validates each phase before moving on. Do
 #### Still to do (phase 5)
 
 - **s04 video** (and the optional s10 video): generate with `ffmpeg` test sources, without the timecode overlay. s04 currently shows a colour-bars placeholder.
-- **s09 vignettes:** simple SVG pictograms about synthesis theory, not photos. See "s09 vignettes plan" below.
+- ✅ **s09 vignettes:** simple SVG pictograms about synthesis theory, not photos. See "s09 vignettes plan" below.
 - ✅ **Footer:** address text "A quiet street in Ciutat Vella, Barcelona" (ES/EN), `share-your@synth-dreams.example`, GitHub/LinkedIn/YouTube (Pinterest and Wikipedia dropped). Map overlay = Cerdà's 1859 plan (public domain), cropped around Ciutat Vella, inverted and tinted with the s05 warm tones (`seed/images/footer-map.jpg`, same gradient map as s05; green version in `seed/backup/footer-map-green.jpg`). Closing photo in a light lilac duotone (#8a7fe0 → #f6f4ff): lilac and cream/orange are the site's two accents. Footer accents: map pin `$color-accent` (lilac); the map link, email link and social icons turn `$color-accent-secondary` (peach `#e8b48a`) on hover; the header logo sits on the lilac strip above the legal links (its lilac icon blending in is intended).
 - **Credits:** finish `seed/credits-todo.md` (some entries still say "credit from earlier list") and show them in the footer credits block.
 - **Texts:** every block still has "Bip bup" placeholder text, ES and EN.
@@ -95,9 +95,9 @@ Work **one phase at a time**. The user validates each phase before moving on. Do
 - Header readability over dark photos was raised and never settled; re-check it on s02 (TR-808) and s05.
 - **Palette shift (2026-11-10):** the author drops the green; the palette is lilac plus cream and light orange (the s01 cover sums it up). Done: s05 photo, footer map tint and `$color-accent-secondary` (now peach `#e8b48a`). No green left.
 
-#### s09 vignettes plan (groups 1, 2 and 3 built)
+#### s09 vignettes plan (done)
 
-**Status (2026-11-10):** work on branch `s09-vignettes` (not pushed, no PR yet). Groups 1 and 2 are done and validated; group 3 (effect chain) is built with its animation, pending final validation. Group titles (ES/EN): *Materia prima* / *Raw material*, *Modulación* / *Modulation*, *Efectos especiales* / *Special effects* (in the dev DB; `seed_demo` must load them).
+**Status (2026-11-10):** branch `s09-vignettes`, PR #10 to `main`. All three groups are done and validated (vignettes closed). Group titles (ES/EN): *Materia prima* / *Raw material*, *Modulación* / *Modulation*, *Efectos especiales* / *Special effects* (in the dev DB; `seed_demo` must load them).
 
 Each vignette is a frame (square, rectangle or circle) holding a **pictogram of the concept** (usually obvious), with the explanation beside it. The block explains basic **synthesis theory** in three groups.
 
