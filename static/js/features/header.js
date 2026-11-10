@@ -47,15 +47,13 @@ export function slideHeader(visible) {
 }
 
 // Checks the logo and the menu separately (a split section can be dark on one side only).
-// Positions are measured as if the header were at the top, so it is right when it slides back in.
+// Uses the first element that actually paints under each one (pinned blocks can overlap), measured as if
+// the header were at the top, so it is right when the header slides back in.
 export function checkHeaderTheme() {
 
     let header = document.querySelector('header');
     if (!header) return;
 
-    let darkElements = [...document.querySelectorAll('.js-header-dark')]
-        .map(el => el.getBoundingClientRect())
-        .filter(rect => rect.width && rect.height);
     let headerTop = header.getBoundingClientRect().top;
 
     [['.header__logo', 'header__logo--light'], ['.header__menu', 'header__menu--light']].forEach(([selector, lightClass]) => {
@@ -64,7 +62,14 @@ export function checkHeaderTheme() {
         let rect = el.getBoundingClientRect();
         let x = rect.left + rect.width / 2;
         let y = rect.top - headerTop + rect.height / 2;
-        let overDark = darkElements.some(d => x >= d.left && x <= d.right && y >= d.top && y <= d.bottom);
-        el.classList.toggle(lightClass, overDark);
+        let below = document.elementsFromPoint(x, y).find(node => !header.contains(node) && (node.closest('.js-header-dark') || paints(node)));
+        el.classList.toggle(lightClass, !!(below && below.closest('.js-header-dark')));
     });
+}
+
+// true when the element paints something behind the header (image or non-transparent background)
+function paints(node) {
+    if (['IMG', 'VIDEO', 'CANVAS'].includes(node.tagName)) return true;
+    let style = getComputedStyle(node);
+    return style.backgroundImage !== 'none' || !/rgba\(.*,\s*0\)|transparent/.test(style.backgroundColor);
 }
