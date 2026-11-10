@@ -94,18 +94,21 @@ Work **one phase at a time**. The user validates each phase before moving on. Do
 - **Mobile check:** s09, s11, s14, cover/logo and the new photos.
 - Header readability over dark photos was raised and never settled; re-check it on s02 (TR-808) and s05.
 
-#### s09 vignettes plan (pending, one part at a time)
+#### s09 vignettes plan (groups 1 and 2 done, group 3 next)
+
+**Status (2026-11-10):** work on branch `s09-vignettes` (not pushed, no PR yet). Groups 1 and 2 are done and validated; next session starts with group 3 (FX). Group 3 still shows the `seed_dummy` placeholders.
 
 Each vignette is a frame (square, rectangle or circle) holding a **pictogram of the concept** (usually obvious), with the explanation beside it. The block explains basic **synthesis theory** in three groups.
 
 - **Style:** line drawings only, strokes in the original black/grey (`#111` or the muted text grey), same stroke weight in every pictogram, no fills. No colour for now; if needed later, only the theme accents (green `$color-accent-secondary`, maybe lilac), never colourful. One SVG file per pictogram in `seed/images/vignettes/`, loaded into the existing `Vignette.image` field.
+- **Drawing specs (keep group 3 consistent):** hand-written SVG (no build step), `fill="none"`, round caps and joins; main line `stroke="#111" stroke-width="2"`, secondary lines (zero lines, guides, back layers) `stroke="#707070" stroke-width="1"`, dashed guides `stroke-dasharray="3 4"`; every stroke has `vector-effect="non-scaling-stroke"` so all drawings keep the same weight at any size. No `<text>` (page fonts do not reach an SVG inside `<img>`): numbers and signs are drawn as strokes. Square pictograms use a 200×200 viewBox with the drawing kept inside the circle/frame margins.
+- **Data:** groups 1 and 2 (kind, image, ES/EN texts) are saved in `seed/texts/s09-vignettes.json`, the source for `seed_demo` (running `seed_dummy` again would wipe them from the dev DB).
 - ✅ **Group 1 · Sound sources:** three ways of making sound, each a line drawing with its name below (`Vignette.text1`, centred, muted): *simple waves* (a sine, 1.8 cycles, `wave-sine.svg`), *wavetables* (a perspective stack of 11 single-cycle frames: a clean sine in black at the front, harmonics growing and drifting towards the back in grey, dashed depth line, `source-wavetable.svg`) and *noise* (`wave-noise.svg`). Black 2 px main stroke, grey 1 px secondary lines. Loose organic layout: every offset (horizontal and vertical) and width is a % of the column, so it scales the same on every screen. Each drawing fades in on its own, scrubbed with the scroll (`.js-floating-item`). The earlier triangle/square/sawtooth drawings are in `seed/backup/vignettes/`.
 - ✅ **Group 2 · Modulation:** two square cards and two circles, same line style (`seed/images/vignettes/mod-*.svg`). Square cards show one line per filled-in text (`Vignette.texts`, up to `text4`) and never crop their pictogram (`object-fit: contain`). Fade-in and slide-in lines unchanged.
   - **ADSR:** classic envelope with dashed phase dividers; four short lines (attack, decay, sustain, release).
   - **Filter:** low-pass curve with resonant bump, dashed line at the cutoff; cutoff and resonance lines.
   - **LFO:** one wide, flat cycle; what an LFO is.
   - **Pitch:** a −12…+12 knob (stroke-drawn numbers, pointer slightly off centre for fine-tune); semitones/octaves for presence, fine-tune for imperfection and nuance.
-  - Draft ES/EN texts for groups 1 and 2 live only in the dev DB for now: `seed_demo` must load them.
 - **Group 3 · FX** (layout free): this group should be **geometrically more inventive** than groups 1 and 2, not just another column of frames. Effects that unfold in time (reverb, delay) suit long rectangular shapes; look for other visual metaphors when building it. Fade-in and probably the same slide-in line to the text (to be settled when building).
   - **Reverb:** a pulse followed by a dense, fading tail.
   - **Delay:** a pulse repeated at equal steps, each one smaller.
