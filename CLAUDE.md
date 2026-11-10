@@ -18,7 +18,7 @@ It is built on an existing Django codebase. The most valuable part is the **fron
 - ✅ **Phase 4 (remove traces of the origin):** done and validated. Admin CSS copies and logo removed (own `static/css/admin.css`), a free font instead of the paid one (now DM Sans), new favicon (a black pixel "wave" pulse over a lilac `#a99cff` / white split, same icon as the logo; PNG/ICO rasterised from the same geometry as `favicon.svg`), own rounded UI icons (circular back arrow, struck-through speaker while muted) and map pin, solid social icons GitHub/LinkedIn/Pinterest/Wikipedia (Simple Icons, CC0; LinkedIn drawn by hand), no social title, copyright rendered as `© <current year> <footer.copyright>`. Exhaustive search with the user's terms (files, binaries, file names, node_modules, database, git history): clean.
 - 📋 Parked issues live in `backlog.md` (anchor `#hash`, scroll stuck at `s06`, legal URLs with trailing slash, CKEditor 4, inconsistent breakpoints).
 - **Git:** history restarted on 2026-11-09 with a single clean initial commit on `main` (the old history is kept outside the project and must never be published). Published on 2026-11-09 as a private GitHub repo (`origin`), made **public** on 2026-11-10; merged branches are deleted from the remote; code or structural changes go through branches and PRs that the user reviews; small content tweaks (a photo crop, a text fix) can be committed straight to `main`.
-- The dev database holds the **real content**, loaded with `seed_demo` from `seed/content.json` + `seed/images/` (the legal pages still have placeholder text). No users. `seed_dummy` (silly text and images showing their field name) is kept for testing layouts; running it wipes the real content until `seed_demo` runs again.
+- The dev database holds the **real content**, loaded with `seed_demo` from `seed/content.json` + `seed/images/`. No users. `seed_dummy` (silly text and images showing their field name) is kept for testing layouts; running it wipes the real content until `seed_demo` runs again.
 
 ## Goals (by phase)
 
@@ -91,7 +91,7 @@ Work **one phase at a time**. The user validates each phase before moving on. Do
 - **Credits:** finish `seed/credits-todo.md` (some entries still say "credit from earlier list") and show them in the footer credits block.
 - ✅ **Texts (v1):** ES/EN copy for every block approved in `seed/texts/script.md` and loaded in the dev DB and in `seed/content.json`. s15 has no overlaid title (the template skips empty lines). Later: a link to the author's social network in s16.
 - ✅ **`seed_demo`:** loads everything from `seed/` on a fresh clone (consecutive `the_order` per model); `--export` writes the DB back to `seed/content.json`. Verified: the home renders identically (same HTML, same images in the same order) from the old dev DB, after loading into it and from an empty database.
-- **Legal pages:** *Aviso legal* and *Cookies* still have `seed_dummy` placeholder text; they need real ES/EN texts.
+- ✅ **Legal pages:** *Aviso legal* (personal non-profit portfolio, photo licences, trademarks, public code, GitHub Pages hosting, contact via GitHub) and *Cookies* (only `cookielaw_accepted`, 10 years; no analytics or third-party scripts), ES/EN. The notice says the photo credits are at the bottom of the page: the credits block must exist before publishing.
 - **Mobile check:** s09, s11, s14, cover/logo and the new photos.
 - Header readability over dark photos was raised and never settled; re-check it on s02 (TR-808) and s05.
 - **Palette shift (2026-11-10):** the author drops the green; the palette is lilac plus cream and light orange (the s01 cover sums it up). Done: s05 photo, footer map tint and `$color-accent-secondary` (now peach `#e8b48a`). No green left.
@@ -136,7 +136,7 @@ Each vignette is a frame (square, rectangle or circle) holding a **pictogram of 
 The goal of the whole project: a **public** repo with the site live for free on **GitHub Pages** (`<user>.github.io/synth-dreams/`), so GitHub visitors see both the code and the page. Free Pages needs a public repo. The site is published as a **static export**, because visitors only need the home and legal pages and the animations are all frontend. The admin is never exposed.
 
 - **Steps, in order** (each in its own branch + PR):
-  1. ✅ `seed_demo` (phase 5): CI starts from an empty database and loads everything from `seed/`. Still needed before publishing: real legal page texts.
+  1. ✅ `seed_demo` (phase 5): CI starts from an empty database and loads everything from `seed/`.
   2. Make the site work under the `/synth-dreams/` subpath: `STATIC_URL`, `MEDIA_URL`, webpack `publicPath` and the ES/EN language links.
   3. Static export script: renders `/`, `/en/` and the legal pages (both languages), with bundles, images and videos inside. Pages limits: 1 GB per site, 100 MB per file (keep the s04/s10 videos light).
   4. GitHub Action on every push to `main`: Postgres service → `migrate` → `seed_demo` → `npm run build` → `collectstatic` → export → deploy to Pages.
