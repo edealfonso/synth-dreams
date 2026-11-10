@@ -5,8 +5,11 @@
 <header class="header {{ header_class }}">
 
     {% if header.logo %}
-        <a href="{% url 'pages:home' %}" class="header__logo">
-            <img src="{{ header.logo.url }}" alt="Synth Dreams logo">
+        <a href="{% url 'pages:home' %}" class="header__logo" aria-label="Synth Dreams">
+            {# inline when it is an SVG, so its text can turn white over dark photos #}
+            {% with logo_svg=header.logo|inline_svg %}
+                {% if logo_svg %}{{ logo_svg }}{% else %}<img src="{{ header.logo.url }}" alt="Synth Dreams logo">{% endif %}
+            {% endwith %}
         </a>
     {% else %}
         <div></div>

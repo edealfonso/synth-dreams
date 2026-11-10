@@ -37,6 +37,23 @@
         &::after {
             display: none;
         }
+
+        svg {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        // the text of the logo (the icon keeps its colours)
+        svg > path {
+            transition: fill $transition-fast;
+        }
+    }
+
+    // over dark photos (`.js-header-dark` sections, toggled by features/header.js)
+
+    &__logo--light svg > path {
+        fill: $color-text-inverse;
     }
 
     &__menu {
@@ -45,6 +62,11 @@
         max-width: 45%;
         justify-content: space-between;
         align-items: center;
+        transition: color $transition-fast;
+    }
+
+    &__menu--light {
+        color: $color-text-inverse;
     }
 
     &__menu-item {

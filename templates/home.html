@@ -40,7 +40,7 @@ template-home
 
         <!-- s02 · parallax with title  /  s03 · statement  /  s04 · video cover -->
 
-        <section class="s02-parallax-with-title u-fullheight u-center gsap-parallax-bg-parent" id="s02">
+        <section class="s02-parallax-with-title u-fullheight u-center gsap-parallax-bg-parent js-header-dark" id="s02">
 
             <div class="gsap-parallax-bg"
                 style="background-image: url('{{ home.s02_image|media_url }}');">
@@ -97,7 +97,7 @@ template-home
 
         <!-- s05 · parallax  /  s06 · three horizontal steps -->
 
-        <section class="s05-parallax u-fullheight u-center gsap-parallax-bg-parent">
+        <section class="s05-parallax u-fullheight u-center gsap-parallax-bg-parent js-header-dark">
 
             <div class="gsap-parallax-bg"
                 style="background-image: url('{{ home.s05_image|media_url }}');">
@@ -148,7 +148,7 @@ template-home
                     <div id="s07-pair-{{forloop.counter0}}" class="gallery__pair">
                     <div class="gallery__row">
                 {% endif %}
-                        <div class="gallery__pic u-bg-cover"
+                        <div class="gallery__pic u-bg-cover js-header-dark"
                             style="background-image: url('{{ pic.image|media_url }}');">
                         </div>
                 {% if forloop.counter|divisibleby:2 %}
@@ -166,13 +166,13 @@ template-home
             {% for pic in gallery_1 %}
                 {% if forloop.last %}
                     <div class="gallery__item">
-                        <div class="gallery__pic u-bg-cover"
+                        <div class="gallery__pic u-bg-cover js-header-dark"
                             style="background-image: url('{{ pic.image|media_url }}');">
                         </div>
                     </div>
                 {% else %}
                     <div class="gallery__item">
-                        <div class="gallery__pic u-bg-cover gsap-mobilegallerypic"
+                        <div class="gallery__pic u-bg-cover js-header-dark gsap-mobilegallerypic"
                             style="background-image: url('{{ pic.image|media_url }}');">
                         </div>
                     </div>
@@ -321,7 +321,7 @@ template-home
             </div>
 
             {% if home.s10_image %}
-            <div class="s10-image-or-video__image u-bg-cover" id="s10-image"
+            <div class="s10-image-or-video__image u-bg-cover js-header-dark" id="s10-image"
                 style="background-image: url('{{ home.s10_image|media_url }}');">
             </div>
             {% endif %}
@@ -427,7 +427,7 @@ template-home
             </div>
 
             <div class="s13-pinned-cover__cover" id="s13-container">
-                <div id="s13-cover" class="u-bg-cover" 
+                <div id="s13-cover" class="u-bg-cover js-header-dark" 
                     style="background-image: url('{{ home.s13_image|media_url }}');">    
                 </div>
             </div>
@@ -470,7 +470,7 @@ template-home
         <!-- s15 · split images -->
         <section class="s15-split-images u-fullheight">
 
-            <div class="s15-split-images__left u-bg-cover"
+            <div class="s15-split-images__left u-bg-cover js-header-dark"
                 style="background-image: url('{{ home.s15_image_left|media_url }}');">
 
                 {% if home.s15_title_line1 %}
@@ -528,7 +528,7 @@ template-home
 
         <!-- s17 · full image with text -->
 
-        <section class="s17-full-image-with-text u-fullheight u-bg-cover"
+        <section class="s17-full-image-with-text u-fullheight u-bg-cover js-header-dark"
             style="background-image: url('{{ home.s17_image|media_url }}');">
 
             <div class="s17-full-image-with-text__text u-f-46 u-container">{{ home.s17_text|safe }}</div>
