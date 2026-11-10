@@ -61,6 +61,7 @@ template-home
 
         </section>
 
+        {% if home.s04_video_high or home.s04_video_low %}
         <section id="s04-container" class="s04-video-cover">
             <div id="s04-cover" class="s04-video-cover__cover u-bg-cover js-autovideo-responsive"
                 style="background-image:url('{{ home.s04_video_poster|media_url }}')">
@@ -91,6 +92,7 @@ template-home
             </div>
 
         </section>
+        {% endif %}
 
 
         <!-- s05 · parallax  /  s06 · three horizontal steps -->
