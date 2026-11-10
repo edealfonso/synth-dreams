@@ -3,6 +3,7 @@
 {% get_footer as footer %}
 {% get_header as header %}
 {% get_legal_pages as legal_pages %}
+{% get_credits as credits %}
 
 <footer class="footer u-f-footer">
     <div class="footer__top u-container gsap-appear" id="footer">
@@ -67,5 +68,17 @@
             </li>
         </ul>
     </div>
+
+    {% if credits or footer.credits_text %}
+    <div class="footer__credits">
+        {% if credits %}
+        <p>
+            {% if footer.credits_label %}{{ footer.credits_label }}: {% endif %}
+            {% for author, urls in credits %}{% if urls|length == 1 %}<a href="{{ urls.0 }}" target="_blank" rel="noopener">{{ author }}</a>{% else %}{{ author }} ({% for url in urls %}<a href="{{ url }}" target="_blank" rel="noopener">{{ forloop.counter }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}){% endif %}{% if not forloop.last %}, {% endif %}{% endfor %}.
+        </p>
+        {% endif %}
+        {{ footer.credits_text|safe }}
+    </div>
+    {% endif %}
 
 </footer>

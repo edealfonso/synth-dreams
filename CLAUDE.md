@@ -88,7 +88,8 @@ Work **one phase at a time**. The user validates each phase before moving on. Do
 - **s04 video** (and the optional s10 video): generate with `ffmpeg` test sources, without the timecode overlay. s04 is **hidden** until it has a real video (the template skips it when both video fields are empty; see `backlog.md`).
 - ✅ **s09 vignettes:** simple SVG pictograms about synthesis theory, not photos. See "s09 vignettes plan" below.
 - ✅ **Footer:** address text "A quiet street in Ciutat Vella, Barcelona" (ES/EN), `share-your@synth-dreams.example`, GitHub/LinkedIn/YouTube (Pinterest and Wikipedia dropped). Map overlay = Cerdà's 1859 plan (public domain), cropped around Ciutat Vella, inverted and tinted with the s05 warm tones (`seed/images/footer-map.jpg`, same gradient map as s05; green version in `seed/backup/footer-map-green.jpg`). Closing photo in a light lilac duotone (#8a7fe0 → #f6f4ff): lilac and cream/orange are the site's two accents. Footer accents: map pin `$color-accent` (lilac); the map link, email link and social icons turn `$color-accent-secondary` (peach `#e8b48a`) on hover; the header logo sits on the lilac strip above the legal links (its lilac icon blending in is intended).
-- **Credits:** every photo is credited in `seed/credits.md` (author, platform, link; done 2026-11-10, s07-1 was replaced because its source could not be found). Add the line there whenever a photo is added or replaced. Still to do: show them in the footer credits block.
+- **Credits:** every photo is credited in `seed/credits.md` (author, platform, link; done 2026-11-10, s07-1 was replaced because its source could not be found). Add the line there whenever a photo is added or replaced, and add a `Credit` row in the admin (then `seed_demo --export`).
+- ✅ **Credits block:** a small grey line under the footer's bottom image: `Footer.credits_label` ("Fotos"/"Photos"), then the `Credit` rows (sortable, admin *Footer · Photo credits*) grouped by author (one author with several photos gets numbered links), then `Footer.credits_text` (platforms and the map credit). Rendered with the `get_credits` tag.
 - ✅ **Texts (v1):** ES/EN copy for every block approved in `seed/texts/script.md` and loaded in the dev DB and in `seed/content.json`. s15 has no overlaid title (the template skips empty lines). Later: a link to the author's social network in s16.
 - ✅ **`seed_demo`:** loads everything from `seed/` on a fresh clone (consecutive `the_order` per model); `--export` writes the DB back to `seed/content.json`. Verified: the home renders identically (same HTML, same images in the same order) from the old dev DB, after loading into it and from an empty database.
 - ✅ **Legal pages:** *Aviso legal* (personal non-profit portfolio, photo licences, trademarks, public code, GitHub Pages hosting, contact via GitHub) and *Cookies* (only `cookielaw_accepted`, 10 years; no analytics or third-party scripts), ES/EN. The notice says the photo credits are at the bottom of the page: the credits block must exist before publishing.
@@ -193,10 +194,10 @@ Paths are relative to the repo root (where `manage.py`, `docker-compose.yml` and
 ```
 synthdreams/settings/      # base.py, local.py, prod.py (config read from env vars / .env)
 synthdreams/urls.py        # admin + i18n_patterns(pages)
-apps/pages/                # Header, Home, Footer (singletons), Vignette, MagnifyItem, LegalPage
+apps/pages/                # Header, Home, Footer (singletons), Vignette, MagnifyItem, LegalPage, Credit
 │   ├── views.py           # HomeView (puts everything in the context), LegalPageView
 │   ├── translation.py     # translatable fields
-│   ├── templatetags/site_tags.py   # get_header, get_footer, get_legal_pages, |media_url
+│   ├── templatetags/site_tags.py   # get_header, get_footer, get_legal_pages, get_credits, |media_url
 │   └── management/commands/   # seed_demo.py (real content from seed/), seed_dummy.py (placeholders)
 apps/galleries/            # FirstGalleryImage, SecondGalleryImage (sortable)
 templates/                 # base.html, home.html, legal.html, includes/, cookielaw/, admin/base_site.html (adds static/css/admin.css)

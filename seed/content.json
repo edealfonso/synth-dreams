@@ -177,7 +177,13 @@
       "linkedin": "https://www.linkedin.com/in/elsadealfonso/",
       "youtube": "https://www.youtube.com/playlist?list=PL74Ui7qmoyWDFMZvzXMhhWLvCdA4QkqKU",
       "bottom_image": "images/footer-bottom.jpg",
-      "copyright": "Elsa de Alfonso"
+      "copyright": "Elsa de Alfonso",
+      "credits_label": "Fotos",
+      "credits_label_es": "Fotos",
+      "credits_label_en": "Photos",
+      "credits_text": "<p>Fotos de Unsplash y Pexels, con sus licencias gratuitas. Mapa: <a href=\"https://commons.wikimedia.org/wiki/File:Plano_de_los_alrededores_de_la_ciudad_de_Barcelona_y_proyecto_de_su_reforma_y_ensanche_-_(Sign%C3%A9_Ildefonso_Cerda_(Abril_1859))_-_btv1b532454437.jpg\" target=\"_blank\" rel=\"noopener\">plano de Ildefons Cerdà</a> (1859), dominio público.</p>",
+      "credits_text_es": "<p>Fotos de Unsplash y Pexels, con sus licencias gratuitas. Mapa: <a href=\"https://commons.wikimedia.org/wiki/File:Plano_de_los_alrededores_de_la_ciudad_de_Barcelona_y_proyecto_de_su_reforma_y_ensanche_-_(Sign%C3%A9_Ildefonso_Cerda_(Abril_1859))_-_btv1b532454437.jpg\" target=\"_blank\" rel=\"noopener\">plano de Ildefons Cerdà</a> (1859), dominio público.</p>",
+      "credits_text_en": "<p>Photos from Unsplash and Pexels, under their free licences. Map: <a href=\"https://commons.wikimedia.org/wiki/File:Plano_de_los_alrededores_de_la_ciudad_de_Barcelona_y_proyecto_de_su_reforma_y_ensanche_-_(Sign%C3%A9_Ildefonso_Cerda_(Abril_1859))_-_btv1b532454437.jpg\" target=\"_blank\" rel=\"noopener\">Ildefons Cerdà’s plan</a> (1859), public domain.</p>"
     }
   },
   {
@@ -498,6 +504,216 @@
       "content_en": "<p>This site uses <strong>a single cookie</strong>, <code>cookielaw_accepted</code>. Its only job is to remember that you have already answered the cookie notice, so it is not shown again. It stays in your browser for 10 years and you can delete it at any time from your browser settings.</p><p>There are no analytics, advertising or social media cookies, and no third-party scripts. Fonts and images are served by the site itself.</p>",
       "the_order": 2,
       "slug": "cookies"
+    }
+  },
+  {
+    "model": "pages.credit",
+    "fields": {
+      "author": "Alex de Koning",
+      "url": "https://unsplash.com/photos/PDc-FeWNLLk",
+      "platform": "Unsplash",
+      "image": "s01 cover, footer strip",
+      "the_order": 1
+    }
+  },
+  {
+    "model": "pages.credit",
+    "fields": {
+      "author": "Steve Harvey",
+      "url": "https://unsplash.com/photos/_b35lgEvMtw",
+      "platform": "Unsplash",
+      "image": "s02",
+      "the_order": 2
+    }
+  },
+  {
+    "model": "pages.credit",
+    "fields": {
+      "author": "Egor Komarov",
+      "url": "https://unsplash.com/photos/xvyq0et3ZkA",
+      "platform": "Unsplash",
+      "image": "s05",
+      "the_order": 3
+    }
+  },
+  {
+    "model": "pages.credit",
+    "fields": {
+      "author": "TStudio",
+      "url": "https://www.pexels.com/photo/8042653/",
+      "platform": "Pexels",
+      "image": "s07 gallery 1",
+      "the_order": 4
+    }
+  },
+  {
+    "model": "pages.credit",
+    "fields": {
+      "author": "Alexey Demidov",
+      "url": "https://www.pexels.com/photo/32396970/",
+      "platform": "Pexels",
+      "image": "s07 gallery 2",
+      "the_order": 5
+    }
+  },
+  {
+    "model": "pages.credit",
+    "fields": {
+      "author": "Marcel Kovačič",
+      "url": "https://unsplash.com/photos/dDo8DEWoQcI",
+      "platform": "Unsplash",
+      "image": "s07 gallery 3",
+      "the_order": 6
+    }
+  },
+  {
+    "model": "pages.credit",
+    "fields": {
+      "author": "Mohamed Marey",
+      "url": "https://unsplash.com/photos/DoPOkBAY3qc",
+      "platform": "Unsplash",
+      "image": "s07 gallery 4",
+      "the_order": 7
+    }
+  },
+  {
+    "model": "pages.credit",
+    "fields": {
+      "author": "TStudio",
+      "url": "https://www.pexels.com/photo/10827843/",
+      "platform": "Pexels",
+      "image": "s08",
+      "the_order": 8
+    }
+  },
+  {
+    "model": "pages.credit",
+    "fields": {
+      "author": "TStudio",
+      "url": "https://www.pexels.com/photo/7095427/",
+      "platform": "Pexels",
+      "image": "s09",
+      "the_order": 9
+    }
+  },
+  {
+    "model": "pages.credit",
+    "fields": {
+      "author": "Alexey Demidov",
+      "url": "https://www.pexels.com/photo/12620108/",
+      "platform": "Pexels",
+      "image": "s10",
+      "the_order": 10
+    }
+  },
+  {
+    "model": "pages.credit",
+    "fields": {
+      "author": "Ricardo Abreu",
+      "url": "https://unsplash.com/photos/JqtYJgOY2g4",
+      "platform": "Unsplash",
+      "image": "s11",
+      "the_order": 11
+    }
+  },
+  {
+    "model": "pages.credit",
+    "fields": {
+      "author": "Phil Hearing",
+      "url": "https://unsplash.com/photos/EqNcRCAXACg",
+      "platform": "Unsplash",
+      "image": "s12 gallery 1",
+      "the_order": 12
+    }
+  },
+  {
+    "model": "pages.credit",
+    "fields": {
+      "author": "Bodega",
+      "url": "https://unsplash.com/photos/FZIsMXX3Pms",
+      "platform": "Unsplash",
+      "image": "s12 gallery 2",
+      "the_order": 13
+    }
+  },
+  {
+    "model": "pages.credit",
+    "fields": {
+      "author": "Reza Gholipour",
+      "url": "https://unsplash.com/photos/NyjJoANsqVw",
+      "platform": "Unsplash",
+      "image": "s12 gallery 3",
+      "the_order": 14
+    }
+  },
+  {
+    "model": "pages.credit",
+    "fields": {
+      "author": "Taitopia Render",
+      "url": "https://unsplash.com/photos/XdoE_g1N2Z0",
+      "platform": "Unsplash",
+      "image": "s12 gallery 4",
+      "the_order": 15
+    }
+  },
+  {
+    "model": "pages.credit",
+    "fields": {
+      "author": "Studio Lego",
+      "url": "https://unsplash.com/photos/XLlyBSLdqoU",
+      "platform": "Unsplash",
+      "image": "s13",
+      "the_order": 16
+    }
+  },
+  {
+    "model": "pages.credit",
+    "fields": {
+      "author": "Egor Komarov",
+      "url": "https://unsplash.com/photos/MOK8iZswk2I",
+      "platform": "Unsplash",
+      "image": "s14",
+      "the_order": 17
+    }
+  },
+  {
+    "model": "pages.credit",
+    "fields": {
+      "author": "Oleksii Nemnozhko",
+      "url": "https://unsplash.com/photos/kJ8OsOD7jrU",
+      "platform": "Unsplash",
+      "image": "s15 left",
+      "the_order": 18
+    }
+  },
+  {
+    "model": "pages.credit",
+    "fields": {
+      "author": "Vladislav Smigelski",
+      "url": "https://unsplash.com/photos/_zP9L7Wy3K4",
+      "platform": "Unsplash",
+      "image": "s15 right",
+      "the_order": 19
+    }
+  },
+  {
+    "model": "pages.credit",
+    "fields": {
+      "author": "Immo Wegmann",
+      "url": "https://unsplash.com/photos/T0TfxfRKZPc",
+      "platform": "Unsplash",
+      "image": "s16",
+      "the_order": 20
+    }
+  },
+  {
+    "model": "pages.credit",
+    "fields": {
+      "author": "Ingo Schulz",
+      "url": "https://unsplash.com/photos/mwWZTLr9Tcg",
+      "platform": "Unsplash",
+      "image": "s17",
+      "the_order": 21
     }
   },
   {

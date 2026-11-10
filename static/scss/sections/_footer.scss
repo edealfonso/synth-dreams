@@ -147,6 +147,31 @@
         font-size: 1.2rem;
     }
 
+    // photo credits, a small line under the bottom image
+
+    &__credits {
+        max-width: 90rem;
+        margin: 0 auto;
+        padding: 2.4rem $gutter-x 3rem;
+        text-align: center;
+        font-size: 1.2rem;
+        line-height: 1.6;
+        color: $color-text-muted;
+
+        a {
+            color: inherit;
+            text-decoration: underline;
+            transition: color $transition-fast;
+
+            &::after {
+                display: none;
+            }
+            &:hover, &:focus, &:active {
+                color: $color-accent-secondary;
+            }
+        }
+    }
+
     @media #{$mobile} {
         &__top {
             padding: 6.6rem 4rem 6rem 4rem;
@@ -182,6 +207,11 @@
 
         &__legal-links {
             margin-bottom: max(20vw, 5rem); // keeps the end readable on mobile
+        }
+
+        &__credits {
+            padding: 2rem $gutter-x-mobile 4rem;
+            font-size: 1.1rem;
         }
 
         &__legal-item {
