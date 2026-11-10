@@ -2,156 +2,13 @@
 
 ## Project: Synth Dreams
 
-Portfolio site by **Elsa de Alfonso**: a one-page home, heavy on scroll animation, about **drum machines, synthesizers and electronic gadgets** with a colourful, naive feel (no complicated modular rigs).
+Portfolio site by **Elsa de Alfonso**: a one-page home, heavy on scroll animation, about **drum machines, synthesizers and electronic gadgets** with a colourful, naive feel. Live at https://edealfonso.github.io/synth-dreams/ (static export on GitHub Pages).
 
-It is built on an existing Django codebase. The most valuable part is the **frontend JavaScript**: smooth scrolling, scroll-linked animations, lazy-loaded videos, and keeping all of that in sync across desktop and touch devices.
+The most valuable part is the **frontend JavaScript**: smooth scrolling, scroll-linked animations, lazy-loaded videos, and keeping all of that in sync across desktop and touch devices.
 
-> **Golden rule: the origin must not be traceable.** No previous brand, company, author, domain or repository may appear in the code, the commits or this file — nor the sector of the original content. If you find something like that, delete or replace it; never document or quote it. The only author who appears is Elsa de Alfonso.
+> **Language:** everything in the repo is in **English** (identifiers, comments, configs, admin labels, docs, commit messages). The site *content* is bilingual (ES default, EN).
 
-> **Language:** everything in the repo is in **English** (identifiers, comments, configs, admin labels, docs, commit messages). The site *content* is bilingual (ES default, EN). The conversation with the user is in Spanish.
-
-## Current status (2026-11-09)
-
-- ✅ **Phase 1 (Docker):** done and validated. Docker Compose with `db`, `web` and `assets`; settings read from `.env`; pinned versions in `requirements.txt`; settings package `synthdreams/`; flat layout (everything at the repo root).
-- ✅ **Phase 2 (comments):** done, then **superseded**: the user decided everything goes in English, so comments and names were translated to English during phase 3.
-- ✅ **Phase 3 (improvements):** done and validated, in sub-phases: 3a bugs and dead code → 3b modularise the JS → English translation (literal) → 3c structural naming → 3d SCSS (modules, tokens, BEM) → 3e conventions.
-- ✅ **Phase 4 (remove traces of the origin):** done and validated. Admin CSS copies and logo removed (own `static/css/admin.css`), a free font instead of the paid one (now DM Sans), new favicon (a black pixel "wave" pulse over a lilac `#a99cff` / white split, same icon as the logo; PNG/ICO rasterised from the same geometry as `favicon.svg`), own rounded UI icons (circular back arrow, struck-through speaker while muted) and map pin, solid social icons GitHub/LinkedIn/Pinterest/Wikipedia (Simple Icons, CC0; LinkedIn drawn by hand), no social title, copyright rendered as `© <current year> <footer.copyright>`. Exhaustive search with the user's terms (files, binaries, file names, node_modules, database, git history): clean.
-- 📋 Parked issues live in `backlog.md` (anchor `#hash`, scroll stuck at `s06`, legal URLs with trailing slash, CKEditor 4, inconsistent breakpoints).
-- **Git:** history restarted on 2026-11-09 with a single clean initial commit on `main` (the old history is kept outside the project and must never be published). Published on 2026-11-09 as a private GitHub repo (`origin`), made **public** on 2026-11-10; merged branches are deleted from the remote; code or structural changes go through branches and PRs that the user reviews; small content tweaks (a photo crop, a text fix) can be committed straight to `main`.
-- The dev database holds the **real content**, loaded with `seed_demo` from `seed/content.json` + `seed/images/`. No users. `seed_dummy` (silly text and images showing their field name) is kept for testing layouts; running it wipes the real content until `seed_demo` runs again.
-
-## Goals (by phase)
-
-Work **one phase at a time**. The user validates each phase before moving on. Do not get ahead.
-
-### 1. Run the project locally (Docker) — done
-- Everything runs in **Docker Compose**; nothing (Python, Postgres, Node) is installed on the host.
-  - **Python 3.12** in `web` (Django + `runserver`), **PostgreSQL 16** in `db` (persistent volume, no SQLite), **Node LTS** in `assets` (webpack watch → `static/bundles/` + `webpack-stats.json`).
-  - **Secrets in `.env`** (not committed) + `.env.example` (committed). Settings read environment variables.
-- Django 4.2 LTS; `sass` (Dart Sass) instead of `node-sass`.
-
-### 2. Comments — superseded by the English rule above
-
-### 3. Improve what can be improved
-- **Bugs:** go through the list below and fix them.
-- **Modularise the JS:** ES modules with a single webpack entry point, without changing behaviour. ✅
-- **English translation (step 1 of naming):** literal translation of every name and comment. Where a literal translation would reveal the original content's sector, use the block's **role** instead (e.g. `featured`). ✅
-- **Structural naming (3c):** blocks are named after their **layout, not their content**, so the theme can be reused for another topic. See "Blocks" below. ✅
-- **CSS (3d):** polish the SCSS: consistent BEM, tokens in `variables.scss`, remove duplicates and dead code, `@use` instead of `@import`.
-- **Conventions (3e):** write them down in the "Conventions" section of this file.
-
-### 4. Remove every trace of the origin
-- Rename whatever still carries old names: admin titles, `package.json` (name, description, author, repo, keywords), favicons, `site.webmanifest`, logos and legal texts.
-- Migrations were already regenerated from scratch in phase 3; regenerate again if models change.
-- Remove assets that are not ours: paid fonts (swap for a free one, e.g. Google Fonts), images, videos, map and brand SVGs.
-- Delete generated artifacts (`static/bundles/`, `webpack-stats.json`) and leftovers such as `.bash_history`, `.DS_Store`, `reqfreeze.txt`.
-- Finish with an exhaustive search (`grep -ri`) for the old names. The user gives the list of terms in the conversation and it is **never written to any file**.
-
-### 5. New content: Synth Dreams
-- New texts (ES and EN, the site is bilingual) and free photos/videos from **Unsplash** or **Pexels**.
-- **Credits:** record every one (author, platform, link) and show them in a credits block at the end of the footer that does not interfere with the animations.
-- Content lives in the database (admin), so a fresh clone must be able to load it on its own: `python manage.py seed_demo` loads `seed/content.json` (every row of the home models, ES and EN) and copies the files from `seed/` into `media/demo/`. After editing content in the admin, run `seed_demo --export` and commit `seed/content.json` (and any new file it adds to `seed/images/`).
-
-#### Proposed content per block (pending validation)
-
-| Block | New content |
-|---|---|
-| s01 pinned cover (logo + image) | "Synth Dreams" logo over a very colourful synth photo |
-| s02 parallax with title (+ s03 statement) | "Machines that make you smile" |
-| s04 video cover | Pexels video: hands playing a synth or drum machine |
-| s05 parallax + s06 three horizontal steps | "Three ways to make noise": drum machines · synths · gadgets |
-| s07 pinned gallery | Drum machine gallery |
-| s08 parallax layout | "Keys and knobs": close-ups of knobs, pads and keys |
-| s09 floating vignettes | "Anatomy of a synth": oscillator, filter, envelope… |
-| s10 image or video | "From circuit to sound" |
-| s11 rising text over pinned image | An iconic, colourful machine up close |
-| s12 pinned gallery | Pocket synths and quirky gadgets |
-| s13 pinned cover | "Tiny home studios" |
-| s14 magnify list | "Our rules": play first, big buttons, fearless colours… |
-| s15 split images (two-line title) | "Beep" / "Boop" |
-| s16 vertical points | "Start today": pick a machine · plug it in · record |
-| s17 full image with text | Closing line |
-| Footer (map, social, copyright) | **Keep the map overlay and its animation** (map image from OpenStreetMap, credited, not a Google Maps capture) with the address of *This Museum Is (Not) Obsolete* (https://maps.app.goo.gl/1jeT92y8vf4r98GDA). Made-up contact email (e.g. `wishlist@…`; prefer a reserved domain such as `.example` so it never reaches a real inbox). Social: GitHub, LinkedIn, a Pinterest search for synth/drum machine gear, and Wikipedia's *Electronic music* article (https://en.wikipedia.org/wiki/Electronic_music) instead of Instagram. © Elsa de Alfonso and **image credits** |
-
-#### Logo (approved)
-
-- Favicon icon (lilac/white, black pixel wave) + "Synth Dreams" in **Silkscreen** (pixel font, Google Fonts, SIL OFL 1.1), text converted to SVG paths (no font dependency). Logo icon: the pulse is drawn on a 9×9 pixel grid scaled so one icon pixel equals one font pixel (12.5 units), so the line has the weight of the letters; the top-left and bottom-right corner pixels are left empty ("wave" look) and the white band is exactly 4 grid rows. Both logos share the same icon/text proportion (icon 112.5 units tall, text cap height 62.5). Horizontal logo: 6 font pixels between icon and text. Optical kerning: tighter between N and T, DREAMS opened by half a pixel per gap. The favicon uses the same icon.
-- `seed/images/logo-cover.svg`: icon above `#111` text, for the s01 cover (the photo fades to 45% under it once revealed). `seed/images/logo-header.svg`: icon left, `#111` text, for the white header.
-
-#### Content review status
-
-- ✅ Approved: s01 cover (white macro keypad with aluminium knobs, abstract and soft-focus; mobile = vertical crop centred on the device; photo at 75% on load, fading to 45% when the black pixel logo rises), s10 (grey Elektron Model:Cycles on wood in window light), s09 photo (top view of keyboards and a mixer: Korg wavestate, Moog Grandmother, Zoom mixer; navy→lilac duotone like s02, then contrast 0.85 and brightness 1.3 baked in; vignettes still pending), s14, s17, s07 gallery, s12 gallery (slot 1 = Pocket Operator KO on speckled white), s08 (JX-08 split into two sharp crops), s11 (Elektron Digitakt on a white table, cropped, background curved to pure white), logo and favicon, s13 (small home studio with black walls, wood trim, a mixing desk and a window onto green trees, in warm light), s02 (TR-808 close-up as a navy→lilac duotone, whole width of the photo, top cropped (y 300–1500 of 2000×1500) so fewer light labels show, with **white** title and text), s05 (ADSR envelope screen, abstract, dark, unfaded, with **white** text; recoloured from green to cream/light orange with a luminance gradient map #120e0b → #2a1d14 → #d98f5c → #f0c49a → #f5ead7 → #fbf7ef, green original in `seed/backup/adsr-screen-green.jpg`), s16 (vintage VU meters and tape-deck knobs, landscape photo cropped to the column by object-fit), s15 (left: blue-lit SP-404 with the **white** "Beep / Boop" title; right: Zoom H6 recorder).
-- ✅ Footer bottom strip (`seed/images/footer-bottom.jpg`): the s01 cover photo again (keys, frame and big knob), vertical centre band y 455–1375 of the 3000×2000 original, light blur (1.5 px) and 35% fade toward white, so the page ends with the object it starts with.
-
-#### Still to do (phase 5)
-
-- **s04 video** (and the optional s10 video): generate with `ffmpeg` test sources, without the timecode overlay. s04 is **hidden** until it has a real video (the template skips it when both video fields are empty; see `backlog.md`).
-- ✅ **s09 vignettes:** simple SVG pictograms about synthesis theory, not photos. See "s09 vignettes plan" below.
-- ✅ **Footer:** address text "Ciutat Vella, Barcelona" (ES/EN), `synth@dreams.example`, underlined links in the closing text (Learning Synths), GitHub/LinkedIn/YouTube (Pinterest and Wikipedia dropped). Map overlay = Cerdà's 1859 plan (public domain), cropped around Ciutat Vella, inverted and tinted with the s05 warm tones (`seed/images/footer-map.jpg`, same gradient map as s05; green version in `seed/backup/footer-map-green.jpg`). Closing photo in a light lilac duotone (#8a7fe0 → #f6f4ff): lilac and cream/orange are the site's two accents. Footer accents: map pin `$color-accent` (lilac); the social icons turn `$color-accent-secondary` (peach `#e8b48a`) on hover; the map link and email link only get a lilac underline; the header logo sits on the lilac strip above the legal links (its lilac icon blending in is intended).
-- **Credits:** every photo is credited in `seed/credits.md` (author, platform, link; done 2026-11-10, s07-1 was replaced because its source could not be found). Add the line there whenever a photo is added or replaced, and add a `Credit` row in the admin (then `seed_demo --export`).
-- ✅ **Credits block:** small dark-grey text (`$color-text-on-strip`) at the bottom of the footer's image strip, under the legal links (chosen from four on-page sketches): `Footer.credits_label` ("Fotos"/"Photos"), then the `Credit` rows (sortable, admin *Footer · Photo credits*) grouped by author (one author with several photos gets numbered links), then `Footer.credits_text` (platforms and the map credit). Rendered with the `get_credits` tag.
-- ✅ **Texts (v1):** ES/EN copy for every block approved in `seed/texts/script.md` and loaded in the dev DB and in `seed/content.json`. s15 has no overlaid title (the template skips empty lines). Later: a link to the author's social network in s16.
-- ✅ **`seed_demo`:** loads everything from `seed/` on a fresh clone (consecutive `the_order` per model); `--export` writes the DB back to `seed/content.json`. Verified: the home renders identically (same HTML, same images in the same order) from the old dev DB, after loading into it and from an empty database.
-- ✅ **Legal pages:** *Aviso legal* (personal non-profit portfolio, photo licences, trademarks, public code, GitHub Pages hosting, contact via GitHub) and *Cookies* (only `cookielaw_accepted`, 10 years; no analytics or third-party scripts), ES/EN. The notice says the photo credits are at the bottom of the page: the credits block must exist before publishing.
-- **Mobile check:** s09, s11, s14, cover/logo and the new photos.
-- ✅ **Header over dark photos:** the logo text and the menu turn white while they sit over an element marked `.js-header-dark` (s02, s05, the s07 gallery photos, s10, s13, s15 left half, s17). Checked separately for the logo and the menu (a split section can be dark on one side only), using the first element that actually paints under each one, so pinned blocks that overlap (s12 gallery over the s13 cover) are handled. The header logo is rendered inline (`|inline_svg`) so its text path can change colour; the icon keeps its colours. Mark a section `.js-header-dark` whenever its photo is dark (e.g. s04 when its video comes back).
-- **Palette shift (2026-11-10):** the author drops the green; the palette is lilac plus cream and light orange (the s01 cover sums it up). Done: s05 photo, footer map tint and `$color-accent-secondary` (now peach `#e8b48a`). No green left.
-
-#### s09 vignettes plan (done)
-
-**Status (2026-11-10):** branch `s09-vignettes`, PR #10 to `main`. All three groups are done and validated (vignettes closed). Group titles (ES/EN): *Materia prima* / *Raw material*, *Modulación* / *Modulation*, *Efectos especiales* / *Special effects* (in `seed/content.json`).
-
-Each vignette is a frame (square, rectangle or circle) holding a **pictogram of the concept** (usually obvious), with the explanation beside it. The block explains basic **synthesis theory** in three groups.
-
-- **Style:** line drawings only, strokes in the original black/grey (`#111` or the muted text grey), same stroke weight in every pictogram, no fills. Colour only as a detail in peach (`$color-accent-secondary`): the dashed guides of every pictogram and the vignette names in bold (DM Sans 600): group 1 captions and the `<strong>` names at the start of the texts in groups 2 and 3; never colourful. One SVG file per pictogram in `seed/images/vignettes/`, loaded into the existing `Vignette.image` field.
-- **Drawing specs (keep group 3 consistent):** hand-written SVG (no build step), `fill="none"`, round caps and joins; main line `stroke="#111" stroke-width="2"`, secondary lines (zero lines, guides, back layers) `stroke="#707070" stroke-width="1"`, dashed guides `stroke="#e8b48a"` (peach, = `$color-accent-secondary`) `stroke-dasharray="3 4"`; every stroke has `vector-effect="non-scaling-stroke"` so all drawings keep the same weight at any size. No `<text>` (page fonts do not reach an SVG inside `<img>`): numbers and signs are drawn as strokes. Square pictograms use a 200×200 viewBox with the drawing kept inside the circle/frame margins.
-- **Data:** groups 1, 2 and 3 (kind, image, ES/EN texts) were first saved in `seed/texts/s09-vignettes.json`; the source `seed_demo` loads is now `seed/content.json`.
-- ✅ **Group 1 · Sound sources:** three ways of making sound, each a line drawing with its name below (`Vignette.text1`, centred, peach bold): *simple waves* (a sine, 1.8 cycles, `wave-sine.svg`), *wavetables* (a perspective stack of 11 single-cycle frames: a clean sine in black at the front, harmonics growing and drifting towards the back in grey, dashed depth line, `source-wavetable.svg`) and *noise* (`wave-noise.svg`). Black 2 px main stroke, grey 1 px secondary lines. Loose organic layout: every offset (horizontal and vertical) and width is a % of the column, so it scales the same on every screen. Each drawing fades in on its own, scrubbed with the scroll (`.js-floating-item`). The earlier triangle/square/sawtooth drawings are in `seed/backup/vignettes/`.
-- ✅ **Group 2 · Modulation:** two square cards and two circles, same line style (`seed/images/vignettes/mod-*.svg`). Square cards show one line per filled-in text (`Vignette.texts`, up to `text4`) and never crop their pictogram (`object-fit: contain`). Fade-in and slide-in lines unchanged.
-  - **ADSR:** classic envelope with dashed phase dividers; four short lines (attack, decay, sustain, release).
-  - **Filter:** low-pass curve with resonant bump, dashed line at the cutoff; cutoff and resonance lines.
-  - **LFO:** one wide, flat cycle; what an LFO is.
-  - **Pitch:** a −12…+12 knob (stroke-drawn numbers, pointer slightly off centre for fine-tune); semitones/octaves for presence, fine-tune for imperfection and nuance.
-- **Group 3 · FX = effect chain:** the three effects in series, like pedals: distortion → delay → reverb. **One SVG for the whole group** (`seed/images/vignettes/fx-chain.svg`, viewBox 470×630, in `Home.s09_group_image3`, rendered inline with the `|inline_svg` filter so the JS can animate it). A thin grey cable with right angles (like a circuit trace) runs from an input jack, through each box side to side, to an output jack; the boxes grow (square → long → longest, square corners like group 2). Generated by a script (not kept in the repo): edit the SVG by hand or regenerate with the same coordinates.
-  - **Distortion:** a sine with its tops clipped flat, dashed clip lines. **Delay:** a burst repeated at equal steps, each one smaller, dashed step lines. **Reverb:** a burst followed by a dense tail fading inside a dashed envelope.
-  - **Texts:** three `Vignette` rows of kind `CHAIN` (one `text1` each, `<strong>Name:</strong> explanation`), laid over the empty areas of the drawing with % offsets (`.fx-chain__text--1..3`); on mobile they stack below the drawing.
-  - **Animation** (`initEffectChain`): one timeline scrubbed with the scroll: input jack, then each cable draws itself (time proportional to its length) and the box it reaches fades in, with its text on desktop; then the output jack. On mobile each text fades in on its own. SVG hooks: `js-fx-cable`, `gsap-fx-box`, `gsap-fx-jack` (+ `gsap-fx-text` on the texts). The cables have non-scaling strokes, so their dash length is measured on screen and re-measured on every ScrollTrigger refresh.
-- **Texts:** ES and EN in the admin; short and naive, in the tone of the rest of the site.
-- **Order of work:** group 1 → group 2 → group 3, each validated before the next (pictograms, then markup/SCSS if needed, then animation in `animations/s09-floating-vignettes.js`, keeping the ScrollTrigger order in `animations/index.js`). Check mobile at the end of each part.
-
-#### Photo constraints (final selection)
-
-- **Theme:** the site is about the author's dream gear (see the wish list in the conversation). Photos from Unsplash/Pexels only (Unsplash+ excluded), beautiful, with special/coloured light; abstract close-ups are fine, they need not show the whole device. **Validated look:** product close-ups in natural light with cheerful, slightly vintage/pastel colours (favourite: TR-808 button close-up; also OP-Z detail, Moog Grandmother panels). Warm, moody coloured light (orange/red-pink) is acceptable as a secondary accent. Avoid flat "still life" shots on plain coloured backgrounds and abstract light-painting. Keep it simple: download each chosen photo once into `seed/` and record its credit (no image pipeline).
-- **s11_image:** the photo's background must match the block's background colour. (s09 now uses a full-bleed top-view photo, so the rule no longer applies there.)
-- **s09 vignettes:** drawn as simple SVG pictograms (e.g. oscillator, filter, envelope), not photos.
-- **Photos under text (s01, s14):** faded toward white before seeding (`ffmpeg lutrgb`, out = val·(1−a) + 255·a; a ≈ 0.7 for s01, 0.45 for s14) so the black text has little contrast to fight.
-- **Galleries:** s07 = drum machines and synths (mostly Roland; slot 1 is a Moog since 2026-11-10); s12 = Teenage Engineering only.
-- **Backup photos** (good, not placed yet) live in `seed/backup/` (local only, git-ignored). Every photo removed from a block goes there; files the author deletes from it are rejected and must not be restored.
-- **Gallery order:** `seed_demo` gives sortable rows consecutive `the_order` values (the dev DB once had duplicates, which made the rendered order differ from the intended one).
-- **s14_image:** very light, low contrast (or reduced opacity) so the text on top stays readable.
-- **s17_image:** text sits top-right on desktop and at the bottom on mobile (white text), so those areas must be plain and dark.
-- **Videos (s04, s10):** procedurally generated with `ffmpeg` test sources (no rights needed; remove the timecode overlay). The author may add her own audio.
-
-### 6. Go public: GitHub Pages (planned 2026-11-10)
-
-The goal of the whole project: a **public** repo with the site live for free on **GitHub Pages** (`<user>.github.io/synth-dreams/`), so GitHub visitors see both the code and the page. Free Pages needs a public repo. The site is published as a **static export**, because visitors only need the home and legal pages and the animations are all frontend. The admin is never exposed.
-
-- **Steps, in order** (each in its own branch + PR):
-  1. ✅ `seed_demo` (phase 5): CI starts from an empty database and loads everything from `seed/`.
-  2. ✅ Make the site work under the `/synth-dreams/` subpath. One env var, `SITE_PREFIX` (empty locally, `/synth-dreams` for the export): Django sets `FORCE_SCRIPT_NAME` from it, so reversed URLs and the now relative `STATIC_URL`/`MEDIA_URL` (`static/`, `media/`) get the prefix; webpack prepends it to `publicPath` (bundles, fonts, CSS assets), so build with the same value; the ES/EN links use the `translated_url` tag (`translate_url` on `request.path_info`). With the prefix set, `runserver` links do not match its routes: it is meant for the export, which renders through the test client. Never hard-code a root path (`/...`) in templates, JS or SCSS.
-  3. ✅ Static export: `python manage.py export_static` (run with the same `SITE_PREFIX` as the webpack build; `make export` does both and restarts the dev build). Renders `/`, `/en/` and every legal page in both languages through the test client into `dist/` (git-ignored): `index.html` per folder, `legal/<slug>.html` (GitHub Pages serves `/legal/<slug>` from it). Copies `static/bundles`, `favicon` and `img` whole, plus every static/media URL the pages reference (attributes, inline styles, `data-src`), and adds `.nojekyll`. Currently 15 MB. Checked by serving `dist/` under `/synth-dreams/`: every resource and internal link loads; no 404s (the old `.webp` probes were removed). Pages limits: 1 GB per site, 100 MB per file (keep the s04/s10 videos light).
-  4. GitHub Action `.github/workflows/pages.yml`, on every push to `main` (and by hand, *Run workflow*): Postgres 16 service → `pip install` + `npm ci` → `npm run build` with `SITE_PREFIX=/<repo name>` → `migrate` → `seed_demo` → `export_static` → upload `dist/` → deploy to Pages. Uses `settings.prod` with build-only env values (no secrets needed: Django only renders). No `collectstatic`: the export reads the static files through the finders. Simulated locally on an empty database with the same settings: same output as the dev DB.
-  5. Before going public: run the origin-traces search again (the user gives the terms in the conversation), check for secrets, finish the credits and replace the s04 placeholder video.
-  6. The repo is public (done 2026-11-10). The user sets Settings → Pages → Source to "GitHub Actions" (before the workflow's first run, or the deploy job fails; re-run it afterwards).
-- **Content updates:** any push to `main` (including small content tweaks in `seed/`) redeploys the site.
-- ✅ **README.md** (the repo is a job-hunting portfolio, so the README is its front page). Screenshots in `docs/screenshots/`, taken from the live site with headless Chromium (Playwright in a throwaway `node:22` container) at 1440×900, 2×, then scaled and saved as JPG; retake them when the look changes. It must have:
-  - an attractive screenshot (or GIF) of the site;
-  - what the site does;
-  - the technologies used;
-  - what the author developed herself;
-  - the live demo link (GitHub Pages);
-  - how to run it locally (Docker).
-- **Split this file:** keep a short public `CLAUDE.md` (stack, architecture, conventions, gotchas) and move everything else (phase diary, content and photo notes, anything about the project's origin) to a git-ignored `CLAUDE.local.md`, which Claude Code also reads. No history rewrite.
+Private notes (project diary, content and photo decisions) live in a git-ignored `CLAUDE.local.md`, which Claude Code also reads.
 
 ## Blocks (structural naming)
 
@@ -208,6 +65,9 @@ static/img/                # UI icons (own SVGs)
 static/scss/               # index.scss (@use, cascade order): abstracts/ (tokens + mixins, no CSS), base/, sections/, special/, templates/
 static/bundles/            # webpack output (generated)
 webpack.config.js          # single config; --mode development (watch) or production (postcss + minified)
+seed/                      # content.json + images loaded by seed_demo; credits.md (photo credits)
+docs/screenshots/          # README screenshots
+.github/workflows/pages.yml  # static export deployed to GitHub Pages on push to main
 ```
 
 Almost all home content is edited in the admin (`Home` model, `sNN_*` fields, see "Blocks"). `home.html` relies heavily on **IDs and classes the JS uses as selectors**.
@@ -231,6 +91,17 @@ docker compose down                               # stop (add -v to also delete 
 
 `Makefile` shortcuts: `make up`, `make down`, `make logs`, `make migrate`, `make makemigrations`, `make superuser`, `make shell`, `make manage cmd="..."`, `make build` and `make export`.
 
+## Content
+
+- Content lives in the database and is edited in the admin. A fresh clone loads it with `seed_demo` (`seed/content.json` + `seed/images/`, copied to `media/demo/`). After editing content in the admin, run `seed_demo --export` and commit `seed/content.json` (and any new file it adds to `seed/images/`).
+- **Photo credits:** every photo is credited in `seed/credits.md` (author, platform, link) and as a `Credit` row in the admin (*Footer · Photo credits*), shown at the bottom of the footer. Add both **at the same time** as the photo.
+
+## Static export and deployment
+
+- `SITE_PREFIX` (env var; empty locally, `/synth-dreams` on GitHub Pages) sets `FORCE_SCRIPT_NAME`, so reversed URLs and the relative `STATIC_URL`/`MEDIA_URL` get the prefix; webpack prepends it to `publicPath`, so build with the same value. ES/EN links use the `translated_url` tag. Never hard-code a root path (`/...`) in templates, JS or SCSS. With the prefix set, `runserver` links do not match its routes: it is only meant for the export.
+- `export_static` renders `/`, `/en/` and every legal page (both languages) through the test client into `dist/` (git-ignored): `index.html` per folder, `legal/<slug>.html`. It copies `static/bundles`, `favicon` and `img`, plus every static/media file the pages reference, and adds `.nojekyll`. `make export` = prefixed build + export + dev build again.
+- `.github/workflows/pages.yml` runs on every push to `main` (and by hand): Postgres service → `pip install` + `npm ci` → prefixed `npm run build` → `migrate` → `seed_demo` → `export_static` → deploy to Pages. Build-only env values, no secrets. Any commit to `seed/` redeploys the site.
+
 ## JavaScript architecture (`static/js/`)
 
 ES modules with a single entry point (`main.js`). jQuery is global (`$`, via `ProvidePlugin`).
@@ -241,58 +112,27 @@ ES modules with a single entry point (`main.js`). jQuery is global (`$`, via `Pr
 | `core/gsap.js` | Registers ScrollTrigger and re-exports `gsap` and `ScrollTrigger`. Everyone imports from here. |
 | `core/screen.js` | `screen` (live object with `isLaptop/isTablet/isMobile/isMobileSmall`: 1200/990/767/375 px), `calcScreen()`, `isTouchDevice`. |
 | `core/scroll.js` | Hides the two scroll systems (smooth-scrollbar on non-touch, native on touch): `initSmoothScroll`, `getScrollTop`, `onScroll`, `isVisible`, `universalYScroll`, `SCROLLER_SELECTOR`. |
-| `animations/index.js` | `loadAllAnimations()`: `ScrollTrigger.defaults` and a call to each animation **in the original order** (see below). |
+| `animations/index.js` | `loadAllAnimations()`: `ScrollTrigger.defaults` and a call to each animation **in a fixed order** (see Gotchas). |
 | `animations/*.js` | `generic` (`.gsap-appear`, `.gsap-parallax*`), `covers` (s01, s04, s13), `galleries` (s07, s12) and one module per block with its own animation: `s06-three-horizontal-steps`, `s09-floating-vignettes`, `s11-rising-text-over-pinned-image`, `s14-magnify-list`, `s16-vertical-points`. Desktop-only ones are called inside `gsap.matchMedia`. |
 | `features/` | `anchors` (hash and `.js-smooth-anchor`), `autovideo` (lazy videos and controls), `cover` (two-step cover reveal), `header` (`checkHeader`, `slideHeader`, `checkHeaderTheme`: white logo text/menu over `.js-header-dark` elements), `map`. |
 
-### Animation adjustments (branch `animation-adjustments`)
+### Animation notes
 - **s09:** slow parallax on the left image (desktop only, no zoom): while the section crosses the screen (`top bottom` → `bottom top`), a scrubbed `y` transform moves it from the top of the section to its bottom, so it rises into view more slowly than the page and only its lower part shows as the section leaves. A transform, not a pin, so later triggers keep their positions.
 - **s11:** title and text sit above the image; the title only fades in, the text fades in and rises a little; the image (tight crop, 85vh) is pinned in the middle of the screen (no pin spacing, the section height gives the distance) and zooms from 0.85 to 1.
 - **s14:** each item lights up as it rises to the middle of the screen and stays lit (no dimming afterwards).
 
 ### Gotchas
-- **ScrollTrigger creation order:** positions are computed in order and pins push the later triggers down. `animations/index.js` keeps the original order; do not reorder without checking.
+- **ScrollTrigger creation order:** positions are computed in order and pins push the later triggers down. `animations/index.js` keeps a fixed order; do not reorder without checking.
 - **Timing:** smooth-scrollbar goes **before** any ScrollTrigger. The nested ready in `main.js` is not redundant: removing it changes the measured heights (verified: the s16 and s14 pins compute `start`/`end` from heights at creation time). The `setTimeout`s (100/500/1000 ms) shape how the page enters.
 - **Touch devices and JS motion:** with native scroll (touch), the browser scrolls ahead of the JS, so anything ScrollTrigger pins or moves while scrolling lags and jumps (measured frame by frame on an iPhone recording of the mobile galleries; `anticipatePin` did not help). So on touch the mobile galleries (s07, s12) are pinned by CSS (`.gallery--mobile.sticky`, `position: sticky`, added by `initGalleriesMobile`) and their −40% rise is **not** applied: that rise only exists without touch (smooth-scrollbar). Keep this in mind before adding JS-driven pins or motion on mobile.
 - **Coupling with the HTML:** selectors are the contract with `home.html`. Renaming one means changing the template, the SCSS and the module together.
-- **3d verification:** computed styles and boxes of every element (matched by DOM position) were compared before/after the BEM renaming at 390, 900, 1100 and 1600 px, home and legal, with and without the cookie banner: identical.
-- **3b verification:** the 65 ScrollTriggers (order, `start`, `end`, pin) of the original `script.js` and of the modular version were compared on desktop: identical.
+- **Header over dark photos:** the logo text and the menu turn white while they sit over an element marked `.js-header-dark` (`checkHeaderTheme`, checked separately for the logo and the menu, using the first element that actually paints under each one, so overlapping pinned blocks are handled). The header logo is rendered inline (`|inline_svg`) so its text path can change colour. Mark a block `.js-header-dark` whenever its photo is dark.
 
-## Bugs and leftovers (phase 3)
+## Secrets
 
-Fixed in 3a:
-- `universalYScroll`: on touch it used `the_scroller` (undefined) and animated `#scroll-content`, which only exists with smooth-scrollbar. Now it uses `#body-scroller`.
-- The `load` handler of `.js-firstload` was empty; now it reveals the cover when the image loads.
-- In s10 (then "section 5"), the high/low quality videos had their `desktop`/`mobile` classes swapped.
-- Desktop galleries created one tween per element, all targeting the same class. Now there is one per gallery.
-- `/media/{{ field }}` paths → `{{ field|media_url }}` filter, which returns `''` for empty fields (`.url` would raise `ValueError`).
-- Dead JS removed (old scroll library, old "magnifier" code, `vh()`, `ScrollbarPlugin`, `console.log`s, a no-op `split('#')` line, `data-parent`).
-- webpack configs merged into `webpack.config.js` (mode from the CLI); npm scripts reduced to `watch`, `build` and `clean`.
-- Static, media and webpack settings moved from `local.py`/`prod.py` to `base.py`. Docs links → Django 4.2.
-- Unused fast-forward icon deleted.
-
-Fixed during the English translation:
-- Mobile gallery 2 rendered the images of gallery 1.
-- The second image of s08 (then "section 3") checked the fields of the first one.
-- `asgi.py`/`wsgi.py` pointed to `synthdreams.settings` (not a settings module); now `synthdreams.settings.prod`.
-- `apps/pages/fields.py` (`ResponsiveImageField`) was only used by an old migration: deleted.
-
-Fixed in 3d:
-- `@import` → `@use`/`@forward` (no more Sass deprecation warnings); `unquote()` removed.
-- Dead CSS removed (commented-out code, empty rules, unused utilities, rem fallbacks always overridden by vw/vh, the `.onload-showing` style in `base.html`, the undefined `mw-1100` class).
-- Stray `</a>` after the copyright in the footer.
-
-Pending:
-- Unused `devDependencies` (`video.js`, `file-loader`, `url-loader`, `style-loader`, `babel` 6…) and no Babel config (the loader transforms nothing). `django-debug-toolbar` is installed but not used.
-- Meta descriptions in `base.html` are Spanish only; they should follow the page language (phase 5).
-
-## Secrets and publishing on GitHub
-
-- Only `.env.example` (sample values) is committed; `.env` is in `.gitignore`.
-- Also not committed: `node_modules/`, `media/` (except what the seed needs, which goes in `seed/`), `static/bundles/`, `webpack-stats.json`, `.DS_Store`, `.bash_history`.
+- Only `.env.example` (sample values) is committed; `.env` is in `.gitignore`. The GitHub Action needs no secrets.
+- Also not committed: `node_modules/`, `media/` (what the site needs is in `seed/`), `static/bundles/`, `webpack-stats.json`, `dist/`, `CLAUDE.local.md`, `seed/backup/`.
 - `settings/prod.py` has no domains or hosting data: everything comes from the environment.
-- The local git repo exists, but **the published one must start clean**. See "Current status".
-- The repo is **public** (since 2026-11-10). Checked then: no secrets or ignored files in the tracked tree or in the history. Known and accepted: `seed/backup/` photos (Unsplash/Pexels, free licence) are in the history from before it was git-ignored; the author decided to keep them there (no history rewrite).
 
 ## Conventions
 
@@ -309,4 +149,4 @@ Pending:
 - **Links:** two styles. Plain links have no underline until hover, when a lilac line (`$color-accent`) fades in (`hover-underline-line` mixin on an `::after`). Links that must read as links (footer closing text, contact) are always underlined in grey with the same distance and weight (`link-underline` mixin, `text-decoration` in `em`, so it scales with the font and wraps across lines); on hover only the line turns lilac. Lilac = hover; the text never changes colour (the social icons are the exception: they turn peach). Photo credits: no underline until hover, then a closer one in the text colour.
 - **Templates:** media through the `|media_url` filter (never `.url` on optional fields). A selector change means template + SCSS + JS together.
 - **Django:** config from environment variables (`.env`); model changes need a migration and, if translatable, `translation.py`.
-- **Git:** commits only when the user asks; code or structural changes go through a branch and PR, small content tweaks can go straight to `main`. English messages: the phase plus a short summary (`Phase 3d: …`), then the details as a list.
+- **Git:** commits only when the user asks; code or structural changes go through a branch and PR, small content tweaks can go straight to `main`. English messages: a short summary prefixed with the phase (`Phase 6: …`), then the details as a list.
