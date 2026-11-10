@@ -226,17 +226,16 @@ class Command(BaseCommand):
 
     def vignettes(self):
         # group 1: three floating images (#s09-floating-0..2)
-        # group 2: square and round; group 3: rectangle and square (see home.html)
+        # group 2: square and round; group 3: three texts of the effect chain (see home.html)
         rows = [
             ('1', 'FLOATING'), ('1', 'FLOATING'), ('1', 'FLOATING'),
             ('2', 'SQUARE'), ('2', 'ROUND'), ('2', 'ROUND'),
-            ('3', 'RECTANGLE'), ('3', 'SQUARE'),
+            ('3', 'CHAIN'), ('3', 'CHAIN'), ('3', 'CHAIN'),
         ]
         for i, (group, kind) in enumerate(rows):
             vignette = Vignette(group=group, kind=kind, the_order=i)
-            set_file(vignette, 'image', placeholder_image(f'vignette-{group}-{i}-{kind.lower()}', SMALL))
-            if kind == 'RECTANGLE':
-                set_file(vignette, 'extra_image', placeholder_image(f'vignette-{i}-extra', SMALL))
+            if kind != 'CHAIN':
+                set_file(vignette, 'image', placeholder_image(f'vignette-{group}-{i}-{kind.lower()}', SMALL))
             for n in (1, 2, 3):
                 set_translated(
                     vignette, f'text{n}',

@@ -1,0 +1,105 @@
+[
+  {
+    "group": "1",
+    "kind": "FLOATING",
+    "image": "images/vignettes/wave-sine.svg",
+    "text1": {
+      "es": "<p>Ondas simples</p>",
+      "en": "<p>Simple waves</p>"
+    }
+  },
+  {
+    "group": "1",
+    "kind": "FLOATING",
+    "image": "images/vignettes/source-wavetable.svg",
+    "text1": {
+      "es": "<p>Wavetables</p>",
+      "en": "<p>Wavetables</p>"
+    }
+  },
+  {
+    "group": "1",
+    "kind": "FLOATING",
+    "image": "images/vignettes/wave-noise.svg",
+    "text1": {
+      "es": "<p>Ruido</p>",
+      "en": "<p>Noise</p>"
+    }
+  },
+  {
+    "group": "2",
+    "kind": "SQUARE",
+    "image": "images/vignettes/mod-adsr.svg",
+    "text1": {
+      "es": "<p><strong>Ataque:</strong> tiempo hasta la pegada.</p>",
+      "en": "<p><strong>Attack:</strong> time to the peak.</p>"
+    },
+    "text2": {
+      "es": "<p><strong>Decaimiento:</strong> tiempo hasta el sostenido.</p>",
+      "en": "<p><strong>Decay:</strong> time down to the sustain.</p>"
+    },
+    "text3": {
+      "es": "<p><strong>Sostenido:</strong> nivel mientras pulsas.</p>",
+      "en": "<p><strong>Sustain:</strong> level while you hold the key.</p>"
+    },
+    "text4": {
+      "es": "<p><strong>Relajación:</strong> tiempo hasta el silencio.</p>",
+      "en": "<p><strong>Release:</strong> time back to silence.</p>"
+    }
+  },
+  {
+    "group": "2",
+    "kind": "SQUARE",
+    "image": "images/vignettes/mod-filter.svg",
+    "text1": {
+      "es": "<p><strong>Frecuencia de corte:</strong> lo que queda por encima se apaga.</p>",
+      "en": "<p><strong>Cutoff:</strong> everything above it fades away.</p>"
+    },
+    "text2": {
+      "es": "<p><strong>Resonancia:</strong> un pico justo en el corte que hace silbar el sonido.</p>",
+      "en": "<p><strong>Resonance:</strong> a peak right at the cutoff that makes the sound whistle.</p>"
+    }
+  },
+  {
+    "group": "2",
+    "kind": "ROUND",
+    "image": "images/vignettes/mod-lfo.svg",
+    "text1": {
+      "es": "<p><strong>LFO:</strong> una onda tan lenta que no se oye; mueve otros controles sola, como una mano invisible.</p>",
+      "en": "<p><strong>LFO:</strong> a wave too slow to hear; it moves other controls by itself, like an invisible hand.</p>"
+    }
+  },
+  {
+    "group": "2",
+    "kind": "ROUND",
+    "image": "images/vignettes/mod-pitch.svg",
+    "text1": {
+      "es": "<p><strong>Afinación:</strong> sube o baja la nota por semitonos u octavas para darle otra presencia; el <em>finetune</em> la desafina un poco y le añade imperfección y matices.</p>",
+      "en": "<p><strong>Pitch:</strong> moves the note up or down in semitones or octaves for a different presence; <em>fine-tune</em> detunes it slightly, adding imperfection and nuance.</p>"
+    }
+  },
+  {
+    "group": "3",
+    "kind": "CHAIN",
+    "text1": {
+      "es": "<p><strong>Distorsión:</strong> aprieta la onda hasta cortarle las puntas, y el sonido se vuelve sucio y gordo.</p>",
+      "en": "<p><strong>Distortion:</strong> squeezes the wave until its tops get clipped, and the sound turns dirty and fat.</p>"
+    }
+  },
+  {
+    "group": "3",
+    "kind": "CHAIN",
+    "text1": {
+      "es": "<p><strong>Delay:</strong> repite el sonido a pasos iguales, cada vez más bajito, como un eco.</p>",
+      "en": "<p><strong>Delay:</strong> repeats the sound at equal steps, each time a little quieter, like an echo.</p>"
+    }
+  },
+  {
+    "group": "3",
+    "kind": "CHAIN",
+    "text1": {
+      "es": "<p><strong>Reverb:</strong> mete el sonido en una sala grande: una cola que se apaga despacio.</p>",
+      "en": "<p><strong>Reverb:</strong> puts the sound in a big room: a tail that fades away slowly.</p>"
+    }
+  }
+]

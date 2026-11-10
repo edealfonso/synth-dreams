@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <line x1="30" y1="156" x2="170" y2="156" stroke="#707070" stroke-width="1" vector-effect="non-scaling-stroke"/>
+  <line x1="62" y1="156" x2="62" y2="38" stroke="#e8b48a" stroke-width="1" vector-effect="non-scaling-stroke" stroke-dasharray="3 4"/>
+  <line x1="92" y1="156" x2="92" y2="38" stroke="#e8b48a" stroke-width="1" vector-effect="non-scaling-stroke" stroke-dasharray="3 4"/>
+  <line x1="140" y1="156" x2="140" y2="38" stroke="#e8b48a" stroke-width="1" vector-effect="non-scaling-stroke" stroke-dasharray="3 4"/>
+  <path d="M30 156 L62 44 L92 96 L140 96 L170 156" stroke="#111" stroke-width="2" vector-effect="non-scaling-stroke"/>
+</svg>

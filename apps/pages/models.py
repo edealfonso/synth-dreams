@@ -88,6 +88,8 @@ class Home(SingletonModel):
     s09_group_title1 = models.TextField(max_length=255, blank=True)
     s09_group_title2 = models.TextField(max_length=255, blank=True)
     s09_group_title3 = models.TextField(max_length=255, blank=True)
+    # group 3: one SVG for the whole effect chain, rendered inline so the JS can animate its parts
+    s09_group_image3 = models.FileField(blank=True, help_text="SVG drawing of the effect chain (group 3)")
 
     # s10 · image or video
     s10_title = models.CharField(max_length=255, blank=True, null=True)
@@ -154,14 +156,18 @@ class Vignette(CloneMixin, SortableMixin):
     text1 = RichTextField(null=True, blank=True)
     text2 = RichTextField(null=True, blank=True)
     text3 = RichTextField(null=True, blank=True)
-
-    extra_image = models.FileField(blank=True, null=True)
+    text4 = RichTextField(null=True, blank=True)
 
     # special fields
     the_order = models.PositiveIntegerField(default=0, editable=False, db_index=True)
 
     def __str__(self):
         return image_preview(self.image)
+
+    @property
+    def texts(self):
+        """The filled-in texts, in order (square cards show one line per text)."""
+        return [t for t in (self.text1, self.text2, self.text3, self.text4) if t]
 
     class Meta:
         ordering = ['the_order']

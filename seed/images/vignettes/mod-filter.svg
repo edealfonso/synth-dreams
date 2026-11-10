@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <line x1="30" y1="156" x2="170" y2="156" stroke="#707070" stroke-width="1" vector-effect="non-scaling-stroke"/>
+  <line x1="120" y1="156" x2="120" y2="50" stroke="#e8b48a" stroke-width="1" vector-effect="non-scaling-stroke" stroke-dasharray="3 4"/>
+  <path d="M30 92 L96 92 C108 92 112 60 120 60 C128 60 134 104 162 156" stroke="#111" stroke-width="2" vector-effect="non-scaling-stroke"/>
+</svg>

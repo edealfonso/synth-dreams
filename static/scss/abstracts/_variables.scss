@@ -23,7 +23,7 @@ $color-line: #707070;           // borders, dividers and link underlines
 $color-overlay-light: rgba(255, 255, 255, 0.25);
 $color-banner-bg: #eeeae6;      // cookie banner
 $color-accent: #a99cff;         // lilac of the logo/favicon and the duotone photos (footer map pin)
-$color-accent-secondary: #6fd6ac; // green of the s05 screen and the footer map (hover of the footer links and social icons)
+$color-accent-secondary: #e8b48a; // peach, in tune with the s05 screen and the footer map, soft on white (hover of the footer links and social icons)
 
 $color-scrollbar-track: rgba(222, 222, 222, 0.25);
 $color-scrollbar-thumb: rgba(0, 0, 0, 0.4);
@@ -36,6 +36,7 @@ $color-scrollbar-thumb-hover: black;
 $font-family: 'DM Sans', arial, sans-serif; // loaded in static/js/main.js (@fontsource)
 $font-weight-regular: normal;
 $font-weight-medium: 500;
+$font-weight-bold: 600;        // peach names of the s09 vignettes
 
 // Font sizes
 //

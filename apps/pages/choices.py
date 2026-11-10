@@ -9,6 +9,6 @@ VIGNETTE_GROUPS = (
 VIGNETTE_KINDS = (
     ('SQUARE', 'Square'),
     ('ROUND', 'Round'),
-    ('RECTANGLE', 'Rectangle'),
+    ('CHAIN', 'Effect chain text'),
     ('FLOATING', 'Floating'),
 )

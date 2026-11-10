@@ -10,6 +10,7 @@ import '@fontsource/dm-sans/400';
 import '@fontsource/dm-sans/400-italic';
 import '@fontsource/dm-sans/500';
 import '@fontsource/dm-sans/500-italic';
+import '@fontsource/dm-sans/600';
 import '../scss/index.scss';
 
 import { ScrollTrigger } from './core/gsap';
