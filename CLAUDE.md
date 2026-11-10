@@ -18,7 +18,7 @@ It is built on an existing Django codebase. The most valuable part is the **fron
 - ✅ **Phase 4 (remove traces of the origin):** done and validated. Admin CSS copies and logo removed (own `static/css/admin.css`), a free font instead of the paid one (now DM Sans), new favicon (a black pixel "wave" pulse over a lilac `#a99cff` / white split, same icon as the logo; PNG/ICO rasterised from the same geometry as `favicon.svg`), own rounded UI icons (circular back arrow, struck-through speaker while muted) and map pin, solid social icons GitHub/LinkedIn/Pinterest/Wikipedia (Simple Icons, CC0; LinkedIn drawn by hand), no social title, copyright rendered as `© <current year> <footer.copyright>`. Exhaustive search with the user's terms (files, binaries, file names, node_modules, database, git history): clean.
 - 📋 Parked issues live in `backlog.md` (anchor `#hash`, scroll stuck at `s06`, legal URLs with trailing slash, CKEditor 4, inconsistent breakpoints).
 - **Git:** history restarted on 2026-11-09 with a single clean initial commit on `main` (the old history is kept outside the project and must never be published). Published on 2026-11-09 as a private GitHub repo (`origin`), made **public** on 2026-11-10; merged branches are deleted from the remote; code or structural changes go through branches and PRs that the user reviews; small content tweaks (a photo crop, a text fix) can be committed straight to `main`.
-- The dev database holds **placeholder content** from `seed_dummy` (silly text and images showing their field name). No users. Temporary: phase 5 replaces it with `seed_demo`.
+- The dev database holds the **real content**, loaded with `seed_demo` from `seed/content.json` + `seed/images/`. No users. `seed_dummy` (silly text and images showing their field name) is kept for testing layouts; running it wipes the real content until `seed_demo` runs again.
 
 ## Goals (by phase)
 
@@ -50,7 +50,7 @@ Work **one phase at a time**. The user validates each phase before moving on. Do
 ### 5. New content: Synth Dreams
 - New texts (ES and EN, the site is bilingual) and free photos/videos from **Unsplash** or **Pexels**.
 - **Credits:** record every one (author, platform, link) and show them in a credits block at the end of the footer that does not interfere with the animations.
-- Content lives in the database (admin), so a fresh clone must be able to load it on its own: a `python manage.py seed_demo` command (or fixtures) reading a `seed/` directory with images and texts.
+- Content lives in the database (admin), so a fresh clone must be able to load it on its own: `python manage.py seed_demo` loads `seed/content.json` (every row of the home models, ES and EN) and copies the files from `seed/` into `media/demo/`. After editing content in the admin, run `seed_demo --export` and commit `seed/content.json` (and any new file it adds to `seed/images/`).
 
 #### Proposed content per block (pending validation)
 
@@ -89,21 +89,22 @@ Work **one phase at a time**. The user validates each phase before moving on. Do
 - ✅ **s09 vignettes:** simple SVG pictograms about synthesis theory, not photos. See "s09 vignettes plan" below.
 - ✅ **Footer:** address text "A quiet street in Ciutat Vella, Barcelona" (ES/EN), `share-your@synth-dreams.example`, GitHub/LinkedIn/YouTube (Pinterest and Wikipedia dropped). Map overlay = Cerdà's 1859 plan (public domain), cropped around Ciutat Vella, inverted and tinted with the s05 warm tones (`seed/images/footer-map.jpg`, same gradient map as s05; green version in `seed/backup/footer-map-green.jpg`). Closing photo in a light lilac duotone (#8a7fe0 → #f6f4ff): lilac and cream/orange are the site's two accents. Footer accents: map pin `$color-accent` (lilac); the map link, email link and social icons turn `$color-accent-secondary` (peach `#e8b48a`) on hover; the header logo sits on the lilac strip above the legal links (its lilac icon blending in is intended).
 - **Credits:** finish `seed/credits-todo.md` (some entries still say "credit from earlier list") and show them in the footer credits block.
-- ✅ **Texts (v1):** ES/EN copy for every block approved in `seed/texts/script.md` and loaded in the dev DB (`seed_demo` must load it). s15 has no overlaid title (the template skips empty lines). Later: a link to the author's social network in s16.
-- **`seed_demo`:** load everything from `seed/` on a fresh clone (unique gallery `the_order`).
+- ✅ **Texts (v1):** ES/EN copy for every block approved in `seed/texts/script.md` and loaded in the dev DB and in `seed/content.json`. s15 has no overlaid title (the template skips empty lines). Later: a link to the author's social network in s16.
+- ✅ **`seed_demo`:** loads everything from `seed/` on a fresh clone (consecutive `the_order` per model); `--export` writes the DB back to `seed/content.json`. Verified: the home renders identically (same HTML, same images in the same order) from the old dev DB, after loading into it and from an empty database.
+- ✅ **Legal pages:** *Aviso legal* (personal non-profit portfolio, photo licences, trademarks, public code, GitHub Pages hosting, contact via GitHub) and *Cookies* (only `cookielaw_accepted`, 10 years; no analytics or third-party scripts), ES/EN. The notice says the photo credits are at the bottom of the page: the credits block must exist before publishing.
 - **Mobile check:** s09, s11, s14, cover/logo and the new photos.
 - Header readability over dark photos was raised and never settled; re-check it on s02 (TR-808) and s05.
 - **Palette shift (2026-11-10):** the author drops the green; the palette is lilac plus cream and light orange (the s01 cover sums it up). Done: s05 photo, footer map tint and `$color-accent-secondary` (now peach `#e8b48a`). No green left.
 
 #### s09 vignettes plan (done)
 
-**Status (2026-11-10):** branch `s09-vignettes`, PR #10 to `main`. All three groups are done and validated (vignettes closed). Group titles (ES/EN): *Materia prima* / *Raw material*, *Modulación* / *Modulation*, *Efectos especiales* / *Special effects* (in the dev DB; `seed_demo` must load them).
+**Status (2026-11-10):** branch `s09-vignettes`, PR #10 to `main`. All three groups are done and validated (vignettes closed). Group titles (ES/EN): *Materia prima* / *Raw material*, *Modulación* / *Modulation*, *Efectos especiales* / *Special effects* (in `seed/content.json`).
 
 Each vignette is a frame (square, rectangle or circle) holding a **pictogram of the concept** (usually obvious), with the explanation beside it. The block explains basic **synthesis theory** in three groups.
 
 - **Style:** line drawings only, strokes in the original black/grey (`#111` or the muted text grey), same stroke weight in every pictogram, no fills. Colour only as a detail in peach (`$color-accent-secondary`): the dashed guides of every pictogram and the vignette names in bold (DM Sans 600): group 1 captions and the `<strong>` names at the start of the texts in groups 2 and 3; never colourful. One SVG file per pictogram in `seed/images/vignettes/`, loaded into the existing `Vignette.image` field.
 - **Drawing specs (keep group 3 consistent):** hand-written SVG (no build step), `fill="none"`, round caps and joins; main line `stroke="#111" stroke-width="2"`, secondary lines (zero lines, guides, back layers) `stroke="#707070" stroke-width="1"`, dashed guides `stroke="#e8b48a"` (peach, = `$color-accent-secondary`) `stroke-dasharray="3 4"`; every stroke has `vector-effect="non-scaling-stroke"` so all drawings keep the same weight at any size. No `<text>` (page fonts do not reach an SVG inside `<img>`): numbers and signs are drawn as strokes. Square pictograms use a 200×200 viewBox with the drawing kept inside the circle/frame margins.
-- **Data:** groups 1, 2 and 3 (kind, image, ES/EN texts) are saved in `seed/texts/s09-vignettes.json`, the source for `seed_demo` (running `seed_dummy` again would wipe them from the dev DB).
+- **Data:** groups 1, 2 and 3 (kind, image, ES/EN texts) were first saved in `seed/texts/s09-vignettes.json`; the source `seed_demo` loads is now `seed/content.json`.
 - ✅ **Group 1 · Sound sources:** three ways of making sound, each a line drawing with its name below (`Vignette.text1`, centred, peach bold): *simple waves* (a sine, 1.8 cycles, `wave-sine.svg`), *wavetables* (a perspective stack of 11 single-cycle frames: a clean sine in black at the front, harmonics growing and drifting towards the back in grey, dashed depth line, `source-wavetable.svg`) and *noise* (`wave-noise.svg`). Black 2 px main stroke, grey 1 px secondary lines. Loose organic layout: every offset (horizontal and vertical) and width is a % of the column, so it scales the same on every screen. Each drawing fades in on its own, scrubbed with the scroll (`.js-floating-item`). The earlier triangle/square/sawtooth drawings are in `seed/backup/vignettes/`.
 - ✅ **Group 2 · Modulation:** two square cards and two circles, same line style (`seed/images/vignettes/mod-*.svg`). Square cards show one line per filled-in text (`Vignette.texts`, up to `text4`) and never crop their pictogram (`object-fit: contain`). Fade-in and slide-in lines unchanged.
   - **ADSR:** classic envelope with dashed phase dividers; four short lines (attack, decay, sustain, release).
@@ -125,7 +126,7 @@ Each vignette is a frame (square, rectangle or circle) holding a **pictogram of 
 - **Photos under text (s01, s14):** faded toward white before seeding (`ffmpeg lutrgb`, out = val·(1−a) + 255·a; a ≈ 0.7 for s01, 0.45 for s14) so the black text has little contrast to fight.
 - **Galleries:** s07 = classic Roland drum machines only; s12 = Teenage Engineering only.
 - **Backup photos** (good, not placed yet) live in `seed/backup/` (local only, git-ignored). Every photo removed from a block goes there; files the author deletes from it are rejected and must not be restored.
-- **Gallery order:** `seed_demo` must give gallery rows unique `the_order` values (the dev DB ended up with duplicates, which made the rendered order differ from the intended one).
+- **Gallery order:** `seed_demo` gives sortable rows consecutive `the_order` values (the dev DB once had duplicates, which made the rendered order differ from the intended one).
 - **s14_image:** very light, low contrast (or reduced opacity) so the text on top stays readable.
 - **s17_image:** text sits top-right on desktop and at the bottom on mobile (white text), so those areas must be plain and dark.
 - **Videos (s04, s10):** procedurally generated with `ffmpeg` test sources (no rights needed; remove the timecode overlay). The author may add her own audio.
@@ -135,7 +136,7 @@ Each vignette is a frame (square, rectangle or circle) holding a **pictogram of 
 The goal of the whole project: a **public** repo with the site live for free on **GitHub Pages** (`<user>.github.io/synth-dreams/`), so GitHub visitors see both the code and the page. Free Pages needs a public repo. The site is published as a **static export**, because visitors only need the home and legal pages and the animations are all frontend. The admin is never exposed.
 
 - **Steps, in order** (each in its own branch + PR):
-  1. Finish `seed_demo` (phase 5): CI starts from an empty database, so everything must load from `seed/`.
+  1. ✅ `seed_demo` (phase 5): CI starts from an empty database and loads everything from `seed/`.
   2. Make the site work under the `/synth-dreams/` subpath: `STATIC_URL`, `MEDIA_URL`, webpack `publicPath` and the ES/EN language links.
   3. Static export script: renders `/`, `/en/` and the legal pages (both languages), with bundles, images and videos inside. Pages limits: 1 GB per site, 100 MB per file (keep the s04/s10 videos light).
   4. GitHub Action on every push to `main`: Postgres service → `migrate` → `seed_demo` → `npm run build` → `collectstatic` → export → deploy to Pages.
@@ -196,7 +197,7 @@ apps/pages/                # Header, Home, Footer (singletons), Vignette, Magnif
 │   ├── views.py           # HomeView (puts everything in the context), LegalPageView
 │   ├── translation.py     # translatable fields
 │   ├── templatetags/site_tags.py   # get_header, get_footer, get_legal_pages, |media_url
-│   └── management/commands/seed_dummy.py
+│   └── management/commands/   # seed_demo.py (real content from seed/), seed_dummy.py (placeholders)
 apps/galleries/            # FirstGalleryImage, SecondGalleryImage (sortable)
 templates/                 # base.html, home.html, legal.html, includes/, cookielaw/, admin/base_site.html (adds static/css/admin.css)
 static/js/main.js          # ← webpack entry (lifecycle); modules in core/, animations/, features/, utils/
@@ -220,6 +221,7 @@ docker compose up --build                         # starts db + web + assets →
 docker compose exec web python manage.py migrate
 docker compose exec web python manage.py createsuperuser
 docker compose exec web python manage.py <cmd>    # any other Django command
+docker compose exec web python manage.py seed_demo              # real content from seed/ (wipes the current content); --export writes the DB back to seed/content.json
 docker compose exec web python manage.py seed_dummy --video media/placeholder-video.mp4   # placeholder content (wipes the previous one; --video is optional)
 docker compose run --rm assets npm run build      # webpack production build (npm run watch is the dev one)
 docker compose down                               # stop (add -v to also delete the database)
