@@ -49,10 +49,6 @@
             .footer__map-label::after {
                 opacity: 1;
             }
-
-            .footer__map-icon {
-                fill: $color-accent-secondary;
-            }
         }
     }
 
@@ -60,7 +56,6 @@
         display: block;
         margin: 1.5rem auto;
         fill: $color-accent;
-        transition: fill $transition-fast;
     }
 
     &__map-label {
