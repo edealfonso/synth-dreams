@@ -139,7 +139,7 @@ The goal of the whole project: a **public** repo with the site live for free on 
 - **Steps, in order** (each in its own branch + PR):
   1. ✅ `seed_demo` (phase 5): CI starts from an empty database and loads everything from `seed/`.
   2. ✅ Make the site work under the `/synth-dreams/` subpath. One env var, `SITE_PREFIX` (empty locally, `/synth-dreams` for the export): Django sets `FORCE_SCRIPT_NAME` from it, so reversed URLs and the now relative `STATIC_URL`/`MEDIA_URL` (`static/`, `media/`) get the prefix; webpack prepends it to `publicPath` (bundles, fonts, CSS assets), so build with the same value; the ES/EN links use the `translated_url` tag (`translate_url` on `request.path_info`). With the prefix set, `runserver` links do not match its routes: it is meant for the export, which renders through the test client. Never hard-code a root path (`/...`) in templates, JS or SCSS.
-  3. ✅ Static export: `python manage.py export_static` (run with the same `SITE_PREFIX` as the webpack build; `make export` does both and restarts the dev build). Renders `/`, `/en/` and every legal page in both languages through the test client into `dist/` (git-ignored): `index.html` per folder, `legal/<slug>.html` (GitHub Pages serves `/legal/<slug>` from it). Copies `static/bundles`, `favicon` and `img` whole, plus every static/media URL the pages reference (attributes, inline styles, `data-src`), and adds `.nojekyll`. Currently 15 MB. Checked by serving `dist/` under `/synth-dreams/`: every resource and internal link loads; only the `.webp` probes 404 (see backlog). Pages limits: 1 GB per site, 100 MB per file (keep the s04/s10 videos light).
+  3. ✅ Static export: `python manage.py export_static` (run with the same `SITE_PREFIX` as the webpack build; `make export` does both and restarts the dev build). Renders `/`, `/en/` and every legal page in both languages through the test client into `dist/` (git-ignored): `index.html` per folder, `legal/<slug>.html` (GitHub Pages serves `/legal/<slug>` from it). Copies `static/bundles`, `favicon` and `img` whole, plus every static/media URL the pages reference (attributes, inline styles, `data-src`), and adds `.nojekyll`. Currently 15 MB. Checked by serving `dist/` under `/synth-dreams/`: every resource and internal link loads; no 404s (the old `.webp` probes were removed). Pages limits: 1 GB per site, 100 MB per file (keep the s04/s10 videos light).
   4. GitHub Action `.github/workflows/pages.yml`, on every push to `main` (and by hand, *Run workflow*): Postgres 16 service → `pip install` + `npm ci` → `npm run build` with `SITE_PREFIX=/<repo name>` → `migrate` → `seed_demo` → `export_static` → upload `dist/` → deploy to Pages. Uses `settings.prod` with build-only env values (no secrets needed: Django only renders). No `collectstatic`: the export reads the static files through the finders. Simulated locally on an empty database with the same settings: same output as the dev DB.
   5. Before going public: run the origin-traces search again (the user gives the terms in the conversation), check for secrets, finish the credits and replace the s04 placeholder video.
   6. The repo is public (done 2026-11-10). The user sets Settings → Pages → Source to "GitHub Actions" (before the workflow's first run, or the deploy job fails; re-run it afterwards).
@@ -201,7 +201,7 @@ apps/pages/                # Header, Home, Footer (singletons), Vignette, Magnif
 │   └── management/commands/   # seed_demo.py (real content from seed/), seed_dummy.py (placeholders), export_static.py (static site for GitHub Pages)
 apps/galleries/            # FirstGalleryImage, SecondGalleryImage (sortable)
 templates/                 # base.html, home.html, legal.html, includes/, cookielaw/, admin/base_site.html (adds static/css/admin.css)
-static/js/main.js          # ← webpack entry (lifecycle); modules in core/, animations/, features/, utils/
+static/js/main.js          # ← webpack entry (lifecycle); modules in core/, animations/, features/
 static/js/cookielaw/       # cookie banner JS (not bundled by webpack)
 static/favicon/            # favicon.svg (source) + PNG/ICO generated from it
 static/img/                # UI icons (own SVGs)
@@ -237,14 +237,13 @@ ES modules with a single entry point (`main.js`). jQuery is global (`$`, via `Pr
 
 | Module | What it does |
 |---|---|
-| `main.js` | Lifecycle: DOM ready → `calcScreen`, `initSmoothScroll`, webp, anchors, cover; in a nested ready (one tick later) → `checkLocationHash`, `loadAllAnimations`; after 1 s → show content, back to top, `onContentVisible` (cover, videos, header, map), `onScroll(scrollActions)` and resize. |
+| `main.js` | Lifecycle: DOM ready → `calcScreen`, `initSmoothScroll`, anchors, cover; in a nested ready (one tick later) → `checkLocationHash`, `loadAllAnimations`; after 1 s → show content, back to top, `onContentVisible` (cover, videos, header, map), `onScroll(scrollActions)` and resize. |
 | `core/gsap.js` | Registers ScrollTrigger and re-exports `gsap` and `ScrollTrigger`. Everyone imports from here. |
 | `core/screen.js` | `screen` (live object with `isLaptop/isTablet/isMobile/isMobileSmall`: 1200/990/767/375 px), `calcScreen()`, `isTouchDevice`. |
 | `core/scroll.js` | Hides the two scroll systems (smooth-scrollbar on non-touch, native on touch): `initSmoothScroll`, `getScrollTop`, `onScroll`, `isVisible`, `universalYScroll`, `SCROLLER_SELECTOR`. |
 | `animations/index.js` | `loadAllAnimations()`: `ScrollTrigger.defaults` and a call to each animation **in the original order** (see below). |
 | `animations/*.js` | `generic` (`.gsap-appear`, `.gsap-parallax*`), `covers` (s01, s04, s13), `galleries` (s07, s12) and one module per block with its own animation: `s06-three-horizontal-steps`, `s09-floating-vignettes`, `s11-rising-text-over-pinned-image`, `s14-magnify-list`, `s16-vertical-points`. Desktop-only ones are called inside `gsap.matchMedia`. |
 | `features/` | `anchors` (hash and `.js-smooth-anchor`), `autovideo` (lazy videos and controls), `cover` (two-step cover reveal), `header` (`checkHeader`, `slideHeader`, `checkHeaderTheme`: white logo text/menu over `.js-header-dark` elements), `map`. |
-| `utils/webp.js` | `changeToWebP()`: adds the `.webp` version to `background-image`s. |
 
 ### Animation adjustments (branch `animation-adjustments`)
 - **s09:** slow parallax on the left image (desktop only, no zoom): while the section crosses the screen (`top bottom` → `bottom top`), a scrubbed `y` transform moves it from the top of the section to its bottom, so it rises into view more slowly than the page and only its lower part shows as the section leaves. A transform, not a pin, so later triggers keep their positions.

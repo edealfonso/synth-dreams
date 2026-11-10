@@ -9,9 +9,6 @@ Things parked for later.
   - To bring it back: generate the video with `ffmpeg` test sources (no timecode, see CLAUDE.md phase 5), add high/low versions and a poster in the admin and in `seed_demo`. No code change needed, but re-check the ScrollTrigger positions after s04 (its pin is created between s01 and s13).
   - s10 can also show a video (`s10_video_*`), but it shows its photo while those fields are empty, so nothing is hidden there.
 
-- [ ] **`.webp` probes return 404.** `changeToWebP()` (`static/js/utils/webp.js`) asks for `<image>.webp` next to every background image, but no `.webp` files exist, so each one 404s (harmless, but noisy in the console and on GitHub Pages). Seen on 2026-11-10 while testing the static export.
-  - Options: drop `changeToWebP()`, or generate `.webp` versions in `seed_demo`/the export.
-
 - [ ] **Opening a URL with a `#hash` does not land on its section.** With `/#s06` the page ends up much further down (around gallery 2). The original code did the same (the logic was copied as is). Seen on 2026-11-08 with the placeholder content.
   - Hint: `checkLocationHash()` scrolls before the animations are created (pins have not shifted positions yet), and one second later `main.js` scrolls back to the top with `universalYScroll({ y: 0 })`.
   - Where: `static/js/features/anchors.js` and `static/js/main.js`.
