@@ -36,7 +36,7 @@ The home is a stack of seventeen full-screen blocks that react to the scroll: co
 
 - **Concept, content and visual identity:** the theme, every text in Spanish and English, the photo selection and editing (crops, duotones, recolouring, fades for legibility), the pixel logo and favicon, the UI icons and the synthesis pictograms and effects-chain drawing (hand-written SVG).
 - **Animations:** the synthesis-theory block (drawings that fade in with the scroll, an effects chain whose cables draw themselves box by box), the scroll adjustments of several blocks, and the header that turns white over dark photos.
-- **Frontend architecture:** split one large script into ES modules with a single entry point, with a scroll layer that hides the desktop/touch difference; reorganised the SCSS into modules with BEM naming and design tokens. Both refactors were checked to change nothing visible (the positions of all ScrollTriggers and the computed styles of every element compared before and after).
+- **Frontend architecture refactor:** split one large script into ES modules with a single entry point, with a scroll layer that hides the desktop/touch difference; reorganised the SCSS into modules with BEM naming and design tokens. Both refactors were checked to change nothing visible (the positions of all ScrollTriggers and the computed styles of every element compared before and after).
 - **Backend and data:** content models and admin, photo credits block, `seed_demo` (load / export the whole content), bug fixes.
 - **DevOps:** Docker Compose setup, environment-based settings, support for serving the site under a URL subpath, the static export command and the GitHub Pages deployment.
 
