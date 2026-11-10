@@ -33,8 +33,8 @@ export function initVerticalPointsPin() {
             trigger: "#s16-image",
             pin: true,
             pinSpacing: false,
-            start: "top " + ( window.innerHeight - $('#s16-image').height() )*0.5,
-            end:'+='  + (($('#s16-container').height() - $('#s16-image').height())),
+            start: () => "top " + (window.innerHeight - $('#s16-image').height()) * 0.5,
+            end: () => '+=' + ($('#s16-container').height() - $('#s16-image').height()),
         }
     });
 }
