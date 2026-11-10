@@ -22,7 +22,6 @@ import { checkVideos } from './features/autovideo';
 import { initFirstContentfulSection, revealSecondContentfulSection, releaseScroll } from './features/cover';
 import { checkHeader, checkHeaderTheme, slideHeader } from './features/header';
 import { initMap, closeMap } from './features/map';
-import { changeToWebP } from './utils/webp';
 
 $(function () {
 
@@ -37,7 +36,6 @@ $(function () {
 
     calcScreen();
     initSmoothScroll(); // before creating any ScrollTrigger
-    changeToWebP();
     initSmoothAnchors();
     initFirstContentfulSection();
 
