@@ -471,8 +471,12 @@ template-home
             <div class="s15-split-images__left u-bg-cover"
                 style="background-image: url('{{ home.s15_image_left|media_url }}');">
 
+                {% if home.s15_title_line1 %}
                 <h1 class="s15-split-images__line s15-split-images__line--first u-h1 gsap-appear">{{ home.s15_title_line1 }}</h1>
+                {% endif %}
+                {% if home.s15_title_line2 %}
                 <h1 class="s15-split-images__line s15-split-images__line--second u-h1 gsap-appear">{{ home.s15_title_line2 }}</h1>
+                {% endif %}
 
             </div>
 
