@@ -142,6 +142,14 @@ The goal of the whole project: a **public** repo with the site live for free on 
   5. Before going public: run the origin-traces search again (the user gives the terms in the conversation), check for secrets, finish the credits and replace the s04 placeholder video.
   6. The user makes the repo public and sets Settings → Pages → Source to "GitHub Actions".
 - **Content updates:** any push to `main` (including small content tweaks in `seed/`) redeploys the site.
+- **README.md** (the repo is a job-hunting portfolio, so the README is its front page). It must have:
+  - an attractive screenshot (or GIF) of the site;
+  - what the site does;
+  - the technologies used;
+  - what the author developed herself;
+  - the live demo link (GitHub Pages);
+  - how to run it locally (Docker).
+- **Split this file:** keep a short public `CLAUDE.md` (stack, architecture, conventions, gotchas) and move everything else (phase diary, content and photo notes, anything about the project's origin) to a git-ignored `CLAUDE.local.md`, which Claude Code also reads. No history rewrite.
 
 ## Blocks (structural naming)
 
