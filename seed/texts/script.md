@@ -2,7 +2,8 @@
 
 Working script for the home texts, block by block. Copy is in Spanish (default
 language); English versions are written once each section is approved.
-Source for `seed_demo` together with `s09-vignettes.json`.
+The approved copy is loaded in the admin and exported to `seed/content.json`,
+which is what `seed_demo` loads (this file is the working draft).
 
 Status: ⬜ draft · 🟡 open question · ✅ approved
 

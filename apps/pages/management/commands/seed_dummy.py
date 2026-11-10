@@ -9,7 +9,7 @@ Usage:
     python manage.py seed_dummy                   # fill (deletes previous content first)
     python manage.py seed_dummy --video path.mp4  # also use that video for the video fields
 
-Temporary: phase 5 replaces it with the real content (seed_demo).
+The real content is loaded with seed_demo (run it again after using this command).
 """
 
 import colorsys

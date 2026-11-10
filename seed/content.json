@@ -1,0 +1,559 @@
+[
+  {
+    "model": "pages.header",
+    "fields": {
+      "logo": "images/logo-header.svg",
+      "contact_link_text": "Contacto",
+      "contact_link_text_es": "Contacto",
+      "contact_link_text_en": "Contact",
+      "language_selector_es": "ES",
+      "language_selector_en": "EN"
+    }
+  },
+  {
+    "model": "pages.home",
+    "fields": {
+      "s01_logo": "images/logo-cover.svg",
+      "s01_image": "images/s01.jpg",
+      "s01_image_mobile": "images/s01-mobile.jpg",
+      "s02_title": "Máquinas que hacen sonreír",
+      "s02_title_es": "Máquinas que hacen sonreír",
+      "s02_title_en": "Machines that make you smile",
+      "s02_image": "images/s02.jpg",
+      "s02_text": "<p>Pulsa un botón. Ya estás haciendo música.</p>",
+      "s02_text_es": "<p>Pulsa un botón. Ya estás haciendo música.</p>",
+      "s02_text_en": "<p>Press a button. You're already making music.</p>",
+      "s03_text": "<p>Esto es una carta de amor a las máquinas que hacen música, y a lo bonitas que son. De paso, una pequeña guía por si te entran ganas de probar.</p>",
+      "s03_text_es": "<p>Esto es una carta de amor a las máquinas que hacen música, y a lo bonitas que son. De paso, una pequeña guía por si te entran ganas de probar.</p>",
+      "s03_text_en": "<p>This is a love letter to the machines that make music, and to how beautiful they are. And, along the way, a little guide in case you feel like giving them a try.</p>",
+      "s04_video_high": "",
+      "s04_video_low": "",
+      "s04_video_poster": "",
+      "s05_text": "<p>Tres formas de hacer ruido, y las tres caben en una mesa.</p>",
+      "s05_text_es": "<p>Tres formas de hacer ruido, y las tres caben en una mesa.</p>",
+      "s05_text_en": "<p>Three ways to make noise, and all three fit on a table.</p>",
+      "s05_image": "images/s05.jpg",
+      "s06_step_title1": "Cajas de ritmos",
+      "s06_step_title1_es": "Cajas de ritmos",
+      "s06_step_title1_en": "Drum machines",
+      "s06_step_text1": "<p>Bombos, palmas y platillos en una cuadrícula de botones. Pulsa, repite y ya tienes un ritmo.</p>",
+      "s06_step_text1_es": "<p>Bombos, palmas y platillos en una cuadrícula de botones. Pulsa, repite y ya tienes un ritmo.</p>",
+      "s06_step_text1_en": "<p>Kicks, claps and cymbals on a grid of buttons. Press, repeat, and you've got a beat.</p>",
+      "s06_step_title2": "Sintetizadores",
+      "s06_step_title2_es": "Sintetizadores",
+      "s06_step_title2_en": "Synthesizers",
+      "s06_step_text2": "<p>Teclas y perillas que inventan sonidos desde cero: graves que retumban, melodías que flotan.</p>",
+      "s06_step_text2_es": "<p>Teclas y perillas que inventan sonidos desde cero: graves que retumban, melodías que flotan.</p>",
+      "s06_step_text2_en": "<p>Keys and knobs that invent sounds from scratch: rumbling basses, floating melodies.</p>",
+      "s06_step_title3": "Cacharros y otros inventos",
+      "s06_step_title3_es": "Cacharros y otros inventos",
+      "s06_step_title3_en": "Gadgets and other inventions",
+      "s06_step_text3": "<p>Grabadoras, juguetes y aparatos de bolsillo. Cualquier cosa que suene puede acabar en una canción.</p>",
+      "s06_step_text3_es": "<p>Grabadoras, juguetes y aparatos de bolsillo. Cualquier cosa que suene puede acabar en una canción.</p>",
+      "s06_step_text3_en": "<p>Recorders, toys and pocket devices. Anything that makes a sound can end up in a song.</p>",
+      "s07_title": "Viaje en el tiempo",
+      "s07_title_es": "Viaje en el tiempo",
+      "s07_title_en": "Time travel",
+      "s07_text": "<p>¿Vintage o futuristas? Una cosa, la otra o las dos. Lo que sí es cierto es que algunos aparatos antiguos son apuesta segura: nada de menús ni pantallas, y un sonido que todavía hoy se venera y se copia.</p>",
+      "s07_text_es": "<p>¿Vintage o futuristas? Una cosa, la otra o las dos. Lo que sí es cierto es que algunos aparatos antiguos son apuesta segura: nada de menús ni pantallas, y un sonido que todavía hoy se venera y se copia.</p>",
+      "s07_text_en": "<p>Vintage or futuristic? One, the other, or both. What's certain is that some old machines are a safe bet: no menus, no screens, and a sound that is still revered and copied today.</p>",
+      "s08_title": "Juguete complicado",
+      "s08_title_es": "Juguete complicado",
+      "s08_title_en": "A complicated toy",
+      "s08_image1": "images/s08-1.jpg",
+      "s08_image1_mobile": "images/s08-1.jpg",
+      "s08_text": "<p>Parece complicado, pero aquí casi nada está mal. Tus oídos mandan. Este es tu laboratorio, apto para todos los públicos.</p>",
+      "s08_text_es": "<p>Parece complicado, pero aquí casi nada está mal. Tus oídos mandan. Este es tu laboratorio, apto para todos los públicos.</p>",
+      "s08_text_en": "<p>It looks complicated, but almost nothing is wrong here. Your ears are in charge. This is your lab, open to all ages.</p>",
+      "s08_image2": "images/s08-2.jpg",
+      "s08_image2_mobile": "images/s08-2.jpg",
+      "s09_title": "Anatomía de un sinte",
+      "s09_title_es": "Anatomía de un sinte",
+      "s09_title_en": "Anatomy of a synth",
+      "s09_text": "<p>Hacer un sonido es como cocinar: eliges la materia prima, la vas moldeando y al final le echas las especias. Aquí tienes los ingredientes básicos.</p>",
+      "s09_text_es": "<p>Hacer un sonido es como cocinar: eliges la materia prima, la vas moldeando y al final le echas las especias. Aquí tienes los ingredientes básicos.</p>",
+      "s09_text_en": "<p>Making a sound is like cooking: you pick the raw material, shape it little by little and finish with a pinch of spice. Here are the basic ingredients.</p>",
+      "s09_left_image": "images/s09.jpg",
+      "s09_group_title1": "Materia prima",
+      "s09_group_title1_es": "Materia prima",
+      "s09_group_title1_en": "Raw material",
+      "s09_group_title2": "Modulación",
+      "s09_group_title2_es": "Modulación",
+      "s09_group_title2_en": "Modulation",
+      "s09_group_title3": "Efectos especiales",
+      "s09_group_title3_es": "Efectos especiales",
+      "s09_group_title3_en": "Special effects",
+      "s09_group_image3": "images/vignettes/fx-chain.svg",
+      "s10_title": "Grandes aliados",
+      "s10_title_es": "Grandes aliados",
+      "s10_title_en": "Great allies",
+      "s10_text": "<p>A veces, con una máquina, es un flechazo: todo funciona a la primera, jamás te falla y se queda contigo, como compañera de viaje.</p>",
+      "s10_text_es": "<p>A veces, con una máquina, es un flechazo: todo funciona a la primera, jamás te falla y se queda contigo, como compañera de viaje.</p>",
+      "s10_text_en": "<p>Sometimes, with a machine, it's love at first sight: everything works right away, it never lets you down and it stays with you, a travelling companion.</p>",
+      "s10_image": "images/s10.jpg",
+      "s10_video_high": "",
+      "s10_video_low": "",
+      "s10_video_poster": "",
+      "s11_title": "Mi obsesión",
+      "s11_title_es": "Mi obsesión",
+      "s11_title_en": "My obsession",
+      "s11_text": "<p>La Digitakt fue mi primera máquina sin ordenador. Difícil al principio, perfecta para una mente ingenieril: suena nítida, sus efectos son sublimes y cabe en cualquier mesa.</p>",
+      "s11_text_es": "<p>La Digitakt fue mi primera máquina sin ordenador. Difícil al principio, perfecta para una mente ingenieril: suena nítida, sus efectos son sublimes y cabe en cualquier mesa.</p>",
+      "s11_text_en": "<p>The Digitakt was my first computer-free machine. Hard at first, perfect for an engineer's mind: it sounds crisp, its effects are sublime and it fits on any desk.</p>",
+      "s11_image": "images/s11.jpg",
+      "s12_title": "Siempre en la wishlist",
+      "s12_title_es": "Siempre en la wishlist",
+      "s12_title_en": "Always on the wish list",
+      "s12_text": "<p>Teenage Engineering: carísimos, portátiles, preciosos y con pantallas que convierten el sonido en dibujos. Una marca increíble.</p>",
+      "s12_text_es": "<p>Teenage Engineering: carísimos, portátiles, preciosos y con pantallas que convierten el sonido en dibujos. Una marca increíble.</p>",
+      "s12_text_en": "<p>Teenage Engineering: pricey, portable, gorgeous, with screens that turn sound into drawings. An amazing brand.</p>",
+      "s13_title": "Pequeños estudios caseros",
+      "s13_title_es": "Pequeños estudios caseros",
+      "s13_title_en": "Tiny home studios",
+      "s13_text": "<p>Mira bien: parece un estudio casero, pero esconde mil detalles. No te agobies, no hace falta tanto. Con un rincón de tu casa ya puedes hacer maravillas.</p>",
+      "s13_text_es": "<p>Mira bien: parece un estudio casero, pero esconde mil detalles. No te agobies, no hace falta tanto. Con un rincón de tu casa ya puedes hacer maravillas.</p>",
+      "s13_text_en": "<p>Look closely: it seems like a home studio, but it hides a thousand details. Don't worry, you don't need that much. A corner of your home is enough to work wonders.</p>",
+      "s13_image": "images/s13.jpg",
+      "s14_image": "images/s14.jpg",
+      "s14_text": "<p>Un buen estudio no necesita ser grande, solo tener unas cuantas cosas en su sitio. Toma nota.</p>",
+      "s14_text_es": "<p>Un buen estudio no necesita ser grande, solo tener unas cuantas cosas en su sitio. Toma nota.</p>",
+      "s14_text_en": "<p>A good studio doesn't need to be big, it just needs a few things in the right place. Take note.</p>",
+      "s15_title_line1": "",
+      "s15_title_line1_es": "",
+      "s15_title_line1_en": "",
+      "s15_title_line2": "",
+      "s15_title_line2_es": "",
+      "s15_title_line2_en": "",
+      "s15_image_left": "images/s15-left.jpg",
+      "s15_image_right": "images/s15-right.jpg",
+      "s15_text": "<p>A veces lo más barato o lo más pequeño es lo que más alegrías da. Nada como experimentar sin presión, o llevar tu aparato en el bolsillo a todas partes.</p>",
+      "s15_text_es": "<p>A veces lo más barato o lo más pequeño es lo que más alegrías da. Nada como experimentar sin presión, o llevar tu aparato en el bolsillo a todas partes.</p>",
+      "s15_text_en": "<p>Sometimes the cheapest or the smallest thing brings the most joy. Nothing beats experimenting without pressure, or carrying your gear in your pocket wherever you go.</p>",
+      "s16_title": "Ahora es el momento",
+      "s16_title_es": "Ahora es el momento",
+      "s16_title_en": "Now is the time",
+      "s16_text": "<p>Quizá no lo sepas, pero el mejor momento para empezar a experimentar es ahora.</p>",
+      "s16_text_es": "<p>Quizá no lo sepas, pero el mejor momento para empezar a experimentar es ahora.</p>",
+      "s16_text_en": "<p>You may not know it, but the best time to start experimenting is now.</p>",
+      "s16_image": "images/s16.jpg",
+      "s16_point_title1": "Escoge un aparato",
+      "s16_point_title1_es": "Escoge un aparato",
+      "s16_point_title1_en": "Pick a machine",
+      "s16_point_text1": "<p>Cualquier cosa de casa que haga ruido sirve, aunque no sea electrónica ni musical.</p>",
+      "s16_point_text1_es": "<p>Cualquier cosa de casa que haga ruido sirve, aunque no sea electrónica ni musical.</p>",
+      "s16_point_text1_en": "<p>Anything at home that makes a noise will do, even if it isn't electronic or musical.</p>",
+      "s16_point_title2": "Juega",
+      "s16_point_title2_es": "Juega",
+      "s16_point_title2_en": "Play",
+      "s16_point_text2": "<p>Haz el tonto. Que suene a música o no, da igual.</p>",
+      "s16_point_text2_es": "<p>Haz el tonto. Que suene a música o no, da igual.</p>",
+      "s16_point_text2_en": "<p>Fool around. Whether it sounds like music or not doesn't matter.</p>",
+      "s16_point_title3": "Graba y comparte",
+      "s16_point_title3_es": "Graba y comparte",
+      "s16_point_title3_en": "Record and share",
+      "s16_point_text3": "<p>Aunque sea con el móvil. Y luego enséñaselo a alguien.</p>",
+      "s16_point_text3_es": "<p>Aunque sea con el móvil. Y luego enséñaselo a alguien.</p>",
+      "s16_point_text3_en": "<p>Even if it's just with your phone. Then show it to someone.</p>",
+      "s17_text": "<p>Bonitas, sublimes, fiables. Y siempre con un poco de misterio que no termina de desvelarse.</p>",
+      "s17_text_es": "<p>Bonitas, sublimes, fiables. Y siempre con un poco de misterio que no termina de desvelarse.</p>",
+      "s17_text_en": "<p>Beautiful, sublime, reliable. And always with a touch of mystery that never quite reveals itself.</p>",
+      "s17_image": "images/s17.jpg"
+    }
+  },
+  {
+    "model": "pages.footer",
+    "fields": {
+      "text": "<p>¿Te has quedado con ganas? Juega con un sinte desde el navegador en <a href=\"https://learningsynths.ableton.com/\" target=\"_blank\" rel=\"noopener\">Learning Synths</a>.</p>",
+      "text_es": "<p>¿Te has quedado con ganas? Juega con un sinte desde el navegador en <a href=\"https://learningsynths.ableton.com/\" target=\"_blank\" rel=\"noopener\">Learning Synths</a>.</p>",
+      "text_en": "<p>Want more? Play with a synth right in your browser at <a href=\"https://learningsynths.ableton.com/\" target=\"_blank\" rel=\"noopener\">Learning Synths</a>.</p>",
+      "map_link_text": "Ver mapa",
+      "map_link_text_es": "Ver mapa",
+      "map_link_text_en": "See map",
+      "map": "images/footer-map.jpg",
+      "contact_details": "<p>Una calle tranquila de Ciutat Vella, Barcelona<br><a href=\"mailto:share-your@synth-dreams.example\">share-your@synth-dreams.example</a></p>",
+      "contact_details_es": "<p>Una calle tranquila de Ciutat Vella, Barcelona<br><a href=\"mailto:share-your@synth-dreams.example\">share-your@synth-dreams.example</a></p>",
+      "contact_details_en": "<p>A quiet street in Ciutat Vella, Barcelona<br><a href=\"mailto:share-your@synth-dreams.example\">share-your@synth-dreams.example</a></p>",
+      "github": "https://github.com/edealfonso",
+      "linkedin": "https://www.linkedin.com/in/elsadealfonso/",
+      "youtube": "https://www.youtube.com/playlist?list=PL74Ui7qmoyWDFMZvzXMhhWLvCdA4QkqKU",
+      "bottom_image": "images/footer-bottom.jpg",
+      "copyright": "Elsa de Alfonso"
+    }
+  },
+  {
+    "model": "pages.vignette",
+    "fields": {
+      "group": "1",
+      "kind": "FLOATING",
+      "image": "images/vignettes/wave-sine.svg",
+      "text1": "<p>Ondas simples</p>",
+      "text1_es": "<p>Ondas simples</p>",
+      "text1_en": "<p>Simple waves</p>",
+      "text2": null,
+      "text2_es": null,
+      "text2_en": null,
+      "text3": null,
+      "text3_es": null,
+      "text3_en": null,
+      "text4": null,
+      "text4_es": null,
+      "text4_en": null,
+      "the_order": 1
+    }
+  },
+  {
+    "model": "pages.vignette",
+    "fields": {
+      "group": "1",
+      "kind": "FLOATING",
+      "image": "images/vignettes/source-wavetable.svg",
+      "text1": "<p>Wavetables</p>",
+      "text1_es": "<p>Wavetables</p>",
+      "text1_en": "<p>Wavetables</p>",
+      "text2": null,
+      "text2_es": null,
+      "text2_en": null,
+      "text3": null,
+      "text3_es": null,
+      "text3_en": null,
+      "text4": null,
+      "text4_es": null,
+      "text4_en": null,
+      "the_order": 2
+    }
+  },
+  {
+    "model": "pages.vignette",
+    "fields": {
+      "group": "1",
+      "kind": "FLOATING",
+      "image": "images/vignettes/wave-noise.svg",
+      "text1": "<p>Ruido</p>",
+      "text1_es": "<p>Ruido</p>",
+      "text1_en": "<p>Noise</p>",
+      "text2": null,
+      "text2_es": null,
+      "text2_en": null,
+      "text3": null,
+      "text3_es": null,
+      "text3_en": null,
+      "text4": null,
+      "text4_es": null,
+      "text4_en": null,
+      "the_order": 3
+    }
+  },
+  {
+    "model": "pages.vignette",
+    "fields": {
+      "group": "2",
+      "kind": "SQUARE",
+      "image": "images/vignettes/mod-adsr.svg",
+      "text1": "<p><strong>Ataque:</strong> tiempo hasta la pegada.</p>",
+      "text1_es": "<p><strong>Ataque:</strong> tiempo hasta la pegada.</p>",
+      "text1_en": "<p><strong>Attack:</strong> time to the peak.</p>",
+      "text2": "<p><strong>Decaimiento:</strong> tiempo hasta el sostenido.</p>",
+      "text2_es": "<p><strong>Decaimiento:</strong> tiempo hasta el sostenido.</p>",
+      "text2_en": "<p><strong>Decay:</strong> time down to the sustain.</p>",
+      "text3": "<p><strong>Sostenido:</strong> nivel mientras pulsas.</p>",
+      "text3_es": "<p><strong>Sostenido:</strong> nivel mientras pulsas.</p>",
+      "text3_en": "<p><strong>Sustain:</strong> level while you hold the key.</p>",
+      "text4": "<p><strong>Relajación:</strong> tiempo hasta el silencio.</p>",
+      "text4_es": "<p><strong>Relajación:</strong> tiempo hasta el silencio.</p>",
+      "text4_en": "<p><strong>Release:</strong> time back to silence.</p>",
+      "the_order": 4
+    }
+  },
+  {
+    "model": "pages.vignette",
+    "fields": {
+      "group": "2",
+      "kind": "SQUARE",
+      "image": "images/vignettes/mod-filter.svg",
+      "text1": "<p><strong>Frecuencia de corte:</strong> lo que queda por encima se apaga.</p>",
+      "text1_es": "<p><strong>Frecuencia de corte:</strong> lo que queda por encima se apaga.</p>",
+      "text1_en": "<p><strong>Cutoff:</strong> everything above it fades away.</p>",
+      "text2": "<p><strong>Resonancia:</strong> un pico justo en el corte que hace silbar el sonido.</p>",
+      "text2_es": "<p><strong>Resonancia:</strong> un pico justo en el corte que hace silbar el sonido.</p>",
+      "text2_en": "<p><strong>Resonance:</strong> a peak right at the cutoff that makes the sound whistle.</p>",
+      "text3": null,
+      "text3_es": null,
+      "text3_en": null,
+      "text4": null,
+      "text4_es": null,
+      "text4_en": null,
+      "the_order": 5
+    }
+  },
+  {
+    "model": "pages.vignette",
+    "fields": {
+      "group": "2",
+      "kind": "ROUND",
+      "image": "images/vignettes/mod-lfo.svg",
+      "text1": "<p><strong>LFO:</strong> una onda tan lenta que no se oye; mueve otros controles sola, como una mano invisible.</p>",
+      "text1_es": "<p><strong>LFO:</strong> una onda tan lenta que no se oye; mueve otros controles sola, como una mano invisible.</p>",
+      "text1_en": "<p><strong>LFO:</strong> a wave too slow to hear; it moves other controls by itself, like an invisible hand.</p>",
+      "text2": null,
+      "text2_es": null,
+      "text2_en": null,
+      "text3": null,
+      "text3_es": null,
+      "text3_en": null,
+      "text4": null,
+      "text4_es": null,
+      "text4_en": null,
+      "the_order": 6
+    }
+  },
+  {
+    "model": "pages.vignette",
+    "fields": {
+      "group": "2",
+      "kind": "ROUND",
+      "image": "images/vignettes/mod-pitch.svg",
+      "text1": "<p><strong>Afinación:</strong> sube o baja la nota por semitonos u octavas para darle otra presencia; el <em>finetune</em> la desafina un poco y le añade imperfección y matices.</p>",
+      "text1_es": "<p><strong>Afinación:</strong> sube o baja la nota por semitonos u octavas para darle otra presencia; el <em>finetune</em> la desafina un poco y le añade imperfección y matices.</p>",
+      "text1_en": "<p><strong>Pitch:</strong> moves the note up or down in semitones or octaves for a different presence; <em>fine-tune</em> detunes it slightly, adding imperfection and nuance.</p>",
+      "text2": null,
+      "text2_es": null,
+      "text2_en": null,
+      "text3": null,
+      "text3_es": null,
+      "text3_en": null,
+      "text4": null,
+      "text4_es": null,
+      "text4_en": null,
+      "the_order": 7
+    }
+  },
+  {
+    "model": "pages.vignette",
+    "fields": {
+      "group": "3",
+      "kind": "CHAIN",
+      "image": "",
+      "text1": "<p><strong>Distorsión:</strong> aprieta la onda hasta cortarle las puntas, y el sonido se vuelve sucio y gordo.</p>",
+      "text1_es": "<p><strong>Distorsión:</strong> aprieta la onda hasta cortarle las puntas, y el sonido se vuelve sucio y gordo.</p>",
+      "text1_en": "<p><strong>Distortion:</strong> squeezes the wave until its tops get clipped, and the sound turns dirty and fat.</p>",
+      "text2": null,
+      "text2_es": null,
+      "text2_en": null,
+      "text3": null,
+      "text3_es": null,
+      "text3_en": null,
+      "text4": null,
+      "text4_es": null,
+      "text4_en": null,
+      "the_order": 8
+    }
+  },
+  {
+    "model": "pages.vignette",
+    "fields": {
+      "group": "3",
+      "kind": "CHAIN",
+      "image": "",
+      "text1": "<p><strong>Delay:</strong> repite el sonido a pasos iguales, cada vez más bajito, como un eco.</p>",
+      "text1_es": "<p><strong>Delay:</strong> repite el sonido a pasos iguales, cada vez más bajito, como un eco.</p>",
+      "text1_en": "<p><strong>Delay:</strong> repeats the sound at equal steps, each time a little quieter, like an echo.</p>",
+      "text2": null,
+      "text2_es": null,
+      "text2_en": null,
+      "text3": null,
+      "text3_es": null,
+      "text3_en": null,
+      "text4": null,
+      "text4_es": null,
+      "text4_en": null,
+      "the_order": 9
+    }
+  },
+  {
+    "model": "pages.vignette",
+    "fields": {
+      "group": "3",
+      "kind": "CHAIN",
+      "image": "",
+      "text1": "<p><strong>Reverb:</strong> mete el sonido en una sala grande: una cola que se apaga despacio.</p>",
+      "text1_es": "<p><strong>Reverb:</strong> mete el sonido en una sala grande: una cola que se apaga despacio.</p>",
+      "text1_en": "<p><strong>Reverb:</strong> puts the sound in a big room: a tail that fades away slowly.</p>",
+      "text2": null,
+      "text2_es": null,
+      "text2_en": null,
+      "text3": null,
+      "text3_es": null,
+      "text3_en": null,
+      "text4": null,
+      "text4_es": null,
+      "text4_en": null,
+      "the_order": 10
+    }
+  },
+  {
+    "model": "pages.magnifyitem",
+    "fields": {
+      "title": "Acústica",
+      "title_es": "Acústica",
+      "title_en": "Acoustics",
+      "text": "<p>Que la habitación no esté vacía. Alfombras, cortinas y un armario lleno de ropa en una esquina hacen milagros.</p>",
+      "text_es": "<p>Que la habitación no esté vacía. Alfombras, cortinas y un armario lleno de ropa en una esquina hacen milagros.</p>",
+      "text_en": "<p>Don't leave the room empty. Rugs, curtains and a wardrobe full of clothes in a corner work miracles.</p>",
+      "the_order": 1
+    }
+  },
+  {
+    "model": "pages.magnifyitem",
+    "fields": {
+      "title": "Cables en orden",
+      "title_es": "Cables en orden",
+      "title_en": "Tidy cables",
+      "text": "<p>Nada peor que un cable enredado o perdido. Ten varios tipos a mano y un sitio para cada uno.</p>",
+      "text_es": "<p>Nada peor que un cable enredado o perdido. Ten varios tipos a mano y un sitio para cada uno.</p>",
+      "text_en": "<p>Nothing worse than a tangled or missing cable. Keep a few kinds at hand and a place for each one.</p>",
+      "the_order": 2
+    }
+  },
+  {
+    "model": "pages.magnifyitem",
+    "fields": {
+      "title": "Buena escucha",
+      "title_es": "Buena escucha",
+      "title_en": "Good listening",
+      "text": "<p>Unos monitores de campo cercano, sin subirlos mucho, o unos buenos cascos. Tus vecinos lo agradecerán.</p>",
+      "text_es": "<p>Unos monitores de campo cercano, sin subirlos mucho, o unos buenos cascos. Tus vecinos lo agradecerán.</p>",
+      "text_en": "<p>A pair of near-field monitors, not too loud, or a good pair of headphones. Your neighbours will thank you.</p>",
+      "the_order": 3
+    }
+  },
+  {
+    "model": "pages.magnifyitem",
+    "fields": {
+      "title": "Tarjeta de sonido",
+      "title_es": "Tarjeta de sonido",
+      "title_en": "Audio interface",
+      "text": "<p>La puerta entre tus aparatos y el ordenador: buenos previos, buenos conversores y al menos dos entradas.</p>",
+      "text_es": "<p>La puerta entre tus aparatos y el ordenador: buenos previos, buenos conversores y al menos dos entradas.</p>",
+      "text_en": "<p>The door between your gear and your computer: good preamps, good converters and at least two inputs.</p>",
+      "the_order": 4
+    }
+  },
+  {
+    "model": "pages.magnifyitem",
+    "fields": {
+      "title": "Tus instrumentos",
+      "title_es": "Tus instrumentos",
+      "title_en": "Your instruments",
+      "text": "<p>Los que te gusten: micrófonos, aparatos, instrumentos. Todo lo que sirva para expresarte.</p>",
+      "text_es": "<p>Los que te gusten: micrófonos, aparatos, instrumentos. Todo lo que sirva para expresarte.</p>",
+      "text_en": "<p>Whatever you like: microphones, gadgets, instruments. Anything that helps you express yourself.</p>",
+      "the_order": 5
+    }
+  },
+  {
+    "model": "pages.magnifyitem",
+    "fields": {
+      "title": "Comodidad",
+      "title_es": "Comodidad",
+      "title_en": "Comfort",
+      "text": "<p>Buena silla, buena temperatura, un sofá. Con una cafetera cerca, no querrás salir de ahí.</p>",
+      "text_es": "<p>Buena silla, buena temperatura, un sofá. Con una cafetera cerca, no querrás salir de ahí.</p>",
+      "text_en": "<p>A good chair, the right temperature, a sofa. With a coffee maker nearby, you'll never want to leave.</p>",
+      "the_order": 6
+    }
+  },
+  {
+    "model": "pages.magnifyitem",
+    "fields": {
+      "title": "Amigos y amor",
+      "title_es": "Amigos y amor",
+      "title_en": "Friends and love",
+      "text": "<p>El ingrediente secreto. En buena compañía, todo suena mejor.</p>",
+      "text_es": "<p>El ingrediente secreto. En buena compañía, todo suena mejor.</p>",
+      "text_en": "<p>The secret ingredient. In good company, everything sounds better.</p>",
+      "the_order": 7
+    }
+  },
+  {
+    "model": "pages.legalpage",
+    "fields": {
+      "title": "Aviso legal",
+      "title_es": "Aviso legal",
+      "title_en": "Legal notice",
+      "content": "<p>Bip bup, esto es texto de relleno. Las máquinas hacen ruiditos, los botones son grandes y los colores no tienen miedo.</p><p>Otro párrafo tonto para ver cómo se comporta el texto cuando ocupa más líneas. Perillas, pads, teclas, cables y un poco de cinta americana.</p>",
+      "content_es": "<p>Bip bup, esto es texto de relleno. Las máquinas hacen ruiditos, los botones son grandes y los colores no tienen miedo.</p><p>Otro párrafo tonto para ver cómo se comporta el texto cuando ocupa más líneas. Perillas, pads, teclas, cables y un poco de cinta americana.</p>",
+      "content_en": "<p>Beep boop, this is placeholder text. Machines make little noises, buttons are big and colours are fearless.</p><p>Another silly paragraph to see how text behaves when it takes more lines. Knobs, pads, keys, cables and a bit of duct tape.</p>",
+      "the_order": 1,
+      "slug": "aviso-legal"
+    }
+  },
+  {
+    "model": "pages.legalpage",
+    "fields": {
+      "title": "Cookies",
+      "title_es": "Cookies",
+      "title_en": "Cookies",
+      "content": "<p>Bip bup, esto es texto de relleno. Las máquinas hacen ruiditos, los botones son grandes y los colores no tienen miedo.</p><p>Otro párrafo tonto para ver cómo se comporta el texto cuando ocupa más líneas. Perillas, pads, teclas, cables y un poco de cinta americana.</p>",
+      "content_es": "<p>Bip bup, esto es texto de relleno. Las máquinas hacen ruiditos, los botones son grandes y los colores no tienen miedo.</p><p>Otro párrafo tonto para ver cómo se comporta el texto cuando ocupa más líneas. Perillas, pads, teclas, cables y un poco de cinta americana.</p>",
+      "content_en": "<p>Beep boop, this is placeholder text. Machines make little noises, buttons are big and colours are fearless.</p><p>Another silly paragraph to see how text behaves when it takes more lines. Knobs, pads, keys, cables and a bit of duct tape.</p>",
+      "the_order": 2,
+      "slug": "cookies"
+    }
+  },
+  {
+    "model": "galleries.firstgalleryimage",
+    "fields": {
+      "image": "images/s07-1.jpg",
+      "the_order": 1
+    }
+  },
+  {
+    "model": "galleries.firstgalleryimage",
+    "fields": {
+      "image": "images/s07-2.jpg",
+      "the_order": 2
+    }
+  },
+  {
+    "model": "galleries.firstgalleryimage",
+    "fields": {
+      "image": "images/s07-3.jpg",
+      "the_order": 3
+    }
+  },
+  {
+    "model": "galleries.firstgalleryimage",
+    "fields": {
+      "image": "images/s07-4.jpg",
+      "the_order": 4
+    }
+  },
+  {
+    "model": "galleries.secondgalleryimage",
+    "fields": {
+      "image": "images/s12-1.jpg",
+      "the_order": 1
+    }
+  },
+  {
+    "model": "galleries.secondgalleryimage",
+    "fields": {
+      "image": "images/s12-2.jpg",
+      "the_order": 2
+    }
+  },
+  {
+    "model": "galleries.secondgalleryimage",
+    "fields": {
+      "image": "images/s12-3.jpg",
+      "the_order": 3
+    }
+  },
+  {
+    "model": "galleries.secondgalleryimage",
+    "fields": {
+      "image": "images/s12-4.jpg",
+      "the_order": 4
+    }
+  }
+]
