@@ -1,22 +1,22 @@
 {% load i18n %}
 {% get_current_language as LANGUAGE_CODE %}
 
-{# Own text instead of the package's default one, which mentions analytics: the site only sets cookielaw_accepted. #}
+{# Own text instead of the package's default one (which mentions analytics): the site only sets cookielaw_accepted, so the notice explains what the site is. #}
 <div id="CookielawBanner" class="cookie-banner">
     <div class="cookie-banner__inner">
         {% if LANGUAGE_CODE == "en" %}
-        <h6 class="cookie-banner__title">Cookies</h6>
+        <h6 class="cookie-banner__title">Notice</h6>
         <div class="cookie-banner__body">
             <p class="cookie-banner__text">
-                This site stores just one cookie, to remember that you have closed this notice. No analytics, no third-party cookies.
+                This site has no cookies, except one to know whether you want to keep seeing this notice. This notice is only here to tell you that the site was made to experiment with web development and UX/UI design, and as a small tribute to one of my passions.
             </p>
             <a class="cookie-banner__button" href="javascript:Cookielaw.accept();">Got it</a>
         </div>
         {% else %}
-        <h6 class="cookie-banner__title">Cookies</h6>
+        <h6 class="cookie-banner__title">Aviso</h6>
         <div class="cookie-banner__body">
             <p class="cookie-banner__text">
-                Esta web solo guarda una cookie, para recordar que has cerrado este aviso. Sin analítica ni cookies de terceros.
+                Esta página no contiene cookies más que para saber si quieres seguir viendo este aviso. Este aviso solo sirve para decirte que esta web se hizo con fines de experimentar con la programación web y el diseño UX/UI, y hacer un pequeño homenaje a una de mis pasiones.
             </p>
             <a class="cookie-banner__button" href="javascript:Cookielaw.accept();">Entendido</a>
         </div>
