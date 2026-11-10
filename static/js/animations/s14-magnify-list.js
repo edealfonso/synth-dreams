@@ -28,7 +28,7 @@ export function initMagnifyPin() {
             pin: true,
             pinSpacing: false,
             start: "top top",
-            end:'+=' + ($('#s14').height() - window.innerHeight),
+            end: () => '+=' + ($('#s14').height() - window.innerHeight),
         }
     });
 }
