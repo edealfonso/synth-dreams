@@ -22,10 +22,10 @@
 
         a {
             @include link-underline;
-            transition: color $transition-fast;
+            transition: text-decoration-color $transition-fast;
 
             &:hover, &:focus, &:active {
-                color: $color-accent-secondary;
+                text-decoration-color: $color-accent;
             }
         }
     }
@@ -46,14 +46,8 @@
             display: none;
         }
         &:hover {
-            color: $color-accent-secondary;
-
             .footer__map-label::after {
                 opacity: 1;
-            }
-
-            .footer__map-icon {
-                fill: $color-accent-secondary;
             }
         }
     }
@@ -62,12 +56,10 @@
         display: block;
         margin: 1.5rem auto;
         fill: $color-accent;
-        transition: fill $transition-fast;
     }
 
     &__map-label {
         position: relative;
-        transition: color $transition-fast;
         letter-spacing: 0.01em;
 
         &::after {
@@ -81,10 +73,10 @@
 
         a {
             @include link-underline;
-            transition: color $transition-fast;
+            transition: text-decoration-color $transition-fast;
 
             &:hover, &:focus, &:active {
-                color: $color-accent-secondary;
+                text-decoration-color: $color-accent;
             }
         }
     }
