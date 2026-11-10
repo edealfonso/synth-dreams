@@ -35,3 +35,7 @@ webpack-stats.json
 # Seed backups (local only, never published)
 
 seed/backup/
+
+# Static export (GitHub Pages build output)
+
+dist/
