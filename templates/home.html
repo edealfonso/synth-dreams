@@ -250,11 +250,10 @@ template-home
                         <h5 class="vignette-group__title u-h5">{{ home.s09_group_title1 }}</h5>
                         <div class="floating-images">
                             {% for vignette in vignettes_1 %}
-                                <img 
-                                    class="floating-images__img" 
-                                    src="{{ vignette.image|media_url }}" 
-                                    id="s09-floating-{{forloop.counter0}}"
-                                >
+                                <figure class="floating-images__item js-floating-item" id="s09-floating-{{forloop.counter0}}">
+                                    <img class="floating-images__img" src="{{ vignette.image|media_url }}" alt="">
+                                    <figcaption class="floating-images__name u-text-muted">{{ vignette.text1|striptags }}</figcaption>
+                                </figure>
                             {% endfor%}
                         </div>
                     </div>

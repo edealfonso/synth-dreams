@@ -99,17 +99,7 @@ Work **one phase at a time**. The user validates each phase before moving on. Do
 Each vignette is a frame (square, rectangle or circle) holding a **pictogram of the concept** (usually obvious), with the explanation beside it. The block explains basic **synthesis theory** in three groups.
 
 - **Style:** line drawings only, strokes in the original black/grey (`#111` or the muted text grey), same stroke weight in every pictogram, no fills. No colour for now; if needed later, only the theme accents (green `$color-accent-secondary`, maybe lilac), never colourful. One SVG file per pictogram in `seed/images/vignettes/`, loaded into the existing `Vignette.image` field.
-- **Group 1 · Sound sources** (today: three floating images, `#s09-floating-N`): one pictogram per source (sine, square, sawtooth, triangle, noise) with its name/short text, placed loosely in **two staggered runs, 2 then 3**, each item shifted sideways from the previous one, e.g.:
-
-  ```
-   X
-       X
-  X
-     X
-        X
-  ```
-
-  (proposal: soft ones first, sine + triangle; then the bright ones, square + sawtooth + noise). They still fade in **one by one as you scroll down**; only the placement changes. Noise sits here because it is a raw source, like the oscillators. The template already loops over `vignettes_1`; the JS must loop over every `#s09-floating-N` instead of hard-coding three.
+- ✅ **Group 1 · Sound sources:** five line drawings (sine, triangle, square, sawtooth, noise; 1.8 cycles each, black 2 px stroke, grey zero line, `seed/images/vignettes/wave-*.svg`) with the name below (`Vignette.text1`, centred, muted). Loose organic layout in two runs (2 + 3): every offset (horizontal and vertical) is a % of the column width so it scales the same on every screen; wider items under the tablet breakpoint. Each drawing fades in on its own, scrubbed with the scroll (`.js-floating-item`). Noise sits here because it is a raw source, like the oscillators.
 - **Group 2 · Modulation** (squares and circles): every item fades in; for circles, the joining line to the text keeps the current slide-in from the side.
   - Square **ADSR:** the classic envelope shape; one line each for Attack, Decay, Sustain, Release (four lines: add a `Vignette.text4` field + migration + `translation.py` + admin + template).
   - Square **Filter:** a conceptual low-pass curve (flat, resonant bump, roll-off); one line for cutoff frequency, one for resonance.

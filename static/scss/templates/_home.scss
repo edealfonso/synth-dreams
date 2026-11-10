@@ -319,33 +319,44 @@
                     }
                 }
 
-                // floating drawings
+                // floating drawings: two loose runs (2 + 3) with irregular offsets.
+                // Every offset is a % of the column width (vertical margins too), so the layout
+                // scales the same on every screen; max margin-left + width stays under 100%.
 
                 .floating-images {
                     position: relative;
                     display: flex;
                     flex-direction: column;
 
-                    &__img {
-                        display: block;
+                    &__item {
+                        width: 34%;
+                        margin: 0;
                         opacity: 0;
 
-                        &:nth-child(1) {
-                            width: 40%;
-                            align-self: start;
+                        &:nth-child(1) { margin-left: 8%; }
+                        &:nth-child(2) { margin-left: 50%; margin-top: -7%; }
+                        &:nth-child(3) { margin-left: 0; margin-top: -12%; }
+                        &:nth-child(4) { margin-left: 21%; }
+                        &:nth-child(5) { margin-left: 60%; margin-top: -6%; }
+
+                        @media #{$tablet} {
+                            width: 44%;
+
+                            &:nth-child(5) { margin-left: 56%; }
                         }
-                        &:nth-child(2) {
-                            position: relative;
-                            top: -1.4vw;
-                            align-self: center;
-                            width: 38%;
-                        }
-                        &:nth-child(3) {
-                            margin-top: 2.5vw;
-                            align-self: end;
-                            width: 50%;
-                            margin-left: 50%;
-                        }
+                    }
+
+                    &__img {
+                        display: block;
+                        width: 100%;
+                    }
+
+                    &__name {
+                        font-size: 1.4rem;
+                        line-height: 2.2rem;
+                        margin-top: -5px;
+                        padding-bottom: 1.5rem;
+                        text-align: center;
                     }
                 }
 
@@ -527,15 +538,6 @@
                         }
                     }
 
-                    // floating drawings
-
-                    .floating-images {
-                        &__img {
-                            &:nth-child(3) {
-                                margin-top: 7%;
-                            }
-                        }
-                    }
 
                     // squares with three texts
 
@@ -674,15 +676,6 @@
                         }
                     }
 
-                    // floating drawings
-
-                    .floating-images {
-                        &__img {
-                            &:nth-child(3) {
-                                margin-top: 6%;
-                            }
-                        }
-                    }
 
                     // squares with three texts
 
@@ -755,15 +748,6 @@
             &__wrap {
                 .vignette-group {
 
-                    // floating drawings
-
-                    .floating-images {
-                        &__img {
-                            &:nth-child(3) {
-                                margin-top: 7%;
-                            }
-                        }
-                    }
 
                     // squares with three texts
 
